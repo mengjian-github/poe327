@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0b0b0c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="flameOG" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fb923c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Flame icon -->
+  <g transform="translate(150, 215)">
+    <path d="M60 20 C55 30, 50 40, 52 52 C48 58, 45 65, 48 75 C51 85, 56 95, 60 100 C64 95, 69 85, 72 75 C75 65, 72 58, 68 52 C70 40, 65 30, 60 20 Z"
+          fill="url(#flameOG)"
+          stroke="#ea580c"
+          stroke-width="2"
+          transform="scale(1.8)"/>
+    <path d="M60 30 C57 36, 55 42, 56 50 C54 54, 53 58, 55 65 C56 70, 58 75, 60 78 C62 75, 64 70, 65 65 C67 58, 66 54, 64 50 C65 42, 63 36, 60 30 Z"
+          fill="#fef3c7"
+          opacity="0.7"
+          transform="scale(1.8)"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="280" font-family="sans-serif" font-size="72" font-weight="bold" fill="#f4f4f5">
+    PoE 3.27 Meta Hub
+  </text>
+  <text x="400" y="340" font-family="sans-serif" font-size="36" fill="#9ca3af">
+    Keepers of the Flame
+  </text>
+  <text x="400" y="400" font-family="sans-serif" font-size="32" fill="#f97316" font-weight="600">
+    Starters • Meta • Lab
+  </text>
+
+  <!-- Bottom badge -->
+  <rect x="400" y="450" width="240" height="50" rx="25" fill="#141416" stroke="#f97316" stroke-width="2"/>
+  <text x="520" y="483" font-family="sans-serif" font-size="24" font-weight="600" fill="#f97316" text-anchor="middle">
+    poe327.net
+  </text>
+</svg>

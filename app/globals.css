@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #050608;
+  --bg-soft: #0d1016;
+  --card: #12131d;
+  --overlay: rgba(13, 16, 22, 0.8);
+  --muted: #9caec8;
+  --border: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: #f97316;
+  --color-brand-dark: #ff7a1c;
+  --color-brand-soft: rgba(249, 115, 22, 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at 20% -10%, rgba(249, 115, 22, 0.25), transparent 55%), radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.18), transparent 60%), var(--bg);
+  color: #f4f7fb;
+  min-height: 100%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(12, 18, 28, 0) 0%, rgba(10, 14, 20, 0.65) 30%, rgba(5, 7, 13, 0.9) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+a:not(.btn) {
+  @apply text-brand;
+}
+
+a:not(.btn):hover {
+  @apply text-brand-dark;
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-7xl px-4;
+  }
+
+  .glass {
+    @apply rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl;
+  }
+
+  .card {
+    @apply rounded-3xl border border-[color:var(--border)] bg-[color:var(--card)]/90 backdrop-blur-xl shadow-2xl shadow-black/40 p-6 md:p-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition border border-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#9a3412] via-[#ea580c] to-[#b45309] text-white font-semibold shadow-[0_12px_38px_-10px_rgba(249,115,22,0.85)] hover:from-[#f97316] hover:via-[#dd610c] hover:to-[#92300e] hover:shadow-[0_18px_48px_-12px_rgba(249,115,22,0.95)];
+  }
+
+  .btn-ghost {
+    @apply bg-white/5 hover:bg-white/10 border-white/10;
+  }
+
+  .kicker {
+    @apply uppercase tracking-widest text-xs text-brand;
+  }
+
+  .h1 {
+    @apply text-3xl md:text-5xl font-bold tracking-tight;
+  }
+
+  .h2 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  .subtle {
+    @apply text-[color:var(--muted)];
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-wide;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium;
+  }
+
+  .metric {
+    @apply flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3;
+  }
+
+  .metric-label {
+    @apply text-xs uppercase tracking-wide text-white/70;
+  }
+
+  .metric-value {
+    @apply text-lg font-semibold text-white;
+  }
+
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-white/5 via-white/20 to-white/5;
+  }
+
+  .headline {
+    @apply text-xl font-semibold text-white;
+  }
+
+  .subtitle {
+    @apply text-sm text-white/70 leading-relaxed;
+  }
 }
