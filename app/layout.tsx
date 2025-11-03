@@ -7,16 +7,16 @@ import { SiteHeader } from '@/components/site-header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'poe 3.27 Keepers of the Flame Launch HQ | poe327.net',
+  title: 'poe league 3.27 Keepers of the Flame Launch HQ | poe327.net',
   description:
-    'poe 3.27 launch prep with release timing, async trading notes, Genesis Tree planning, and atlas strategies built for Keepers of the Flame squads.',
+    'poe league 3.27 launch hub covering release timing, async trading prep, Genesis Tree planning, Bloodline ascendancies, and live hotfix updates for squads.',
   alternates: {
     canonical: 'https://poe327.net/',
   },
   openGraph: {
-    title: 'poe 3.27 Keepers of the Flame Launch HQ',
+    title: 'poe league 3.27 Keepers of the Flame Launch HQ',
     description:
-      'Release timeline, Genesis Tree guides, Bloodline ascendancy prep, and async trading context for poe 3.27 Keepers of the Flame.',
+      'Release timeline, Genesis Tree guides, Bloodline ascendancy prep, and async trading context for poe league 3.27 Keepers of the Flame.',
     url: 'https://poe327.net',
     siteName: 'poe327',
     type: 'website',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'poe 3.27 Keepers HQ',
-    description: 'Keepers of the Flame launch prep with async trade, Genesis Tree, and Bloodline quick hits.',
+    title: 'poe league 3.27 Keepers HQ',
+    description: 'Keepers of the Flame launch prep with async trade, Genesis Tree, Bloodline quick hits, and live hotfix coverage.',
     images: ['/og-image.svg'],
   },
 }
@@ -61,7 +61,7 @@ gtag('config', 'G-D8GENWGNMS');`}
           <div className="container flex flex-col gap-4 py-8 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
             <span>© {new Date().getFullYear()} poe327.net — Unofficial Keepers of the Flame resource.</span>
             <span className="opacity-75">
-              Need something extra? Email <a href="mailto:support@poe327.net" className="underline hover:text-white">support@poe327.net</a> for poe 3.27 feedback and collaboration.
+              Need something extra? Email <a href="mailto:support@poe327.net" className="underline hover:text-white">support@poe327.net</a> for poe league 3.27 feedback and collaboration. This poe league 3.27 support lane logs every request.
             </span>
           </div>
         </footer>

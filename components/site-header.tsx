@@ -12,6 +12,8 @@ const navItems = [
   { href: '#economy', label: 'Economy' },
   { href: '#endgame', label: 'Endgame' },
   { href: '#community', label: 'Community' },
+  { href: '#quickfacts', label: 'Quick Facts' },
+  { href: '#updates', label: 'Updates' },
 ]
 
 export function SiteHeader() {
@@ -26,8 +28,8 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-3" onClick={close}>
           <Image src="/logo.svg" alt="PoE 3.27" width={36} height={36} className="h-9 w-9" />
           <div className="flex flex-col leading-tight">
-            <span className="kicker uppercase text-brand">poe 3.27</span>
-            <span className="text-sm font-semibold text-white">Keepers of the Flame Hub</span>
+            <span className="kicker uppercase text-brand">poe league 3.27</span>
+            <span className="text-sm font-semibold text-white">poe league 3.27 Keepers of the Flame Hub</span>
           </div>
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-white/70 md:flex">
