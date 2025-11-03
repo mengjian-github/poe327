@@ -119,4 +119,49 @@ a:not(.btn):hover {
   .subtitle {
     @apply text-sm text-white/70 leading-relaxed;
   }
+
+  .starter-content {
+    @apply space-y-6 text-base leading-relaxed text-white/80;
+  }
+
+  .starter-content h2 {
+    @apply mt-10 text-2xl font-semibold text-white;
+  }
+
+  .starter-content h3 {
+    @apply mt-8 text-xl font-semibold text-white;
+  }
+
+  .starter-content h4 {
+    @apply mt-6 text-lg font-semibold text-white;
+  }
+
+  .starter-content p {
+    @apply text-white/80;
+  }
+
+  .starter-content ul {
+    @apply list-disc space-y-2 pl-6 text-white/75;
+  }
+
+  .starter-content ol {
+    @apply list-decimal space-y-2 pl-6 text-white/75;
+  }
+
+  .starter-content table {
+    @apply w-full border-collapse overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-sm text-white/80;
+  }
+
+  .starter-content th,
+  .starter-content td {
+    @apply border border-white/10 px-4 py-3;
+  }
+
+  .starter-content a {
+    @apply text-brand hover:text-brand-dark;
+  }
+
+  .starter-content blockquote {
+    @apply border-l-4 border-brand/70 bg-white/10 px-5 py-4 text-white/80 italic;
+  }
 }

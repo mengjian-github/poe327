@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0d14" />
+      <stop offset="100%" stop-color="#141d30" />
+    </linearGradient>
+    <radialGradient id="pulse" cx="0.8" cy="0.3" r="0.6">
+      <stop offset="0%" stop-color="#ffd56f" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ff6f61" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)" />
+  <circle cx="1080" cy="260" r="420" fill="url(#pulse)" />
+  <g transform="translate(140,180)" font-family="'Inter', sans-serif">
+    <text font-size="110" font-weight="800" fill="#fef6e9">NEVERSINK 3.27 AUTOMATION</text>
+    <text y="120" font-size="46" fill="#f8d7a0">Auto-update scripts, Git pulls, filterblade deploys.</text>
+  </g>
+  <g transform="translate(140,420)" font-family="'IBM Plex Mono', monospace" font-size="36" fill="#f6f7ff">
+    <text>✔ Pull upstream NeverSink commits each league day</text>
+    <text y="70">✔ Merge with custom styles before poe 3.27 go-live</text>
+    <text y="140">✔ Trigger FilterBlade API sync & ladder publish</text>
+    <text y="210">✔ Archive changelog + ping guild automation channel</text>
+  </g>
+</svg>

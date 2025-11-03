@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { PlayCircle, Flame } from 'lucide-react'
+import Link from 'next/link'
+import { PlayCircle, Flame, ArrowRight } from 'lucide-react'
 import { FeatureCard } from '@/components/feature-card'
 import { LastUpdated, Section } from '@/components/ui'
 import { leagueFeatures } from '@/data/league'
@@ -7,23 +8,31 @@ import { leagueFeatures } from '@/data/league'
 type HeroHighlight = {
   title: string
   description: string
+  href: string
+  linkLabel: string
 }
 
 const heroHighlights: HeroHighlight[] = [
   {
-    title: 'Launch timeline checklist',
+    title: 'Launch control center',
     description:
-      'Chart the poe league 3.27 Oct 31 (Americas) and Nov 1 (ANZ) unlocks, the October 23 reveal livestream, and the Private League stability fix that hit at 1:13 PM PDT on launch day so your roster never misses a beat. This poe league 3.27 schedule keeps your alarms, patch preloads, and party roles aligned.',
+      'Follow the poe league 3.27 release timeline with timezone conversions for the October 31, 2025 Americas launch and the November 1 ANZ rollout, then pin the reveal livestream, realm status pings, and supporter pack countdowns so your crew stays locked in.',
+    href: '/starter',
+    linkLabel: 'Open the poe league 3.27 starter planner',
   },
   {
-    title: 'Hotfix radar',
+    title: 'Information architecture guide',
     description:
-      'Track poe league 3.27 Hotfix 7 (Nov 02, 2025) alongside the Hotfix 6 Breach tweaks and async market fixes from Nov 01 so your playbook reacts the moment Grinding Gear Games pushes an update. This poe league 3.27 feed tags every forum post and patch note in one glance.',
+      'Use the navigation to hop from this hub to the Starter Planner, Build Tier List, and Loot Filter Lab while the poe league 3.27 subpages surface role-specific checklists, curated art, and linked patch sources for quick verification.',
+    href: '/starters',
+    linkLabel: 'Review poe league 3.27 build tiers',
   },
   {
-    title: 'Async trade & Genesis prep',
+    title: 'Live service radar',
     description:
-      'Stage poe league 3.27 stash tabs, Merchant Tab contingencies, and Genesis Tree graft allocations so Ailith, Hive Hives, and Foulborn loot kick off strong even before the in-game market fully stabilises. This poe league 3.27 prep board keeps your guild economy humming.',
+      'Monitor hotfixes, server alerts, and official posts inside the poe league 3.27 newsroom module so you can escalate assignments, call for reruns, or swap atlas strategies before the next reset.',
+    href: '/patch-notes-poe-3-27',
+    linkLabel: 'Check poe league 3.27 patch notes',
   },
 ]
 
@@ -36,18 +45,84 @@ type MasteryBeat = {
 const masteryBeats: MasteryBeat[] = [
   {
     title: 'Campaign tempo',
-    body: `Kick off poe league 3.27 by rehearsing the October 31 release ladder: drill Breach escort routes so Ailith survives Hive Defense objectives, stash movement flasks, and pre-level gems ahead of the reveal manifesto eight days out. Maintain a poe league 3.27 notebook that tracks which acts feed Graftblood fastest so the Genesis Tree unlocks before Act 10 falls, and note Hotfix 6 slowing early Unstable Breaches so you don’t overcommit resources.`,
+    body: `Set your poe league 3.27 campaign tempo by rehearsing the first twelve hours: pre-farm movement flasks, script escort rotations for Ailith, call out Hive Defense spawn waves, and flag which teammates stay in town to socket support gems. Use the Starter Planner to assign class roles, then cross-check the Build Tier List to decide who rushes maps and who returns to farm Graftblood before Act 10. Document hotfix impacts so you can pivot routes without stalling the roster.`,
     image: '/images/keepers-encounter.jpg',
   },
   {
     title: 'Atlas progression',
-    body: `Shape your poe league 3.27 atlas around Bloodline unlocks: plan routes for Trialmaster, Oshabi, and Catarina so your main ascendancy can share points with the Genesis Atlas Tree branches. Anchor early stones on yellow-tier sustain, then pivot into Breach Hives hunting Marshal Vruun once sextants cooperate. Journal poe league 3.27 map rotations and boss attempts so Tier 17 pushes land with intent.`,
+    body: `Shape your poe league 3.27 atlas around milestone unlocks—slot early stones for yellow-map sustain, then invest into the Genesis Tree once the first Living Grafts drop. Coordinate Trialmaster, Oshabi, and Catarina encounters using the Syndicate cheat sheet page so the same characters feed Bloodline ascendancies without wasting portals. Track map rotations, altars, and scarab spend in a shared sheet to keep Tier 17 attempts meaningful.`,
     image: '/images/genesis-tree.jpg',
   },
   {
     title: 'Sustainable profit',
-    body: `Treat poe league 3.27 farming as nightly audits: compare Foulborn currency growth from the Genesis Tree to async trade speculation, log Merchant Tab flips separately in case support lands mid-league, and keep Expedition or Delve pivots staged if Hive raids dip. Document poe league 3.27 profit swings against manifesto nerfs so you reallocate before the economy cools.`,
+    body: `Treat your poe league 3.27 economy as a nightly review: cross-check Foulborn drops against Awakened PoE Trade listings, separate bulk tabs for the official Trade board, and tag any Living Graft gambles you plan to run after hotfixes. Keep Delve, Expedition, and Hive pivots on standby so you can rotate strategies the moment prices plateau.`,
     image: '/images/foulborn-loot.jpg',
+  },
+]
+
+type HubCard = {
+  title: string
+  href: string
+  description: string
+  meta: string
+}
+
+const hubCards: HubCard[] = [
+  {
+    title: 'Starter Operations',
+    href: '/starter',
+    description:
+      'Lock in poe league 3.27 leveling splits, Breach escort assignments, and launch-night consumable checklists with the interactive starter dashboard.',
+    meta: 'Includes poe league 3.27 downloadable timelines and Ailith escort drills.',
+  },
+  {
+    title: 'Build Tier List',
+    href: '/starters',
+    description:
+      'Compare poe league 3.27 starter archetypes by clear speed, boss pressure, and Genesis Tree synergy so the roster spreads roles with intent.',
+    meta: 'poe league 3.27 filters for softcore, ruthless, SSF, and controller.',
+  },
+  {
+    title: 'Loot Filter Lab',
+    href: '/poe-3-27-loot-filter',
+    description:
+      'Tune poe league 3.27 loot filters with side-by-side previews, audio swaps, and strictness ladders, then export presets ready for opening night.',
+    meta: 'Powered by the poe league 3.27 filter sandbox for instant downloads.',
+  },
+  {
+    title: 'Trade Toolkit',
+    href: '/awakened-poe-trade-3-27',
+    description:
+      'Deploy poe league 3.27 trade overlays, price macros, and stash automations to accelerate currency flips before async APIs return.',
+    meta: 'Includes poe league 3.27 Awakened Trade macro library.',
+  },
+  {
+    title: 'Official Trade Board',
+    href: '/poe-trade',
+    description:
+      'Review poe league 3.27 official trade etiquette, bulk search templates, and 1-click whisper strings for currency and Breach relics.',
+    meta: 'Live-search watchlists for poe league 3.27 Living Grafts.',
+  },
+  {
+    title: 'Syndicate Cheat Sheet',
+    href: '/poe-syndicate-cheat-sheet-3-27',
+    description:
+      'Keep poe league 3.27 Betrayal target priorities, safehouse loot tables, and board snapshots in one scrollable reference.',
+    meta: 'Updated for poe league 3.27 Bloodline ascendancy rewards.',
+  },
+  {
+    title: 'Patch Notes Library',
+    href: '/patch-notes-poe-3-27',
+    description:
+      'Track every poe league 3.27 patch, hotfix, and manifesto excerpt with embedded timelines to coordinate respecs and rerolls.',
+    meta: 'poe league 3.27 Hotfix 1–7 digest and future alert feed.',
+  },
+  {
+    title: 'Neversink Filter Presets',
+    href: '/neversink-3-27',
+    description:
+      'Browse poe league 3.27 Neversink presets, strictness paths, and color schemes tailored to Keepers loot goals.',
+    meta: 'Side-by-side art plus poe league 3.27 smart download buttons.',
   },
 ]
 
@@ -56,7 +131,7 @@ type VisualSection = {
   title: string
   desc: string
   lead: string
-  callouts: string[]
+  links: { href: string; label: string; description: string }[]
   image: string
   kicker?: string
 }
@@ -64,107 +139,187 @@ type VisualSection = {
 const visualSections: VisualSection[] = [
   {
     id: 'overview',
-    title: 'Launch Timeline & Reveal Beats',
-    desc: 'Lock poe league 3.27 release windows and livestream checkpoints before building your night-one itinerary. This poe league 3.27 planning brief keeps countdowns and reveals aligned.',
-    kicker: 'poe league 3.27 briefing',
+    title: 'Launch Overview & Roadmap',
+    desc: 'Lock in the timeline and cross-page itinerary before diving deeper into role assignments.',
+    kicker: 'Launch briefing',
     lead:
-      'poe league 3.27 Keepers of the Flame lands on October 31, 2025 at 12:00 PM PDT for the Americas with an ANZ rollover on November 1, and the reveal livestream hits eight days prior. Use this briefing to plot patch preloads, wrap Mercenaries of Trarthus objectives, and script your crew’s watch party while the hype surges. This poe league 3.27 timeline keeps every guild aligned on reveal beats, preload locks, and launch-day fixes.',
-    callouts: [
-      'Run a poe league 3.27 rehearsal the weekend before launch to finish Mercenaries of Trarthus challenges and prep for the Keepers Challenge League objectives.',
-      'Set reminders for the October 23, 2025 poe league 3.27 reveal livestream so you pivot builds the moment the manifesto tees up new gems like Wall of Force and Thunderstorm.',
-      'Log the October 31, 2025 Private League fix and Hotfix 2 Off-hand slot patch so you know when rerolls and group restarts are safe.',
+      'The overview module anchors your timeline with release times, reveal coverage, and the priority list for each squad role. It ties the poe league 3.27 countdown to the dedicated Starter Planner and Loot Filter Lab, then links forward to trade and patch hubs so nothing slips between tabs. With this poe league 3.27 roadmap up top, your guild can brief new members in minutes.',
+    links: [
+      {
+        href: '/starter',
+        label: 'Starter planner timeline',
+        description: 'Add the October 23, 2025 reveal livestream markers and launch-day rehearsals straight from the poe league 3.27 planner.',
+      },
+      {
+        href: '/starters',
+        label: 'Build tier quick swap',
+        description: 'Confirm who is on Breach escort duty versus Atlas rushers with the poe league 3.27 tier filters.',
+      },
+      {
+        href: '/patch-notes-poe-3-27',
+        label: 'Patch digest tracker',
+        description: 'Embed the Hotfix 1–7 digest into your prep doc so daylight-saving shifts and bug fixes are in sync.',
+      },
     ],
     image: '/images/keepers-async.jpg',
   },
   {
     id: 'leveling',
-    title: 'Breach Leveling & Graft Unlocks',
-    desc: 'Anchor your poe league 3.27 leveling route around Hive Defense beats and early Genesis Tree growth. This poe league 3.27 progression outline keeps your acts and map entry smooth.',
-    kicker: 'poe league 3.27 leveling lab',
+    title: 'Leveling & Onboarding',
+    desc: 'Align campaign pacing, gear checkpoints, and learning resources for new entrants.',
+    kicker: 'Leveling lab',
     lead:
-      'The Keepers of the Flame loop pushes you to safeguard Ailith, stabilise breaches, and bank Graftblood even before maps. Folding those beats into your poe league 3.27 leveling splits powers the Genesis Tree the moment Act 10 falls and primes Marshal Vruun scouting once you touch red maps. This poe league 3.27 leveling path keeps the Order in sync from Act 1 to the first red map.',
-    callouts: [
-      'Scrimmage poe league 3.27 Hive Defense positioning so channel phases survive without burning defensive flasks while Ailith conjures Dreamer’s Flame walls.',
-      'Slot poe league 3.27 Graftblood alert cues in your loot filter to spot the currency that feeds the Genesis Tree and Living Graft sockets.',
-      'Route Order of the Keepers side content that unlocks new poe league 3.27 gems like Wall of Force, Thunderstorm, and Conflagration teased in the reveal.',
+      'Leveling guidance combines the Starter Planner with notes pulled from the builds page so your poe league 3.27 openers stay disciplined while the rest of the roster preps mapping gear. Crosslink callouts direct speed runners to route overlays and highlight when to switch to Hive Defense practice.',
+    links: [
+      {
+        href: '/starter',
+        label: 'Route PDF & checklists',
+        description: 'Download poe league 3.27 escort rotations, vendor recipes, and gem timings in one bundle ready for poe league 3.27 launch night.',
+      },
+      {
+        href: '/starters',
+        label: 'Tier list filters',
+        description: 'Highlight caster, melee, and minion archetypes with tags tuned for Keepers of the Flame.',
+      },
+      {
+        href: '/starter#videos',
+        label: 'Hive Defense drills',
+        description: 'Practice Ailith shielding and Dreamer’s Flame wall positioning before private leagues open.',
+      },
     ],
     image: '/images/keepers-kineticrain.jpg',
   },
   {
     id: 'economy',
-    title: 'Economy Plays and Trading Rhythm',
-    desc: 'Keep your poe league 3.27 coffers glowing while async trade policies settle. This poe league 3.27 economy primer keeps traders agile.',
-    kicker: 'poe league 3.27 economy board',
+    title: 'Economy & Trade Desk',
+    desc: 'Coordinate currency plans, price checks, and ledger habits for the guild treasury.',
+    kicker: 'Economy desk',
     lead:
-      'GGG has Merchant Tabs live in Path of Exile 2 but not yet in poe league 3.27, so expect speculation around asynchronous buyouts alongside Genesis Tree crafting booms. Track those shifts nightly alongside Hotfix 6 and 7’s market browser fixes to ride demand spikes without overcommitting. This poe league 3.27 economy cadence keeps your stash elastic while Merchant Tabs lag behind.',
-    callouts: [
-      'Keep Merchant Tabs in PoE 2 until support hits poe league 3.27 to avoid losing stash access mid-league.',
-      'Flip early poe league 3.27 Foulborn bases and Foul currency before the wider market understands their weighting.',
-      'Log poe league 3.27 chaos-per-hour targets versus async trade whispers so you know when to pivot into Expedition or Delve.',
+      'The economy dashboard brings together Awakened PoE Trade intel, official trade board watchlists, and nightly ledger templates so the poe league 3.27 market stays transparent for your guild treasurer. Reference the same panel when adjusting valuations after manifestos or when the poe league 3.27 hotfix feed nudges drop rates.',
+    links: [
+      {
+        href: '/awakened-poe-trade-3-27',
+        label: 'Awakened overlay guide',
+        description: 'Tag high-demand bases and Living Graft gambles with the poe league 3.27 vault checklist and poe league 3.27 overlay presets.',
+      },
+      {
+        href: '/poe-trade',
+        label: 'Official trade macros',
+        description: 'Clone bulk-buy templates and chaos ratios ready for async trade rebuilds.',
+      },
+      {
+        href: '/awakened-poe-trade-3-27#ledger',
+        label: 'Guild profit sheets',
+        description: 'Log nightly chaos-per-hour reports so pivots trigger before prices slide.',
+      },
     ],
     image: '/images/keepers-oshabi.jpg',
   },
   {
     id: 'endgame',
-    title: 'Endgame Mastery and Bloodline Hunts',
-    desc: 'Treat poe league 3.27 endgame like a curated rotation of Bloodline unlocks and hive raids. This poe league 3.27 endgame digest keeps rotations intentional.',
-    kicker: 'poe league 3.27 endgame deck',
+    title: 'Endgame & Atlas Operations',
+    desc: 'Sequence boss goals, graft experiments, and map sustain paths.',
+    kicker: 'Atlas ops',
     lead:
-      'Bloodline ascendancies tie to bosses like Trialmaster, Oshabi, and Catarina, while Hive gates escalate toward Marshal Vruun and the new Tier 17 arenas. Mapping your poe league 3.27 playlist keeps the spectacle high and ensures every build taps the ten new Bloodline classes from the 3.27.0 patch notes. This poe league 3.27 endgame loop makes Bloodline hunting and Hive rotations second nature.',
-    callouts: [
-      'Slot poe league 3.27 boss-focused nights to unlock Bloodlines such as Chaos (Trialmaster) and Oshabi before diving into Tier 17.',
-      'Rotate poe league 3.27 Breach Hives, elder guardians, and uber invitations to keep loot tables fresh.',
-      'Pair poe league 3.27 graft swaps with Bloodline respeccing so every session tests a new synergy.',
+      'Endgame prep outlines atlas trees, boss sequencing, and graft experiments so the poe league 3.27 atlas goals stay in sync with your roster’s gear curve. Lean on the Syndicate cheat sheet to assign safehouse roles and rotate through Expedition or Delve pivots whenever Breach loot slows.',
+    links: [
+      {
+        href: '/poe-syndicate-cheat-sheet-3-27',
+        label: 'Syndicate board tracker',
+        description: 'Assign safehouse rewards and Betrayal targets before mapping blocks begin inside the poe league 3.27 cheat sheet.',
+      },
+      {
+        href: '/starter#atlas',
+        label: 'Atlas tree templates',
+        description: 'Rotate Breach, Expedition, and Delve passives using downloadable poe league 3.27 snapshots.',
+      },
+      {
+        href: '/patch-notes-poe-3-27#bossing',
+        label: 'Boss timer log',
+        description: 'Bookmark Trialmaster, Oshabi, and Catarina schedule updates after each hotfix.',
+      },
     ],
     image: '/images/keepers-uberboss.jpg',
   },
   {
     id: 'community',
-    title: 'Community Support and Continuous Updates',
-    desc: 'Stay plugged into poe league 3.27 intel drops and collaborative hype loops. This poe league 3.27 community channel keeps everyone sharing tech.',
-    kicker: 'poe league 3.27 community line',
+    title: 'Community & Coordination',
+    desc: 'Keep guild comms, event calendars, and shared resources aligned.',
+    kicker: 'Community playbook',
     lead:
-      'The poe327 inbox packages poe league 3.27 reveal recaps, balance manifestos, and economic alerts so you never miss a shift. Send your own notes to shape the dashboards as the league evolves while Supporter Packs and live updates roll out on day one. This poe league 3.27 community hub keeps supporters, groups, and creators synced.',
-    callouts: [
-      'Send launch feedback to support@poe327.net with “poe league 3.27” in the subject for priority triage.',
-      'Expect editorial poe league 3.27 bundles tying livestream headlines to actionable farming pivots within hours.',
-      'Watch for rolling poe league 3.27 design refreshes that add interactive pathing charts, Bloodline trackers, and profit snapshots as new hotfix notes land.',
+      'Community coordination channels news posts, creator callouts, and event bulletins so poe league 3.27 operations stay aligned with official updates while leaving room for custom Discord macro tips. The section also lists content creator spotlights for players chasing advanced mechanical breakdowns.',
+    links: [
+      {
+        href: '/starter#comms',
+        label: 'Guild ops toolkit',
+        description: 'Publish announcements with ready-made Markdown templates and rota charts for poe league 3.27 crews.',
+      },
+      {
+        href: '/patch-notes-poe-3-27#newsroom',
+        label: 'RSS relay setup',
+        description: 'Embed official forum posts and poe league 3.27 hotfix alerts directly into Discord.',
+      },
+      {
+        href: '/starters#coaching',
+        label: 'Coaching schedule',
+        description: 'Pair voice comm checklists with role-by-role build refreshers.',
+      },
     ],
-    image: '/images/keepers-supporter.jpg',
+    image: '/images/keepers-hive.jpg',
   },
   {
     id: 'quickfacts',
     title: 'Quick Facts & Checklist',
-    desc: 'Spin up poe league 3.27 quick references for your party. This poe league 3.27 cheat sheet keeps your crew aligned between deeper dives.',
+    desc: 'Glanceable cards for critical times, rewards, and unlocks.',
     lead:
-      'Keep these snap notes close so every role tracks the Keepers Challenge League essentials—release times, Genesis Atlas unlocks, async trade caveats, and Supporter Pack timing. This poe league 3.27 fact grid links the core guide, mechanic summary, and launch blog in one breath.',
-    callouts: [
-      'Log poe league 3.27 release times for Oct 31 (12:00 PM PDT) in the Americas and Nov 1 in ANZ to keep poe league 3.27 resets on schedule.',
-      'Note poe league 3.27 adds ten Bloodline ascendancy classes and Living Grafts so your poe league 3.27 build planners stay accurate.',
-      'Flag poe league 3.27 asynchronous trade as pending so your poe league 3.27 economy team coordinates manual swaps.',
-      'Clip poe league 3.27 Supporter Pack launch info in case your poe league 3.27 roster wants cosmetics at kickoff.',
+      'Quick facts condense server times, challenge thresholds, and gear breakpoints into an easy scroll so poe league 3.27 reference checks take seconds during voice comms. Pair the checklist with the navigation links to jump straight into the deeper guide once someone needs more context.',
+    links: [
+      {
+        href: '/starter#countdown',
+        label: 'Launch countdown card',
+        description: 'Pin the October 31, 2025 server unlocks and ANZ rollover minutes before the poe league 3.27 go time.',
+      },
+      {
+        href: '/starters#bloodline',
+        label: 'Bloodline thresholds',
+        description: 'Review ascendancy unlock requirements per class for poe league 3.27 parties.',
+      },
+      {
+        href: '/patch-notes-poe-3-27#supporter',
+        label: 'Supporter pack FAQ',
+        description: 'Answer cosmetics questions without digging through the full notes.',
+      },
     ],
     image: '/images/poe327-hero.webp',
-    kicker: 'poe league 3.27 quick hits',
+    kicker: 'Quick hits',
   },
   {
     id: 'updates',
     title: 'Patch Notes & Hotfix Radar',
-    desc: 'Review every poe league 3.27 change from launch patch notes to live-service fixes. This poe league 3.27 update log keeps your notes current.',
-    kicker: 'poe league 3.27 patch feed',
+    desc: 'Stay on top of balance changes, bug fixes, and developer posts.',
+    kicker: 'Patch feed',
     lead:
-      'Version 3.27.0 shipped on October 31, 2025 with the Keepers Challenge League, ten Bloodline ascendancy classes, Living Grafts, and quality-of-life upgrades like map boss scouting reports. Hotfixes 2 through 7 landed across October 31 to November 2 solving off-hand equips, market browser glitches, Private League breaches, and Breach body part drop rates. This poe league 3.27 patch tracker keeps your calendar pinned to live changes.',
-    callouts: [
-      'Note poe league 3.27 Hotfix 3 (Oct 31, 5:59 PM PDT) addressing Faustus earnings tabs and four client crashes before your guild pushes Delve.',
-      'Flag poe league 3.27 Hotfix 6 (Nov 01, 5:12 PM PDT) for slower Unstable Breach collapse rates and guaranteed Marshal Vruun breach rings.',
-      'Act when poe league 3.27 Hotfix 7 (Nov 02, 4:32 PM PST) resolves Delve reward mismatches and Incursion Breach room availability ahead of your next mapping block.',
-      'Track poe league 3.27 Hotfix 5 (Nov 01, 1:20 AM PDT) so your poe league 3.27 party avoids Dreamer’s Flame bugs mid-encounter.',
-      'Bookmark poe league 3.27 forum notices for Hotfix 4 and async trade adjustments to keep poe league 3.27 stash moves clean.',
+      'The updates log combines patch notes, developer posts, and build adjustments to keep the poe league 3.27 change feed concise while preserving every context link you might need later.',
+    links: [
+      {
+        href: '/patch-notes-poe-3-27',
+        label: 'Hotfix timeline',
+        description: 'Track Hotfixes 1–7 with timestamps, download links, and community mirrors for poe league 3.27 squads.',
+      },
+      {
+        href: '/patch-notes-poe-3-27#manifesto',
+        label: 'Manifesto breakouts',
+        description: 'Compare balance excerpts to build tier shifts before respeccing.',
+      },
+      {
+        href: '/awakened-poe-trade-3-27#alerts',
+        label: 'Economy ping setup',
+        description: 'Pipe loot conversion changes into the trade desk alert channel.',
+      },
     ],
-    image: '/images/hero-keepers.jpg',
+    image: '/images/keepers-supporter.jpg',
   },
 ]
-
 export default function Home() {
   return (
     <>
@@ -182,23 +337,31 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
         <div className="container relative z-10 flex flex-col gap-10 py-24">
           <div className="max-w-3xl space-y-6 text-white">
-            <span className="pill bg-brand/20 text-brand">poe league 3.27 Keepers of the Flame HQ</span>
-            <h1 className="h1 text-balance leading-tight">
-              poe league 3.27 Keepers of the Flame launch HQ: poe league 3.27 release timing, async trade, Genesis Tree mastery.
-            </h1>
+            <span className="pill bg-brand/20 text-brand">poe league 3.27 launch HQ</span>
+            <h1 className="h1 text-balance leading-tight">poe league 3.27 Keepers of the Flame Launch Center</h1>
             <p className="text-base text-white/80 md:text-lg">
-              Immerse yourself in ember-lit concept art while locking in the exact steps your party will take the moment the poe league 3.27 servers
-              open.
-              The Keepers Challenge League layers escort-style Breach runs, Hive bossing, Genesis Atlas Tree choices, and Order of the Keepers lore,
-              so every squad member knows when to stabilise breaches, ignite Dreamer’s Flame walls, and cash in new Bloodline ascendancies.
-              This poe league 3.27 walkthrough merges official mechanic rundowns, livestream notes, and in-game tooltips into one digest.
+              Keepers of the Flame kicks off on October 31, 2025 at 12:00 PM PDT in the Americas (rolling to ANZ on November 1). This hub compresses
+              the essentials—timeline, navigation, and priority callouts—so you can map every Breach escort and Living Graft test without skimming a
+              full patch note. It is the first stop for poe league 3.27 captains spinning up watch parties and private league scrims.
             </p>
             <p className="text-base text-white/75 md:text-lg">
-              From atlas pacing to async trading prep, poe327.net stitches official poe league 3.27 previews and community intel into one focused
-              dashboard with live coverage of Hotfixes 2–7, Private League remedies, Living Grafts, Foulborn fortune, and ten freshly minted Bloodline
-              classes.
-              Come back daily for refreshed poe league 3.27 art drops, challenge checklists, and the cues you need to keep the flame roaring.
-              Every poe league 3.27 update here links back to the launch patch notes and live forum threads for fast verification.
+              Jump straight into the{' '}
+              <Link href="/starter" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+                poe league 3.27 starter planner
+              </Link>
+              ,{' '}
+              <Link href="/starters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+                build tier list
+              </Link>
+              ,{' '}
+              <Link href="/poe-3-27-loot-filter" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+                loot filter lab
+              </Link>
+              , and{' '}
+              <Link href="/awakened-poe-trade-3-27" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+                trade toolkit
+              </Link>
+              , then loop back for hotfix coverage and the quick facts grid whenever strategies shift mid-session.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -227,22 +390,60 @@ export default function Home() {
                 <div className="relative z-10 space-y-2">
                   <span className="text-sm font-semibold uppercase tracking-wide text-brand">{item.title}</span>
                   <p className="text-sm leading-relaxed text-white/80">{item.description}</p>
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-brand transition hover:text-white"
+                  >
+                    {item.linkLabel}
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
               </li>
             ))}
           </ul>
           <p className="max-w-4xl text-sm text-white/70 md:text-base">
-            This poe league 3.27 knowledge base links every official post, manifesto, and hotfix log we reference so squads can cite sources when
-            planning builds, and it archives poe league 3.27 callouts the moment Grinding Gear Games drops a new announcement.
+            This poe league 3.27 knowledge base cross-links official posts, manifesto excerpts, and developer notes so squads can cite sources while
+            planning builds, and every archived callout stays searchable when new adjustments land.
           </p>
         </div>
       </section>
 
       <Section
+        id="directory"
+        kicker="poe league 3.27 sitemap"
+        title="Navigate the Keepers hub"
+        desc="Jump into the poe league 3.27 subpages that feed this homepage—each card links to a dedicated toolkit so squads can prep builds, filters, trade routes, and Betrayal boards without guesswork."
+      >
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {hubCards.map((card) => (
+            <div
+              key={card.title}
+              className="group flex flex-col gap-4 rounded-3xl border border-white/10 bg-[#0b0d15]/80 p-6 text-white/80 transition hover:border-brand/40 hover:bg-brand/10"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <span className="pill bg-brand/15 text-brand text-xs uppercase tracking-wide">poe league 3.27</span>
+                <ArrowRight size={16} className="text-white/40 transition group-hover:translate-x-1 group-hover:text-brand" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+              <p className="text-sm leading-relaxed text-white/75">{card.description}</p>
+              <p className="text-xs text-white/60">{card.meta}</p>
+              <Link
+                href={card.href}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:text-white"
+              >
+                Open {card.title}
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section
       id="features"
-      kicker="poe league 3.27 signature systems"
-      title="Breathe in the Keepers of the Flame arsenal"
-      desc="Explore poe league 3.27 league-defining mechanics with high-impact art, encounter breakdowns, and clutch talking points for your crew. This poe league 3.27 showcase keeps every core system front and centre."
+      kicker="Signature systems"
+      title="Keepers of the Flame Arsenal"
+      desc="Explore poe league 3.27 league-defining mechanics with high-impact art, encounter breakdowns, and clutch talking points for your crew so every briefing stays focused. Scroll through for quick refreshers covering Dreamer’s Flame walls, Marshal Vruun tactics, and Foulborn loot paths."
         className="relative"
       >
         <div className="pointer-events-none absolute inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
@@ -255,9 +456,9 @@ export default function Home() {
 
       <Section
       id="mastery"
-      kicker="poe league 3.27 day-one plan"
-      title="Mastery pillars for the first week"
-      desc="Anchor your poe league 3.27 rituals with three foundational beats covering campaign flow, atlas planning, and profit checkpoints. This poe league 3.27 starter grid helps squads align their first resets."
+      kicker="Week-one mastery"
+      title="Pillars for the First Week"
+      desc="Anchor your poe league 3.27 rituals with three foundational beats covering campaign flow, atlas planning, and profit checkpoints so squads align their first resets."
         className="relative"
       >
         <div className="relative grid gap-4 md:grid-cols-3">
@@ -283,51 +484,66 @@ export default function Home() {
         </div>
       </Section>
 
-      {visualSections.map((section, index) => (
-        <Section
-          key={section.id}
-          id={section.id}
-          title={section.title}
-          desc={section.desc}
-          kicker={section.kicker}
-          className="relative"
-        >
-          <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-center">
-            <div className="space-y-6">
-              <p className="text-base leading-relaxed text-white/80">{section.lead}</p>
-              <ul className="grid gap-4 sm:grid-cols-2">
-                {section.callouts.map((callout) => (
-                  <li
-                    key={callout}
-                    className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 shadow-inner shadow-black/30 transition hover:border-brand/50 hover:bg-brand/15"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80" />
-                    <span className="relative z-10 block leading-relaxed">{callout}</span>
-                  </li>
-                ))}
-              </ul>
+      {visualSections.map((section, index) => {
+        const primaryLink = section.links[0]
+        return (
+          <Section
+            key={section.id}
+            id={section.id}
+            title={section.title}
+            desc={section.desc}
+            kicker={section.kicker}
+            actions={
+              primaryLink ? (
+                <Link href={primaryLink.href} className="btn btn-ghost">
+                  Visit {section.title}
+                </Link>
+              ) : undefined
+            }
+            className="relative"
+          >
+            <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-center">
+              <div className="space-y-6">
+                <p className="text-base leading-relaxed text-white/80">{section.lead}</p>
+                <ul className="grid gap-4 sm:grid-cols-2">
+                  {section.links.map((link) => (
+                    <li
+                      key={link.label}
+                      className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 shadow-inner shadow-black/30 transition hover:border-brand/50 hover:bg-brand/15"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80" />
+                      <div className="relative z-10 flex flex-col gap-1">
+                        <Link href={link.href} className="font-semibold text-brand transition hover:text-white">
+                          {link.label}
+                        </Link>
+                        <span className="text-xs leading-relaxed text-white/70">{link.description}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl shadow-black/40 ${
+                  index % 2 === 0 ? 'lg:order-last' : ''
+                }`}
+              >
+                <Image
+                  src={section.image}
+                  alt={section.title}
+                  width={960}
+                  height={640}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 420px, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80">
+                  In-game capture
+                </span>
+              </div>
             </div>
-            <div
-              className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl shadow-black/40 ${
-                index % 2 === 0 ? 'lg:order-last' : ''
-              }`}
-            >
-              <Image
-                src={section.image}
-                alt={section.title}
-                width={960}
-                height={640}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                sizes="(min-width: 1024px) 420px, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-              <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80">
-                In-game capture
-              </span>
-            </div>
-          </div>
-        </Section>
-      ))}
+          </Section>
+        )
+      })}
     </>
   )
 }

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080b14" />
+      <stop offset="100%" stop-color="#151d34" />
+    </linearGradient>
+    <linearGradient id="barA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff9a3c" />
+      <stop offset="100%" stop-color="#ff4e50" />
+    </linearGradient>
+    <linearGradient id="barB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7bdcb5" />
+      <stop offset="100%" stop-color="#28a98b" />
+    </linearGradient>
+    <linearGradient id="barC" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#64b5f6" />
+      <stop offset="100%" stop-color="#1976d2" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)" />
+  <text x="120" y="140" fill="#f2f5ff" font-size="96" font-family="'Inter', sans-serif" font-weight="800">NEVERSINK 3.27 STRICTNESS LADDER</text>
+  <text x="120" y="210" fill="#c8d1ff" font-size="40" font-family="'Inter', sans-serif">Slide to higher tiers as your Keepers atlas speed scales.</text>
+  <g font-family="'IBM Plex Mono', monospace" font-size="36" fill="#ffffff">
+    <text x="120" y="320">SEMI-STRICT — Launch Default</text>
+    <rect x="120" y="340" width="900" height="50" rx="25" fill="url(#barA)" opacity="0.9" />
+    <text x="120" y="430">STRICT — Yellow Maps</text>
+    <rect x="120" y="450" width="760" height="50" rx="25" fill="url(#barB)" opacity="0.9" />
+    <text x="120" y="540">VERY STRICT — Red Maps & Speed Mapping</text>
+    <rect x="120" y="560" width="600" height="50" rx="25" fill="url(#barC)" opacity="0.9" />
+    <text x="120" y="650" fill="#9aa7d9">UBER STRICT — Heist / Simu / Boss Rush</text>
+    <rect x="120" y="670" width="440" height="36" rx="18" fill="#2d3653" opacity="0.8" />
+  </g>
+</svg>

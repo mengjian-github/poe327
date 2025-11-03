@@ -1,0 +1,22 @@
+<svg width="960" height="640" viewBox="0 0 960 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="meleeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#190B28" />
+      <stop offset="50%" stop-color="#5C1F2F" />
+      <stop offset="100%" stop-color="#F97316" />
+    </linearGradient>
+    <radialGradient id="meleeGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FBD38D" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#FBD38D" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="960" height="640" fill="#09050D" />
+  <rect x="40" y="40" width="880" height="560" rx="48" fill="url(#meleeGradient)" />
+  <circle cx="320" cy="240" r="220" fill="url(#meleeGlow)" />
+  <circle cx="720" cy="420" r="180" fill="rgba(255,255,255,0.08)" />
+  <path d="M240 420 L340 200 L420 260 L500 140 L560 220 L480 360 L560 420 Z" fill="rgba(15,11,18,0.55)" />
+  <path d="M320 460 C360 400 420 360 480 360 C540 360 600 400 660 480" stroke="rgba(255,255,255,0.2)" stroke-width="28" stroke-linecap="round" fill="none" />
+  <path d="M260 210 L420 260 L330 360 Z" fill="rgba(255,255,255,0.08)" />
+  <path d="M560 180 L640 280 L580 360 L520 260 Z" fill="rgba(255,255,255,0.08)" />
+  <text x="80" y="540" fill="rgba(255,255,255,0.4)" font-family="Montserrat, 'Segoe UI', sans-serif" font-size="54" letter-spacing="0.3em">MELEE STARTER</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060709" />
+      <stop offset="45%" stop-color="#111525" />
+      <stop offset="100%" stop-color="#1f2a3f" />
+    </linearGradient>
+    <linearGradient id="flare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5d17a" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#f47c3c" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="1260" cy="240" r="380" fill="url(#flare)" opacity="0.65" />
+  <g transform="translate(140,210)" fill="#f4f5ff">
+    <text font-family="'Inter', 'Segoe UI', sans-serif" font-size="120" font-weight="700" letter-spacing="4">PoE 3.27</text>
+    <text y="180" font-family="'Inter', 'Segoe UI', sans-serif" font-size="140" font-weight="800" letter-spacing="6">LOOT FILTER LAB</text>
+    <text y="320" font-family="'Inter', 'Segoe UI', sans-serif" font-size="52" fill="#c7cbe6" letter-spacing="3">TUNE YOUR DROP AUDIT FOR KEEPERS OF THE FLAME</text>
+  </g>
+  <g transform="translate(140,620)" fill="#f47c3c">
+    <text font-family="'IBM Plex Mono', 'Inter', monospace" font-size="46">Filtered Shaper Map &bull; Audible Mirrors &bull; Smart Base Highlights</text>
+  </g>
+</svg>

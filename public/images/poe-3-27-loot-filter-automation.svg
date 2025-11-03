@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080a10" />
+      <stop offset="50%" stop-color="#121a2c" />
+      <stop offset="100%" stop-color="#0d111d" />
+    </linearGradient>
+    <radialGradient id="pulse" cx="0.2" cy="0.2" r="1">
+      <stop offset="0%" stop-color="#ffb347" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#ff5f6d" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)" />
+  <circle cx="980" cy="280" r="320" fill="url(#pulse)" />
+  <g transform="translate(140,180)" font-family="'Inter', 'Segoe UI', sans-serif">
+    <text font-size="100" font-weight="800" fill="#fdf4e7">ASYNC FILTER AUTOMATION</text>
+    <text y="120" font-size="46" fill="#f7cfa3">Batch update rules with custom scripts and Git pulls.</text>
+  </g>
+  <g transform="translate(140,420)" font-family="'IBM Plex Mono', monospace" font-size="36" fill="#f4f6ff">
+    <text>✔ Pull NeverSink ladder daily</text>
+    <text y="70">✔ Blend poe 3.27 loot filter Genesis Tree tags</text>
+    <text y="140">✔ Auto-push to filterblade + filterblast</text>
+    <text y="210">✔ Validate sounds, colors, tiers before mapping</text>
+  </g>
+</svg>

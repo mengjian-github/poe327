@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b0f16" />
+      <stop offset="100%" stop-color="#151d2d" />
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f79533" />
+      <stop offset="100%" stop-color="#f37055" />
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5d9cec" />
+      <stop offset="100%" stop-color="#3a7bd5" />
+    </linearGradient>
+    <linearGradient id="bar3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#72f5b0" />
+      <stop offset="100%" stop-color="#2db980" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)" />
+  <text x="120" y="140" fill="#f4f6ff" font-size="90" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="800">POE 3.27 LOOT FILTER TIERS</text>
+  <text x="120" y="210" fill="#cbd3ff" font-size="40" font-family="'Inter', 'Segoe UI', sans-serif">Curate your Genesis Tree drops with stack-size tuned tiers.</text>
+  <g font-family="'IBM Plex Mono', monospace" font-size="36" fill="#ffffff">
+    <text x="120" y="320">TIER 0 — MIRRORED / 6-LINK / EXALTS</text>
+    <rect x="120" y="340" width="980" height="46" rx="23" fill="url(#bar)" opacity="0.9" />
+    <text x="120" y="430">TIER 1 — INFLUENCED BASES / BREACH RINGS</text>
+    <rect x="120" y="450" width="820" height="46" rx="23" fill="url(#bar2)" opacity="0.9" />
+    <text x="120" y="540">TIER 2 — MAPS / ESSENCES / HIGH GOLD</text>
+    <rect x="120" y="560" width="680" height="46" rx="23" fill="url(#bar3)" opacity="0.9" />
+    <text x="120" y="650" fill="#9aa7d9">TIER 3 — LEVELING CATCH-ALLS (HIDDEN AFTER ACT 10)</text>
+    <rect x="120" y="670" width="420" height="30" rx="15" fill="#303a55" opacity="0.8" />
+  </g>
+</svg>
