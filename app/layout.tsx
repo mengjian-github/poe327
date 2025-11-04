@@ -79,32 +79,22 @@ gtag('config', 'G-D8GENWGNMS');`}
                 <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">On-site guides</span>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/starter" className="transition hover:text-white">
-                      Starter Planner
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/starters" className="transition hover:text-white">
-                      Build Tier List
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/poe-3-27-loot-filter" className="transition hover:text-white">
+                    <Link href="/filters" className="transition hover:text-white">
                       Loot Filter Lab
                     </Link>
                   </li>
                   <li>
-                    <Link href="/awakened-poe-trade-3-27" className="transition hover:text-white">
+                    <Link href="/trade/awakened" className="transition hover:text-white">
                       Trade Toolkit
                     </Link>
                   </li>
                   <li>
-                    <Link href="/poe-betrayal-cheat-sheet-3-27#canvas" className="transition hover:text-white">
+                    <Link href="/betrayal-cheatsheet#canvas" className="transition hover:text-white">
                       Syndicate Cheat Sheet
                     </Link>
                   </li>
                   <li>
-                    <Link href="/patch-notes-poe-3-27" className="transition hover:text-white">
+                    <Link href="/patch-notes" className="transition hover:text-white">
                       Patch Notes Library
                     </Link>
                   </li>

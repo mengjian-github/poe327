@@ -39,12 +39,12 @@ export const metadata: Metadata = {
   title: 'Awakened PoE Trade 3.27 — Download, Setup & Beginner Guide',
   description:
     "Beginner-friendly Awakened PoE Trade 3.27 guide. Download, install, price check, bulk sell, and trade faster in PoE 3.27 with safe overlays and clear steps.",
-  alternates: { canonical: '/awakened-poe-trade-3-27' },
+  alternates: { canonical: 'https://poe327.net/trade/awakened' },
   openGraph: {
     title: 'Awakened PoE Trade 3.27 — Download & Setup',
     description:
       "Install Awakened PoE Trade 3.27 in minutes with step-by-step setup, keybinds, screenshots, bulk selling, and quick troubleshooting for PoE 3.27.",
-    url: '/awakened-poe-trade-3-27',
+    url: 'https://poe327.net/trade/awakened',
     images: [
       { url: '/images/poe327-hero.webp', width: 1200, height: 630, alt: 'Awakened PoE Trade overlay demo' },
     ],

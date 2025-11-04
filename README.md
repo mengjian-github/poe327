@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="public/og-image.svg" width="680" alt="poe327.net – Keepers of the Flame Hub" />
+</p>
 
-## Getting Started
+# poe327.net – PoE 3.27 Hub
 
-First, run the development server:
+A focused Path of Exile 3.27 website with quick-access tools and references. This site only targets 3.27, so routes and copy are short and version-free.
+
+## Live Routes
+
+- Filters: `/filters`
+- Neversink Filters: `/filters/neversink`
+- Awakened Trade: `/trade/awakened`
+- Official Trade: `/trade/official`
+- Syndicate Cheat Sheet: `/betrayal-cheatsheet`
+- Patch Notes Library: `/patch-notes`
+
+Legacy 3.27-styled routes (e.g. `/poe-3-27-loot-filter`) 301-redirect to the short paths above. See `next.config.ts`.
+
+## Preview
+
+<p>
+  <img src="public/images/poe-3-27-loot-filter-hero.svg" width="520" alt="Loot Filter Lab" />
+</p>
+
+<p>
+  <img src="public/images/screenshots/trade-home.png" width="520" alt="Trade overview" />
+</p>
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm i
+npm run dev    # http://localhost:3000
+npm run build  # production build
+npm run start  # serve production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure (App Router)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+app/
+  page.tsx                 # Home
+  filters/
+    page.tsx               # Loot Filter Lab
+    neversink/
+      page.tsx             # Neversink Filters
+  trade/
+    awakened/page.tsx      # Awakened Trade guide
+    official/page.tsx      # Official Trade guide
+  betrayal-cheatsheet/
+    page.tsx               # Syndicate cheat sheet
+  patch-notes/
+    page.tsx               # Patch notes library
+components/
+  site-header.tsx          # Navigation (Starter/Builds removed)
+  ...
+public/
+  images/                  # Artwork & screenshots
+  cheatsheet/              # Cheat sheet sprite slices
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Navigation & URLs
 
-## Learn More
+- Minimal, 3.27-only IA. No `/starter` or `/builds` sections.
+- Filters moved to the plural root: `/filters`.
+- Trade tools live under `/trade/*`.
+- Canonicals updated on all pages to match short routes.
+- Static `public/sitemap.xml` updated accordingly.
 
-To learn more about Next.js, take a look at the following resources:
+## SEO Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Each page exports `metadata` with an updated `alternates.canonical`.
+- Open Graph and Twitter cards use the site’s OG image (`/og-image.svg`).
+- `metadataBase` can be added for consistent absolute URLs if needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+- `npm run dev` – Start dev server
+- `npm run build` – Production build (Turbopack)
+- `npm run start` – Run the production build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For personal/league use. Not affiliated with Grinding Gear Games.

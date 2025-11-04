@@ -156,13 +156,13 @@ export const metadata: Metadata = {
   description:
     'A no‑frills poe 3.27 loot filter guide: download, enable, pick strictness, stay updated, and avoid common mistakes for smoother mapping from campaign to maps.',
   alternates: {
-    canonical: 'https://poe327.net/poe-3-27-loot-filter',
+    canonical: 'https://poe327.net/filters',
   },
   openGraph: {
     title: 'PoE 3.27 Loot Filter Beginner Guide',
     description:
       'Step‑by‑step poe 3.27 loot filter setup and updates from campaign to maps with clear cues and safe defaults.',
-    url: 'https://poe327.net/poe-3-27-loot-filter',
+    url: 'https://poe327.net/filters',
     siteName: 'poe327',
     type: 'article',
     images: [
@@ -203,7 +203,7 @@ export default function LootFilterPage() {
               Open FilterBlade
             </a>
             <a
-              href="/neversink-3-27"
+              href="/filters/neversink"
               className="btn btn-ghost"
             >
               NeverSink 3.27 Guide
@@ -359,7 +359,7 @@ export default function LootFilterPage() {
           </Card>
           <Card title="NeverSink Guide & Downloads">
             <p>Download the latest packaged poe 3.27 loot filter zips if you prefer manual updates and local backups.</p>
-            <a className="btn btn-ghost mt-3 inline-flex" href="/neversink-3-27">Open Guide</a>
+            <a className="btn btn-ghost mt-3 inline-flex" href="/filters/neversink">Open Guide</a>
           </Card>
         </div>
       </Section>

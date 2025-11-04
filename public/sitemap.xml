@@ -7,50 +7,50 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://poe327.net/starter</loc>
+    <loc>https://poe327.net/filters</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://poe327.net/starters</loc>
+    <loc>https://poe327.net/filters/neversink</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://poe327.net/poe-3-27-loot-filter</loc>
+    <loc>https://poe327.net/filters</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://poe327.net/awakened-poe-trade-3-27</loc>
+    <loc>https://poe327.net/trade/awakened</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://poe327.net/poe-trade</loc>
+    <loc>https://poe327.net/trade/official</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://poe327.net/poe-betrayal-cheat-sheet-3-27</loc>
+    <loc>https://poe327.net/betrayal-cheatsheet</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://poe327.net/neversink-3-27</loc>
+    <loc>https://poe327.net/filters/neversink</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://poe327.net/patch-notes-poe-3-27</loc>
+    <loc>https://poe327.net/patch-notes</loc>
     <lastmod>2025-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

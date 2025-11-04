@@ -31,7 +31,7 @@ const heroHighlights: HeroHighlight[] = [
     title: 'Live service radar',
     description:
       'Monitor hotfixes, server alerts, and official posts inside the poe league 3.27 newsroom module so you can escalate assignments, call for reruns, or swap atlas strategies before the next reset.',
-    href: '/patch-notes-poe-3-27',
+    href: '/patch-notes',
     linkLabel: 'Check poe league 3.27 patch notes',
   },
 ]
@@ -84,14 +84,14 @@ const hubCards: HubCard[] = [
   },
   {
     title: 'Loot Filter Lab',
-    href: '/poe-3-27-loot-filter',
+    href: '/filters',
     description:
       'Tune poe league 3.27 loot filters with side-by-side previews, audio swaps, and strictness ladders, then export presets ready for opening night.',
     meta: 'Powered by the poe league 3.27 filter sandbox for instant downloads.',
   },
   {
     title: 'Trade Toolkit',
-    href: '/awakened-poe-trade-3-27',
+    href: '/trade/awakened',
     description:
       'Deploy poe league 3.27 trade overlays, price macros, and stash automations to accelerate currency flips before async APIs return.',
     meta: 'Includes poe league 3.27 Awakened Trade macro library.',
@@ -105,21 +105,21 @@ const hubCards: HubCard[] = [
   },
   {
     title: 'Syndicate Cheat Sheet',
-    href: '/poe-betrayal-cheat-sheet-3-27#canvas',
+    href: '/betrayal-cheatsheet#canvas',
     description:
       'Keep poe league 3.27 Betrayal target priorities, safehouse loot tables, and board snapshots in one scrollable reference.',
     meta: 'Updated for poe league 3.27 Bloodline ascendancy rewards.',
   },
   {
     title: 'Patch Notes Library',
-    href: '/patch-notes-poe-3-27',
+    href: '/patch-notes',
     description:
       'Track every poe league 3.27 patch, hotfix, and manifesto excerpt with embedded timelines to coordinate respecs and rerolls.',
     meta: 'poe league 3.27 Hotfix 1–7 digest and future alert feed.',
   },
   {
     title: 'Neversink Filter Presets',
-    href: '/neversink-3-27',
+    href: '/filters/neversink',
     description:
       'Browse poe league 3.27 Neversink presets, strictness paths, and color schemes tailored to Keepers loot goals.',
     meta: 'Side-by-side art plus poe league 3.27 smart download buttons.',
@@ -156,7 +156,7 @@ const visualSections: VisualSection[] = [
         description: 'Confirm who is on Breach escort duty versus Atlas rushers with the poe league 3.27 tier filters.',
       },
       {
-        href: '/patch-notes-poe-3-27',
+        href: '/patch-notes',
         label: 'Patch digest tracker',
         description: 'Embed the Hotfix 1–7 digest into your prep doc so daylight-saving shifts and bug fixes are in sync.',
       },
@@ -198,7 +198,7 @@ const visualSections: VisualSection[] = [
       'The economy dashboard brings together Awakened PoE Trade intel, official trade board watchlists, and nightly ledger templates so the poe league 3.27 market stays transparent for your guild treasurer. Reference the same panel when adjusting valuations after manifestos or when the poe league 3.27 hotfix feed nudges drop rates.',
     links: [
       {
-        href: '/awakened-poe-trade-3-27',
+        href: '/trade/awakened',
         label: 'Awakened overlay guide',
         description: 'Tag high-demand bases and Living Graft gambles with the poe league 3.27 vault checklist and poe league 3.27 overlay presets.',
       },
@@ -208,7 +208,7 @@ const visualSections: VisualSection[] = [
         description: 'Clone bulk-buy templates and chaos ratios ready for async trade rebuilds.',
       },
       {
-        href: '/awakened-poe-trade-3-27#ledger',
+        href: '/trade/awakened#ledger',
         label: 'Guild profit sheets',
         description: 'Log nightly chaos-per-hour reports so pivots trigger before prices slide.',
       },
@@ -224,7 +224,7 @@ const visualSections: VisualSection[] = [
       'Endgame prep outlines atlas trees, boss sequencing, and graft experiments so the poe league 3.27 atlas goals stay in sync with your roster’s gear curve. Lean on the Syndicate cheat sheet to assign safehouse roles and rotate through Expedition or Delve pivots whenever Breach loot slows.',
     links: [
       {
-        href: '/poe-betrayal-cheat-sheet-3-27#canvas',
+        href: '/betrayal-cheatsheet#canvas',
         label: 'Syndicate board tracker',
         description: 'Assign safehouse rewards and Betrayal targets before mapping blocks begin inside the poe league 3.27 cheat sheet.',
       },
@@ -234,7 +234,7 @@ const visualSections: VisualSection[] = [
         description: 'Rotate Breach, Expedition, and Delve passives using downloadable poe league 3.27 snapshots.',
       },
       {
-        href: '/patch-notes-poe-3-27#bossing',
+        href: '/patch-notes#bossing',
         label: 'Boss timer log',
         description: 'Bookmark Trialmaster, Oshabi, and Catarina schedule updates after each hotfix.',
       },
@@ -255,7 +255,7 @@ const visualSections: VisualSection[] = [
         description: 'Publish announcements with ready-made Markdown templates and rota charts for poe league 3.27 crews.',
       },
       {
-        href: '/patch-notes-poe-3-27#newsroom',
+        href: '/patch-notes#newsroom',
         label: 'RSS relay setup',
         description: 'Embed official forum posts and poe league 3.27 hotfix alerts directly into Discord.',
       },
@@ -285,7 +285,7 @@ const visualSections: VisualSection[] = [
         description: 'Review ascendancy unlock requirements per class for poe league 3.27 parties.',
       },
       {
-        href: '/patch-notes-poe-3-27#supporter',
+        href: '/patch-notes#supporter',
         label: 'Supporter pack FAQ',
         description: 'Answer cosmetics questions without digging through the full notes.',
       },
@@ -302,17 +302,17 @@ const visualSections: VisualSection[] = [
       'The updates log combines patch notes, developer posts, and build adjustments to keep the poe league 3.27 change feed concise while preserving every context link you might need later.',
     links: [
       {
-        href: '/patch-notes-poe-3-27',
+        href: '/patch-notes',
         label: 'Hotfix timeline',
         description: 'Track Hotfixes 1–7 with timestamps, download links, and community mirrors for poe league 3.27 squads.',
       },
       {
-        href: '/patch-notes-poe-3-27#manifesto',
+        href: '/patch-notes#manifesto',
         label: 'Manifesto breakouts',
         description: 'Compare balance excerpts to build tier shifts before respeccing.',
       },
       {
-        href: '/awakened-poe-trade-3-27#alerts',
+        href: '/trade/awakened#alerts',
         label: 'Economy ping setup',
         description: 'Pipe loot conversion changes into the trade desk alert channel.',
       },
@@ -346,19 +346,19 @@ export default function Home() {
             </p>
             <p className="text-base text-white/75 md:text-lg">
               Jump straight into the{' '}
-              <Link href="/starter" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
                 poe league 3.27 starter planner
               </Link>
               ,{' '}
-              <Link href="/starters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
                 build tier list
               </Link>
               ,{' '}
-              <Link href="/poe-3-27-loot-filter" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
                 loot filter lab
               </Link>
               , and{' '}
-              <Link href="/awakened-poe-trade-3-27" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/trade/awakened" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
                 trade toolkit
               </Link>
               , then loop back for hotfix coverage and the quick facts grid whenever strategies shift mid-session.

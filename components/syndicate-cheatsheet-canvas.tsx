@@ -84,7 +84,7 @@ const RECOMMENDED: GridState = (() => {
   // Fortification
   g.Fortification['Hillock'] = 3
   g.Fortification['Guff'] = 2
-  g.Fortification['Vorici' as any] = 2 // in case we later add Vorici
+  // Note: Vorici is not part of current MemberId union; skip until added to data model
   // Intervention
   g.Intervention['Cameria'] = 3
   g.Intervention['Jorgin'] = 2

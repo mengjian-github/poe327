@@ -79,12 +79,12 @@ export const metadata: Metadata = {
   title: 'PoE Betrayal Cheat Sheet 3.27 — Immortal Syndicate Planner',
   description: META_DESCRIPTION,
   alternates: {
-    canonical: 'https://poe327.net/poe-betrayal-cheat-sheet-3-27',
+    canonical: 'https://poe327.net/betrayal-cheatsheet',
   },
   openGraph: {
     title: 'PoE Betrayal Cheat Sheet 3.27 — Immortal Syndicate Planner',
     description: META_DESCRIPTION,
-    url: 'https://poe327.net/poe-betrayal-cheat-sheet-3-27',
+    url: 'https://poe327.net/betrayal-cheatsheet',
     siteName: 'poe327',
     type: 'article',
     images: [

@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description:
     'Keepers of the Flame coverage with live hotfix cadence, league mechanics, loot implants, and Bloodline ascendancy planning for patch notes poe 3.27.',
   alternates: {
-    canonical: 'https://poe327.net/patch-notes-poe-3-27',
+    canonical: 'https://poe327.net/patch-notes',
   },
   openGraph: {
     title: 'Patch Notes PoE 3.27 Launch Companion',
     description:
       'Stay current on patch notes poe 3.27 timelines, Hive defence planning, asynchronous trade upgrades, and meta shifts in one dedicated hub.',
-    url: 'https://poe327.net/patch-notes-poe-3-27',
+    url: 'https://poe327.net/patch-notes',
     siteName: 'poe327',
     type: 'article',
     images: [

@@ -7,38 +7,31 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
+// Navigation for PoE 3.27-only site. Starter/Builds removed; filter renamed to plural.
 const navItems = [
   {
-    label: 'Starter',
-    href: '/starter',
+    label: 'Filters',
+    href: '/filters',
     children: [
-      { href: '/starter', label: 'Day One Planner' },
-      { href: '/starters', label: 'Build Tier List' },
-    ],
-  },
-  {
-    label: 'Filter',
-    href: '/poe-3-27-loot-filter',
-    children: [
-      { href: '/poe-3-27-loot-filter', label: 'Loot Filter Lab' },
-      { href: '/neversink-3-27', label: 'Neversink Filters' },
+      { href: '/filters', label: 'Loot Filter Lab' },
+      { href: '/filters/neversink', label: 'Neversink Filters' },
     ],
   },
   {
     label: 'Trade',
-    href: '/poe-trade',
+    href: '/trade/official',
     children: [
-      { href: '/awakened-poe-trade-3-27', label: 'Awakened Trade' },
-      { href: '/poe-trade', label: 'Official Trade' },
+      { href: '/trade/awakened', label: 'Awakened Trade' },
+      { href: '/trade/official', label: 'Official Trade' },
     ],
   },
   {
     label: 'Cheat Sheet',
-    href: '/poe-betrayal-cheat-sheet-3-27#canvas',
+    href: '/betrayal-cheatsheet#canvas',
   },
   {
     label: 'Patch Notes',
-    href: '/patch-notes-poe-3-27',
+    href: '/patch-notes',
   },
 ]
 

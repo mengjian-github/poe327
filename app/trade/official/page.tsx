@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'PoE Trade Beginner Tutorial (3.27)',
   description:
     'Beginner-friendly poe trade guide: open the official site, set filters, enable Live Search, whisper sellers, and list items in bulk to trade faster and safer.',
-  alternates: { canonical: 'https://poe327.net/poe-trade' },
+  alternates: { canonical: 'https://poe327.net/trade/official' },
   openGraph: {
     title: 'PoE Trade Beginner Tutorial (3.27)',
     description:
       'Master poe trade in six steps: search, save, live alerts, whisper, bulk listing, and safety tips—optimized for new players.',
-    url: 'https://poe327.net/poe-trade',
+    url: 'https://poe327.net/trade/official',
     siteName: 'poe327',
     type: 'article',
     images: [{ url: '/images/keepers-async.jpg', width: 1200, height: 630, alt: 'poe trade tutorial cover' }],

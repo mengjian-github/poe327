@@ -105,12 +105,12 @@ export const metadata: Metadata = {
   title: 'NeverSink 3.27 Download & Beginner Guide',
   description:
     'Beginner‑friendly neversink 3.27 guide with official ladder follow, install/enable steps, strictness picking, update workflow, and practical tips.',
-  alternates: { canonical: 'https://poe327.net/neversink-3-27' },
+  alternates: { canonical: 'https://poe327.net/filters/neversink' },
   openGraph: {
     title: 'NeverSink 3.27 Download & Beginner Guide',
     description:
       'Follow on the PoE Item Filter Ladder, enable in‑game, pick strictness, learn cues, and stay updated via Ladder/FilterBlade/GitHub.',
-    url: 'https://poe327.net/neversink-3-27',
+    url: 'https://poe327.net/filters/neversink',
     siteName: 'poe327',
     type: 'article',
     images: [
