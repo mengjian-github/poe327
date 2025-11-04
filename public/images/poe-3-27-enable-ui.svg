@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Enable in-game UI">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e16"/>
+      <stop offset="100%" stop-color="#151f30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+  <rect x="200" y="130" width="800" height="370" rx="18" fill="#1b2436" stroke="#ffffff22"/>
+  <text x="240" y="200" font-family="Inter,Arial,sans-serif" font-size="26" fill="#93c5fd">Options ▸ Game ▸ Item Filter</text>
+  <rect x="240" y="240" width="520" height="56" rx="8" fill="#24304a" stroke="#ffffff22"/>
+  <text x="260" y="276" font-family="Inter,Arial,sans-serif" font-size="22" fill="#e5e7eb">Select: poe 3.27 loot filter</text>
+  <rect x="780" y="240" width="140" height="56" rx="8" fill="#f97316"/>
+  <text x="815" y="276" font-family="Inter,Arial,sans-serif" font-size="22" fill="#0b0f17">Save</text>
+</svg>

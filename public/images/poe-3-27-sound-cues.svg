@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Sound cues">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="100%" stop-color="#141a24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg4)"/>
+  <g transform="translate(200,210)">
+    <circle cx="80" cy="60" r="36" fill="#f97316"/>
+    <path d="M140,60 h220" stroke="#f97316" stroke-width="6"/>
+    <path d="M380,60 q20 -20 40 0 q20 20 40 0" stroke="#60a5fa" stroke-width="4" fill="none"/>
+    <text x="0" y="-10" font-family="Inter,Arial,sans-serif" font-size="24" fill="#e5e7eb">High value = louder + brighter</text>
+    <text x="0" y="120" font-family="Inter,Arial,sans-serif" font-size="16" fill="#a3a3a3">Tier 0/1 items use prominent beams and distinct tones</text>
+  </g>
+</svg>

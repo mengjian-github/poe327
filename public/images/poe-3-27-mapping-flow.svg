@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Mapping flow">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg6)"/>
+  <g transform="translate(150,180)" fill="#1b2436" stroke="#ffffff22">
+    <rect x="0" y="0" width="220" height="120" rx="14"/>
+    <rect x="300" y="0" width="220" height="120" rx="14"/>
+    <rect x="600" y="0" width="220" height="120" rx="14"/>
+  </g>
+  <g transform="translate(150,180)" font-family="Inter,Arial,sans-serif" fill="#e5e7eb">
+    <text x="40" y="70" font-size="20">Map sustain</text>
+    <text x="338" y="70" font-size="20">Currency</text>
+    <text x="648" y="70" font-size="20">Upgrades</text>
+  </g>
+  <g stroke="#f97316" stroke-width="4" fill="none">
+    <path d="M370 240 H 420"/>
+    <path d="M670 240 H 720"/>
+  </g>
+</svg>

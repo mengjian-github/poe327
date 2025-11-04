@@ -26,6 +26,21 @@ export type StarterGuide = StarterGuideMeta & {
 
 const REF_ROOT = path.join(process.cwd(), 'ref-pages', 'starters')
 
+// Separate transformer to keep types strict
+const imgTransformer: sanitizeHtml.Transformer = (tagName, attribs) => {
+  // If image has no src, replace with an empty span
+  if (!attribs || !('src' in attribs) || !(attribs as any).src) {
+    return { tagName: 'span', attribs: {} as sanitizeHtml.Attributes } as sanitizeHtml.Tag
+  }
+  return {
+    tagName: 'img',
+    attribs: {
+      src: String((attribs as any).src),
+      alt: (attribs as any).alt ?? '',
+    } as sanitizeHtml.Attributes,
+  } as sanitizeHtml.Tag
+}
+
 const sanitizeOptions: sanitizeHtml.IOptions = {
   allowedTags: [
     'h2',
@@ -58,16 +73,7 @@ const sanitizeOptions: sanitizeHtml.IOptions = {
     '*': ['colspan', 'rowspan'],
   },
   transformTags: {
-    img: (tagName, attribs) => {
-      if (!attribs.src) return { tagName: 'span', text: '' }
-      return {
-        tagName: 'img',
-        attribs: {
-          src: attribs.src,
-          alt: attribs.alt ?? '',
-        },
-      }
-    },
+    img: imgTransformer,
   },
   textFilter(text) {
     return text.replace(/\u00a0/g, ' ')
@@ -230,7 +236,8 @@ export async function getStarterGuide(slug: string): Promise<StarterGuide> {
     }
     const id = headingId(text)
     $el.attr('id', id)
-    const level = Number(el.tagName.replace('h', '')) || 2
+    const tag = (el as any).tagName ?? 'h2'
+    const level = Number(String(tag).replace('h', '')) || 2
     headings.push({ id, text, level })
   })
 

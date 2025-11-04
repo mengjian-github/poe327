@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Strictness presets">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f18"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+  <g transform="translate(200,160)">
+    <text x="0" y="-20" font-family="Inter,Arial,sans-serif" font-size="24" fill="#e5e7eb">Strictness presets</text>
+    <g>
+      <text x="0" y="30" fill="#93c5fd" font-size="18" font-family="Inter,Arial,sans-serif">Campaign</text>
+      <rect x="160" y="10" width="500" height="20" rx="10" fill="#24304a"/>
+      <rect x="160" y="10" width="180" height="20" rx="10" fill="#22c55e"/>
+    </g>
+    <g>
+      <text x="0" y="80" fill="#93c5fd" font-size="18" font-family="Inter,Arial,sans-serif">Semi Strict</text>
+      <rect x="160" y="60" width="500" height="20" rx="10" fill="#24304a"/>
+      <rect x="160" y="60" width="300" height="20" rx="10" fill="#f59e0b"/>
+    </g>
+    <g>
+      <text x="0" y="130" fill="#93c5fd" font-size="18" font-family="Inter,Arial,sans-serif">Tight Strict</text>
+      <rect x="160" y="110" width="500" height="20" rx="10" fill="#24304a"/>
+      <rect x="160" y="110" width="380" height="20" rx="10" fill="#f97316"/>
+    </g>
+    <g>
+      <text x="0" y="180" fill="#93c5fd" font-size="18" font-family="Inter,Arial,sans-serif">Very Strict</text>
+      <rect x="160" y="160" width="500" height="20" rx="10" fill="#24304a"/>
+      <rect x="160" y="160" width="460" height="20" rx="10" fill="#ef4444"/>
+    </g>
+  </g>
+</svg>

@@ -4,97 +4,164 @@ import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
+// Simpler, beginner‑friendly metrics for fast scanning (English site)
 const heroMetrics = [
-  { label: 'Sync cadence', value: 'Nightly poe 3.27 loot filter commits · 6:00 PM PST' },
-  { label: 'Filter variants', value: '6 poe 3.27 loot filter profiles · Campaign to Uber bosses' },
-  { label: 'Sound cues', value: '21 poe 3.27 loot filter audio hooks keyed to tier 0-3' },
+  { label: 'Setup time', value: '5 minutes · copy, enable, test' },
+  { label: 'Profiles included', value: 'Campaign / Semi Strict / Tight Strict' },
+  { label: 'Updates', value: 'Automatic poe 3.27 loot filter refresh or manual copy' },
 ]
 
-const setupPillars = [
-  'Download the baseline poe 3.27 loot filter package, unzip it into My Games\\Path of Exile\\ and mirror the files into your Steam Sync folder before league start.',
-  'Log into FilterBlade, import the poe 3.27 loot filter bundle, and switch the Refresh button to Manual so you can control when Genesis Tree currency rules are pushed live.',
-  'Map your champion archetype to the right poe 3.27 loot filter variant: Tight Strict for Breach speed farmers, Semi Strict for atlas explorers, and Racing for campaign alts.',
+// Step‑by‑step, written for beginners in English
+const setupSteps = [
+  {
+    title: 'Step 1 · Download and place files',
+    body:
+      'Download the poe 3.27 loot filter zip and extract it into My Games\\Path of Exile\\ (same for Steam). If the game is open, you will reload it in the next step.',
+    image: '/images/hero-keepers.jpg',
+    alt: 'Copying the loot filter files into the Path of Exile folder',
+  },
+  {
+    title: 'Step 2 · Enable in game',
+    body:
+      'In game: press Escape → Options → Game → Item Filter, then select your newly copied poe 3.27 loot filter. Save and run a small map to confirm the sounds trigger.',
+    image: '/images/keepers-async.jpg',
+    alt: 'Selecting the item filter in the options menu',
+  },
+  {
+    title: 'Step 3 · Pick a strictness',
+    body:
+      'Use Campaign or Semi Strict while leveling. If your screen gets cluttered in maps, switch to a tighter poe 3.27 loot filter (compare options below).',
+    image: '/images/keepers-encounter.jpg',
+    alt: 'Strictness presets comparison',
+  },
+  {
+    title: 'Step 4 · Keep it updated',
+    body:
+      'Fast path: FilterBlade one‑click update. Full control: manually download the latest poe 3.27 loot filter and overwrite the old file when needed.',
+    image: '/images/genesis-tree.jpg',
+    alt: 'Update via automation or manual download',
+  },
+  {
+    title: 'Step 5 · Learn the cues',
+    body:
+      'High value drops have louder sounds and bright beams. Once you learn your poe 3.27 loot filter sound cues, mapping speed improves a lot.',
+    image: '/images/foulborn-loot.jpg',
+    alt: 'Examples of high‑value colors and beams',
+  },
 ]
 
+// Friendly explanations for what colors / beams / sounds mean
 const tierHighlights = [
   {
-    title: 'Tier 0 Spotlight',
+    title: 'Tier 0 · Always stop and loot',
     description:
-      'Reserve tier 0 for mirror-tier bases, six-links, and raw Divine drops that should always bully the audio mix. The poe 3.27 loot filter soundstage uses a brass fanfare plus red beam to prevent Genesis Tree Delirium chokes from hiding premium loot.',
-    footer: 'Add a second "Filter ID" label so trade partners see the poe 3.27 loot filter version in chat logs.',
+      'Mirror‑tier bases, six‑links, and raw Divines use the loudest sound and prominent beams. The poe 3.27 loot filter makes these stand out from all background noise.',
+    footer: 'Add a visible version tag so party members can reference your filter in chat.',
   },
   {
-    title: 'Tier 1 Influence Grid',
+    title: 'Tier 1 · Valuable and league pieces',
     description:
-      'Cluster the Breach ring bases, Atlas-influenced armours, and gold-stacked Expedition artifacts under tier 1. Coloring them teal in the poe 3.27 loot filter palette separates them from Foulborn rares and keeps async trade scouts responsive.',
-    footer: 'Blend the poe 3.27 loot filter teal with 65% opacity to avoid glare on white sand tilesets.',
+      'Influenced armours, Breach ring bases, Expedition artifacts, etc. use bright colors and borders. Even at speed you will notice what the poe 3.27 loot filter wants you to pick up.',
+    footer: 'Lower border opacity slightly to avoid glare on bright tilesets.',
   },
   {
-    title: 'Tier 2 Sustain Loop',
+    title: 'Tier 2 · Mapping sustain',
     description:
-      'Tier 2 handles rolling map sustain, essence catchalls, and Genesis Tree graft catalysts. The poe 3.27 loot filter attaches mid-weight bells so you hear them while clearing bomber packs at a sprint.',
-    footer: 'Flag corrupted essences and four-socket bases to glow purple inside the poe 3.27 loot filter for Ailith Hive prep runs.',
+      'Maps, essences, and common fragments keep your engine running. The poe 3.27 loot filter assigns medium‑weight cues so they don’t drown out top tier drops.',
+    footer: 'Optional: add purple glow for corrupted essences and 4‑socket bases for early crafting.',
   },
 ]
 
 const colorRules = [
-  'Assign warm orange text to scarabs, Expedition logbooks, and Elder/Shaper fragments so the poe 3.27 loot filter keeps your breach stash tidy at a glance.',
-  'Give cold blue backgrounds to Delirium orbs, Maven writs, and five-way simulacrum splinters; this poe 3.27 loot filter trick makes blighted maps pop against volcanic tilesets.',
-  'Reserve white-blue hybrid beams for jewels and cluster jewel bases to telegraph poe 3.27 loot filter upgrades for Bloodline ascendancies.',
+  'Warm colors (orange/gold) + clear border + strong sound for high value so you can lock on instantly.',
+  'Utility items (Simulacrum splinters, Breach, invitations) use cool backgrounds: readable but not distracting.',
+  'Jewels and cluster jewels share a consistent beam color so “color → category” becomes muscle memory.',
 ]
 
 const mappingUpgrades = [
   {
-    title: 'Genesis Tree Targets',
+    title: 'Small mapping upgrades',
     points: [
-      'Tag Graftblood currency and Living Grafts with a premium overlay so the poe 3.27 loot filter distinguishes them from regular breach shards.',
-      'Stack map tier separators every three levels; this poe 3.27 loot filter rhythm keeps Atlas progression on-script during Scarab rotations.',
-      'Throw in custom minimap icons for Hive Defense objectives; aligning icons with poe 3.27 loot filter colors stops party members from skipping Ailith escorts.',
+      'Thicker borders and clearer name colors for common Atlas currency so upgrades feel visible in your poe 3.27 loot filter.',
+      'Add a subtle map tier divider every 3 tiers to decide when to increase strictness.',
+      'Standardize key colors/icons in your party so nobody misses objectives.',
     ],
-    image: '/images/poe-3-27-loot-filter-tiers.svg',
-    alt: 'Custom tier bars illustrating poe 3.27 loot filter color priorities',
+    image: '/images/keepers-hive.jpg',
+    alt: 'Color and divider examples for mapping drops',
   },
   {
-    title: 'Automation & Versioning',
+    title: 'Auto‑update and changelog',
     points: [
-      'Schedule a nightly Git pull on the NeverSink branch, merge it into your poe 3.27 loot filter fork, and resolve strictness conflicts before peak play hours.',
-      'Push the output to FilterBlade and FilterBlast after verifying the poe 3.27 loot filter pack compiles without missing sound files.',
-      'Archive every milestone in a changelog markdown so teammates can diff poe 3.27 loot filter tweaks between hotfixes 6 and 7.',
+      'Automatic: log into FilterBlade and one‑click refresh to the latest poe 3.27 loot filter.',
+      'Manual: download and overwrite periodically; test with “Reload Filter” in town to catch errors.',
+      'Write a one‑line changelog per tweak so you can compare and roll back easily.',
     ],
-    image: '/images/poe-3-27-loot-filter-automation.svg',
-    alt: 'Automation checklist showing poe 3.27 loot filter sync steps',
+    image: '/images/graft-equipment.jpg',
+    alt: 'Update flow using automation or manual download',
   },
 ]
 
 const faqItems = [
   {
-    title: 'How strict should I go on day one?',
+    title: 'Which strictness for day one?',
     description:
-      'Start Semi Strict unless your team races; the poe 3.27 loot filter in Campaign Strict can hide early four-links you still need. Bump to Tight Strict once you enter yellow maps and the Genesis Tree starts spitting currency clusters.',
+      'Most players start with Semi Strict; brand‑new players or those stuck while leveling can use Campaign. In yellow maps, switch to a tighter poe 3.27 loot filter.',
   },
   {
-    title: 'Where do I store league-specific rules?',
+    title: 'Do I need FilterBlade?',
     description:
-      'Create a dedicated block in the JSON export labeled Keepers of the Flame so your poe 3.27 loot filter tracks hive hands, Dreamer’s Flame catalysts, and async trade favors separately.',
+      'Recommended. One‑click updates, diff preview, and fewer manual edit mistakes. Even if you hand‑edit, FilterBlade keeps your poe 3.27 loot filter maintenance safer.',
   },
   {
-    title: 'Do I still need FilterBlade if I edit by hand?',
+    title: 'Don’t like a color or sound?',
     description:
-      'Yes. FilterBlade’s diff viewer highlights what the poe 3.27 loot filter changed between NeverSink pushes, making it faster to catch broken beams or typos introduced by manual edits.',
+      'Test in town first, then adjust a little at a time. Swap to familiar sounds/colors while keeping top‑value items loud in your poe 3.27 loot filter.',
+  },
+]
+
+// Strictness quick comparison cards
+const strictnessCards = [
+  {
+    title: 'Campaign',
+    desc:
+      'For leveling and very fresh characters. Shows more rares, 4‑links, and useful bases. Safest start for a brand‑new poe 3.27 loot filter user.',
+    pros: ['Easiest to gear early', 'Good for story acts', 'Low risk of hiding needed items'],
+    cons: ['Cluttered once you reach early maps'],
+  },
+  {
+    title: 'Semi Strict',
+    desc:
+      'Default for most players on early maps. Hides obvious junk while preserving currency, maps, and valuable bases in your poe 3.27 loot filter.',
+    pros: ['Cleaner screen', 'Good for early mapping', 'Easy to learn cues'],
+    cons: ['May still show some mid‑tier clutter'],
+  },
+  {
+    title: 'Tight Strict',
+    desc:
+      'When your atlas and gear stabilize. Cuts more mid‑tier drops so highlights are obvious. A popular poe 3.27 loot filter choice for sustained mapping.',
+    pros: ['Fast mapping', 'High signal‑to‑noise', 'Great for speed farming'],
+    cons: ['Occasional “I wish I saw that” moments if over‑strict for your build'],
+  },
+  {
+    title: 'Very Strict',
+    desc:
+      'Use for high‑end farming or party play with dedicated looters. The poe 3.27 loot filter keeps almost only premium drops.',
+    pros: ['Minimal clutter', 'Easy to track premium drops'],
+    cons: ['Can hide useful crafting bases if you are under‑geared'],
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'PoE 3.27 Loot Filter Command Center',
+  title: 'PoE 3.27 Loot Filter Beginner Guide',
   description:
-    'Build, sync, and test every poe 3.27 loot filter variant for Keepers of the Flame with tier breakdowns, color logic, automation scripts, and FAQ support.',
+    'A no‑frills poe 3.27 loot filter guide: download, enable, pick strictness, stay updated, and avoid common mistakes for smoother mapping.',
   alternates: {
     canonical: 'https://poe327.net/poe-3-27-loot-filter',
   },
   openGraph: {
-    title: 'PoE 3.27 Loot Filter Command Center',
+    title: 'PoE 3.27 Loot Filter Beginner Guide',
     description:
-      'Step-by-step poe 3.27 loot filter guidance covering setup, tier tuning, automation, and live league updates.',
+      'Step‑by‑step poe 3.27 loot filter setup and updates from campaign to maps with clear cues and safe defaults.',
     url: 'https://poe327.net/poe-3-27-loot-filter',
     siteName: 'poe327',
     type: 'article',
@@ -103,15 +170,15 @@ export const metadata: Metadata = {
         url: '/images/poe-3-27-loot-filter-hero.svg',
         width: 1200,
         height: 630,
-        alt: 'PoE 3.27 loot filter hero artwork',
+        alt: 'PoE 3.27 loot filter guide artwork',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PoE 3.27 Loot Filter Command Center',
+    title: 'PoE 3.27 Loot Filter Beginner Guide',
     description:
-      'Upgrade the poe 3.27 loot filter for Keepers of the Flame with campaign-to-uber boss rulesets.',
+      'Beginner‑friendly poe 3.27 loot filter walkthrough. Install in 5 minutes and verify cues before mapping.',
     images: ['/images/poe-3-27-loot-filter-hero.svg'],
   },
 }
@@ -120,54 +187,96 @@ export default function LootFilterPage() {
   return (
     <>
       <PageHero
-        title="PoE 3.27 Loot Filter Command Center"
-        description="This poe 3.27 loot filter inner page walks you through setup, tier curation, automation, and party-ready sharing so the Keepers of the Flame grind stays efficient from the beach to Uber bosses."
+        title="PoE 3.27 Loot Filter Beginner Guide"
+        description="What a filter is, how to install and enable it, how to choose strictness, and how to keep it updated. Follow along and get your poe 3.27 loot filter working in minutes. This poe 3.27 loot filter guide stays up to date every league."
         image="/images/poe-3-27-loot-filter-hero.svg"
         kicker="Keepers of the Flame"
         metrics={heroMetrics}
+        actions={
+          <>
+            <a
+              href="https://www.filterblade.xyz/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary"
+            >
+              Open FilterBlade
+            </a>
+            <a
+              href="https://github.com/NeverSinkDev/NeverSink-Filter/releases"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-ghost"
+            >
+              Download Sample Filter
+            </a>
+          </>
+        }
       />
 
       <div className="container flex justify-center">
-        <LastUpdated date="November 3, 2025 — league sources, FilterBlade exports, and Genesis Tree testing labs" />
+        <LastUpdated date="November 4, 2025 — Updated from FilterBlade and community testing" />
+      </div>
+
+      <div className="container mt-4 text-white/80">
+        <p>
+          This poe 3.27 loot filter is tuned for beginners: clear sounds and beams, sensible defaults, and simple upgrades.
+          The poe 3.27 loot filter ships with Campaign, Semi Strict, and Tight Strict presets.
+          Updating your poe 3.27 loot filter is one‑click with FilterBlade or a fast manual copy.
+        </p>
       </div>
 
       <Section
         id="setup"
-        title="League Launch Setup"
-        desc="Frame your poe 3.27 loot filter architecture before the servers unlock so your party can sprint through acts without rummaging through junk drops."
-        kicker="poe 3.27 loot filter briefing"
+        title="Install and Verify in 5 Steps"
+        desc="Follow these steps to install and confirm your poe 3.27 loot filter works."
+        kicker="Quick Start"
       >
-        <div className="grid gap-8 lg:grid-cols-[3fr_2fr]">
-          <div className="space-y-4 text-white/80">
-            <p>
-              Use a versioned folder naming scheme—something like PoE327\\Filters\\Strict—to stop overlapping archives from corrupting the poe 3.27 loot filter core files. This poe 3.27 loot filter master archive keeps your repository tidy even when multiple teammates push edits. Keep back-ups of the default filter just in case Hotfix 7 introduces a new base that the parser does not recognize on day one.
-            </p>
-            <p>
-              Once the files land, open the in-game UI, hit the reload button, and cycle each poe 3.27 loot filter variant. This test proves the sound packs load correctly and ensures your Delirium five-stacks ring out when a Mirror shows up during the launch rush.
-            </p>
-            <ul className="list-disc space-y-3 pl-5">
-              {setupPillars.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
-            <Image
-              src="/images/poe-3-27-loot-filter-tiers.svg"
-              alt="Visualising tier priorities inside the poe 3.27 loot filter"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 480px, 100vw"
-            />
-          </div>
+        <div className="space-y-8">
+          {setupSteps.map((s) => (
+            <div key={s.title} className="grid gap-6 lg:grid-cols-[2fr_3fr] items-start">
+              <div className="relative h-60 overflow-hidden rounded-2xl border border-white/10">
+                <Image src={s.image} alt={s.alt} fill className="object-cover" sizes="(min-width: 1024px) 420px, 100vw" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">{s.title}</h3>
+                <p className="text-white/80">{s.body}</p>
+              </div>
+            </div>
+          ))}
         </div>
+        <p className="mt-6 text-sm text-white/70">If you play multiple characters, keep separate copies of your poe 3.27 loot filter for each strictness.</p>
+      </Section>
+
+      <Section
+        id="strictness"
+        title="Strictness Quick Comparison"
+        desc="Pick the preset that fits your character and content. You can switch your poe 3.27 loot filter any time without restarting. You can also pin multiple poe 3.27 loot filter files and swap quickly."
+        kicker="Choose Wisely"
+      >
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {strictnessCards.map((s) => (
+            <Card key={s.title} title={s.title}>
+              <p>{s.desc}</p>
+              <ul className="list-disc pl-5 text-white/75 space-y-1 mt-2">
+                {s.pros && (
+                  <li><strong>Pros:</strong> {s.pros.join(', ')}</li>
+                )}
+                {s.cons && (
+                  <li><strong>Cons:</strong> {s.cons.join(', ')}</li>
+                )}
+              </ul>
+            </Card>
+          ))}
+        </div>
+        <p className="mt-6 text-sm text-white/70">You can swap your poe 3.27 loot filter preset anytime via Options → Game → Item Filter.</p>
       </Section>
 
       <Section
         id="tiers"
-        title="Tier Priorities and Audio"
-        desc="Dial in the beams, backgrounds, and alert sounds so the poe 3.27 loot filter shouts when it matters and fades when it does not."
-        kicker="poe 3.27 loot filter tiers"
+        title="How to Read Colors, Beams, and Sounds"
+        desc="Plain‑English explanations so you can quickly understand your poe 3.27 loot filter cues."
+        kicker="Visuals and Audio"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {tierHighlights.map((card) => (
@@ -176,35 +285,29 @@ export default function LootFilterPage() {
             </Card>
           ))}
         </div>
-        <p className="mt-6 text-sm text-white/70">
-          The poe 3.27 loot filter priority grid keeps mirror-tier drops loud every session.
-        </p>
+        <p className="mt-6 text-sm text-white/70">Once these rules click, it is easier to decide when to stop or sprint — these cues are built into the poe 3.27 loot filter.</p>
       </Section>
 
       <Section
         id="colors"
-        title="Color Philosophy"
-        desc="Recolor the baseline palette so your poe 3.27 loot filter mirrors Keepers of the Flame economics without hiding legacy chase items."
-        kicker="poe 3.27 loot filter colors"
+        title="Color Tips for Beginners"
+        desc="Readable, quiet defaults that scale as you get stricter. The poe 3.27 loot filter follows this approach."
+        kicker="Color and Readability"
       >
         <div className="grid gap-8 lg:grid-cols-[2fr_3fr]">
           <div className="space-y-4 text-white/80">
-            <p>
-              Color psychology matters because the poe 3.27 loot filter should feel familiar even when you spike strictness. Warm hues shout value, cool hues calm stray rares, and neutral beams handle quick glances while you escort Ailith through Hive sieges.
-            </p>
+            <p>Color psychology matters: warm = high value, cool = functional cues, neutral = quick recognition without noise.</p>
             <ul className="list-disc space-y-3 pl-5">
               {colorRules.map((rule) => (
                 <li key={rule}>{rule}</li>
               ))}
             </ul>
-            <p className="text-sm text-white/70">
-              Keep a screenshot of your palette in the repo so the poe 3.27 loot filter refresh stays faithful when you hand editing duty to another officer.
-            </p>
+            <p className="text-sm text-white/70">Screenshot your palette and keep it in the repo so updates stay consistent. The poe 3.27 loot filter palette aims for readability first.</p>
           </div>
           <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
             <Image
-              src="/images/poe-3-27-loot-filter-automation.svg"
-              alt="Automation overlay demonstrating poe 3.27 loot filter scripting"
+              src="/images/keepers-kineticrain.jpg"
+              alt="Turning color and sound rules into a maintainable template"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 480px, 100vw"
@@ -215,9 +318,9 @@ export default function LootFilterPage() {
 
       <Section
         id="mapping"
-        title="Mapping & Automation"
-        desc="Upkeep your mapping roster by rotating strictness, logging edits, and syncing with teammates so every poe 3.27 loot filter run stays predictable."
-        kicker="poe 3.27 loot filter upkeep"
+        title="Updates and Maintenance"
+        desc="Do three things: increase strictness as needed, update regularly, and keep brief notes. Your poe 3.27 loot filter stays reliable."
+        kicker="Routine Care"
       >
         <div className="space-y-10">
           {mappingUpgrades.map((block) => (
@@ -241,17 +344,33 @@ export default function LootFilterPage() {
               </div>
             </div>
           ))}
-          <p className="text-white/70">
-            Close each play session by exporting the changelog and pinging your squad so the poe 3.27 loot filter stack stays synchronized across every launcher and private league.
-          </p>
+          <p className="text-white/70">End each session with a short note of what changed; you will thank yourself later. Keep a backup copy of your poe 3.27 loot filter before bigger edits.</p>
+        </div>
+      </Section>
+
+      <Section
+        id="downloads"
+        title="Downloads and Tools"
+        desc="Grab the latest files and editors so your poe 3.27 loot filter stays current and easy to maintain."
+        kicker="Stay Updated"
+      >
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="FilterBlade (Editor)">
+            <p>Safest way to manage and update your poe 3.27 loot filter with one‑click refresh and visual diffs.</p>
+            <a className="btn btn-primary mt-3 inline-flex" href="https://www.filterblade.xyz/" target="_blank" rel="noreferrer">Open FilterBlade</a>
+          </Card>
+          <Card title="NeverSink Releases (Downloads)">
+            <p>Download the latest packaged poe 3.27 loot filter zips if you prefer manual updates and local backups.</p>
+            <a className="btn btn-ghost mt-3 inline-flex" href="https://github.com/NeverSinkDev/NeverSink-Filter/releases" target="_blank" rel="noreferrer">Download Sample Filter</a>
+          </Card>
         </div>
       </Section>
 
       <Section
         id="faq"
-        title="FAQs and Best Practices"
-        desc="Answer the common pain points so the poe 3.27 loot filter stays aligned across your roster and community."
-        kicker="poe 3.27 loot filter FAQ"
+        title="FAQ"
+        desc="Clear answers to common beginner questions so your poe 3.27 loot filter helps, not hinders. Keep this poe 3.27 loot filter page bookmarked for updates."
+        kicker="FAQ"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {faqItems.map((faq) => (

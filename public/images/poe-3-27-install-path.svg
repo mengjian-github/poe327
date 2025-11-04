@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Install path illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="100%" stop-color="#121826"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="180" y="180" width="840" height="270" rx="20" fill="#1b2436" stroke="#ffffff22"/>
+  <path d="M220 240h120l20 24h300a16 16 0 0 1 16 16v90a16 16 0 0 1-16 16H220a16 16 0 0 1-16-16v-114a16 16 0 0 1 16-16z" fill="#24304a" stroke="#ffffff22"/>
+  <text x="240" y="315" font-family="Inter,Arial,sans-serif" font-size="28" fill="#e5e7eb">My Games / Path of Exile /</text>
+  <path d="M960 330l-28-16v32z" fill="#f97316"/>
+  <rect x="938" y="314" width="160" height="32" rx="6" fill="#f97316" opacity="0.15"/>
+  <text x="950" y="335" font-family="Inter,Arial,sans-serif" font-size="18" fill="#f97316">Copy filter here</text>
+</svg>
