@@ -1,7 +1,20 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  async redirects() {
+    return [
+      {
+        source: '/poe-syndicate-cheat-sheet-3-27',
+        destination: '/poe-betrayal-cheat-sheet-3-27',
+        permanent: true,
+      },
+      {
+        source: '/poe-syndicate-cheat-sheet-3-27/',
+        destination: '/poe-betrayal-cheat-sheet-3-27',
+        permanent: true,
+      },
+    ]
+  },
+}
 
-export default nextConfig;
+export default nextConfig

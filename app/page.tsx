@@ -105,7 +105,7 @@ const hubCards: HubCard[] = [
   },
   {
     title: 'Syndicate Cheat Sheet',
-    href: '/poe-syndicate-cheat-sheet-3-27',
+    href: '/poe-betrayal-cheat-sheet-3-27#canvas',
     description:
       'Keep poe league 3.27 Betrayal target priorities, safehouse loot tables, and board snapshots in one scrollable reference.',
     meta: 'Updated for poe league 3.27 Bloodline ascendancy rewards.',
@@ -224,7 +224,7 @@ const visualSections: VisualSection[] = [
       'Endgame prep outlines atlas trees, boss sequencing, and graft experiments so the poe league 3.27 atlas goals stay in sync with your roster’s gear curve. Lean on the Syndicate cheat sheet to assign safehouse roles and rotate through Expedition or Delve pivots whenever Breach loot slows.',
     links: [
       {
-        href: '/poe-syndicate-cheat-sheet-3-27',
+        href: '/poe-betrayal-cheat-sheet-3-27#canvas',
         label: 'Syndicate board tracker',
         description: 'Assign safehouse rewards and Betrayal targets before mapping blocks begin inside the poe league 3.27 cheat sheet.',
       },

@@ -34,7 +34,7 @@ const navItems = [
   },
   {
     label: 'Cheat Sheet',
-    href: '/poe-syndicate-cheat-sheet-3-27',
+    href: '/poe-betrayal-cheat-sheet-3-27#canvas',
   },
   {
     label: 'Patch Notes',

@@ -99,7 +99,7 @@ gtag('config', 'G-D8GENWGNMS');`}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/poe-syndicate-cheat-sheet-3-27" className="transition hover:text-white">
+                    <Link href="/poe-betrayal-cheat-sheet-3-27#canvas" className="transition hover:text-white">
                       Syndicate Cheat Sheet
                     </Link>
                   </li>

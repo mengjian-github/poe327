@@ -165,3 +165,12 @@ a:not(.btn):hover {
     @apply border-l-4 border-brand/70 bg-white/10 px-5 py-4 text-white/80 italic;
   }
 }
+
+/* Form control overrides to keep dropdown text legible on white OS menus */
+select option {
+  color: #111;
+  background: #fff;
+}
+select optgroup {
+  color: #111;
+}
