@@ -4,287 +4,290 @@ import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
+// Page rewrite: beginner‑oriented layout and copy. Keep the exact phrase
+// "Awakened PoE Trade 3.27" visible throughout to reach a 3–5% keyword density
+// without hurting readability.
+
 const heroMetrics = [
-  { label: 'Overlay refresh', value: 'Awakened PoE Trade 3.27 polls · every 3 seconds during peak' },
-  { label: 'Macro library', value: '9 Awakened PoE Trade 3.27 whisper presets · stash to bulk sales' },
-  { label: 'OCR upgrades', value: '4 Awakened PoE Trade 3.27 capture modes · implicit, relic, sextant, gem' },
+  { label: 'Setup time', value: '5–8 minutes · beginner friendly' },
+  { label: 'Keybinds', value: 'Price check · Bulk sell · Whisper copier' },
+  { label: 'Platforms', value: 'Windows (native) · Linux (Wine)' },
 ]
 
-const setupChecklist = [
-  'Launch Awakened PoE Trade 3.27 in sandbox mode first; this records window bounds before overlay hooks attach.',
-  'Map keybinds so Awakened PoE Trade 3.27 price checks never collide with flask piano or movement skills.',
-  'Sync stash tabs with the Awakened PoE Trade 3.27 profile exporter, then label premium tabs by archetype.',
+const quickStart = [
+  'Install Awakened PoE Trade 3.27, then launch Path of Exile in windowed fullscreen.',
+  'Run the first‑time wizard in Awakened PoE Trade 3.27 to calibrate OCR and pick your hotkeys.',
+  'Hover an item and press your price‑check key to open the overlay.',
+  'Copy the best whisper with Awakened PoE Trade 3.27 and paste it in‑game to contact the seller.',
+  'Enable bulk selling, scan a stash tab, and post the generated listings.',
 ]
 
-const automationMatrix = [
-  {
-    title: 'Bulk Pricing Console',
-    description:
-      'Enable the spreadsheet bridge so Awakened PoE Trade 3.27 pushes whisper-ready prices into your Google Sheet. Toggle the rounding rule to 5% below the live chaos ratio when you want items to move instantly.',
-    footer: 'Color-code rows based on hideout delivery ETA to prioritise swaps.',
-  },
-  {
-    title: 'League Mechanic Scanner',
-    description:
-      'Activate the Genesis Tree module inside Awakened PoE Trade 3.27. It tags hive-crafted items with rarity tiers and highlights graft-ready bases with a teal overlay, matching the official iconography.',
-    footer: 'Pair with stash affinity filters to keep fractured items separate.',
-  },
-  {
-    title: 'Multi-Account Relay',
-    description:
-      'Use the profile switcher to run softcore and hardcore inventories side by side. Awakened PoE Trade 3.27 keeps hotkeys isolated so alt-tab swaps do not leak whispers to the wrong account.',
-    footer: 'Back up config.json weekly and store a copy in cloud sync.',
-  },
+const mustKnowShortcuts = [
+  { combo: 'Ctrl + D', tip: 'Instant price check overlay via Awakened PoE Trade 3.27.' },
+  { combo: 'Alt + W', tip: 'Copy best‑match whisper from Awakened PoE Trade 3.27.' },
+  { combo: 'Alt + S', tip: 'Bulk sell: scan current stash tab and build listings.' },
+  { combo: 'Ctrl + C', tip: 'Copy item text first if the overlay needs a re‑scan.' },
 ]
 
-const troubleshootingSteps = [
-  'If overlays drift, rerun the Awakened PoE Trade 3.27 calibration wizard and reset DPI scaling to 100% before you relaunch.',
-  'When clipboard whispers fail, clear the temp cache folder and restart Awakened PoE Trade 3.27 with administrator permissions.',
-  'For false positives on relic OCR, capture new samples under neutral lighting so Awakened PoE Trade 3.27 retrains on sharper text.',
-]
-
-const roadmapItems = [
-  {
-    title: 'Patch-Synced Presets',
-    points: [
-      'Subscribe to the nightly preset feed so Awakened PoE Trade 3.27 auto-imports hotfix-ready pricing after each mini-patch.',
-      'Document every manual override in your changelog; future Awakened PoE Trade 3.27 updates merge around those deltas cleanly.',
-      'Archive legacy profiles so you can roll back if Awakened PoE Trade 3.27 introduces experimental UI toggles you dislike.',
-    ],
-    image: '/images/keepers-hive.jpg',
-    alt: 'Overlay presets applied during a Keepers of the Flame hive defense map',
-  },
-  {
-    title: 'Guild Signal Routing',
-    points: [
-      'Connect Awakened PoE Trade 3.27 webhooks to your Discord economy channel with color-coded embeds.',
-      'Build automations that forward Awakened PoE Trade 3.27 live search hits into Airtable for tracking flips.',
-      'Schedule weekly audits so officers confirm Awakened PoE Trade 3.27 API keys rotate on time.',
-    ],
-    image: '/images/keepers-async.jpg',
-    alt: 'Guild members coordinating trades with overlays layered on chat',
-  },
-]
-
-const faqItems = [
-  {
-    question: 'Does Awakened PoE Trade 3.27 break official macro policies?',
-    answer:
-      'The tool stays policy-compliant when you avoid automated clicks. Awakened PoE Trade 3.27 only reads screen data and builds clipboard whispers, so leave the optional auto-invite toggle off during league start.',
-  },
-  {
-    question: 'How do I share configs across the team?',
-    answer:
-      'Export your layout JSON, upload it to a shared drive, and tag the file with your account name. Awakened PoE Trade 3.27 reads that package instantly, letting teammates import identical hotkeys.',
-  },
-  {
-    question: 'What hardware minimizes capture lag?',
-    answer:
-      'Run Awakened PoE Trade 3.27 on a dedicated monitor at 1440p or lower. Pair with GPU scaling disabled and windowed fullscreen to keep OCR capture latency under 60 milliseconds.',
-  },
-]
-
-const resourceCards = [
-  {
-    title: 'Overlay Change Log',
-    description:
-      'Track every Awakened PoE Trade 3.27 patch on GitHub and highlight fixes tied to Keepers of the Flame mechanics. Knowing when OCR or stash sync shifts prevents mid-map surprises.',
-    footer: 'Subscribe to release notifications so updates download before prime time.',
-  },
-  {
-    title: 'Macro Reference Library',
-    description:
-      'Store Awakened PoE Trade 3.27 whisper templates alongside sample trade dialogues and guild etiquette tips. Rotating scripts keep negotiations consistent across time zones.',
-    footer: 'Refresh after each hotfix to reflect new currency ratios.',
-  },
-  {
-    title: 'Support Escalation Map',
-    description:
-      'Outline the direct Discord channels, community moderators, and official bug tracker routes. When Awakened PoE Trade 3.27 misbehaves, you can escalate with logs attached immediately.',
-    footer: 'Maintain copies of diagnostic bundles for the last three sessions.',
-  },
+const troubleshooting = [
+  'Overlay offset: set Windows display scale to 100% and rerun the calibration in Awakened PoE Trade 3.27.',
+  'No whispers copied: close PoE, restart Awakened PoE Trade 3.27 as Administrator, then try again.',
+  'OCR misreads: switch to a brighter hideout, increase contrast, and repeat the capture.',
 ]
 
 export const metadata: Metadata = {
-  title: 'Awakened PoE Trade 3.27 Survival Kit',
+  title: 'Awakened PoE Trade 3.27 — Download, Setup & Beginner Guide',
   description:
-    'Configure, automate, and troubleshoot Awakened PoE Trade 3.27 with overlays, OCR upgrades, webhooks, and policy-safe macro templates for Keepers of the Flame.',
-  alternates: {
-    canonical: 'https://poe327.net/awakened-poe-trade-3-27',
-  },
+    "Beginner-friendly Awakened PoE Trade 3.27 guide. Download, install, price check, bulk sell, and trade faster in PoE 3.27 with safe overlays and clear steps.",
+  alternates: { canonical: '/awakened-poe-trade-3-27' },
   openGraph: {
-    title: 'Awakened PoE Trade 3.27 Survival Kit',
+    title: 'Awakened PoE Trade 3.27 — Download & Setup',
     description:
-      'Step-by-step Awakened PoE Trade 3.27 primer covering overlay calibration, automation modules, guild webhooks, and recovery workflows.',
-    url: 'https://poe327.net/awakened-poe-trade-3-27',
-    siteName: 'poe327',
-    type: 'article',
+      "Install Awakened PoE Trade 3.27 in minutes with step-by-step setup, keybinds, screenshots, bulk selling, and quick troubleshooting for PoE 3.27.",
+    url: '/awakened-poe-trade-3-27',
     images: [
-      {
-        url: '/images/keepers-uberboss.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Exile preparing gear with overlays during an uber boss warmup',
-      },
+      { url: '/images/poe327-hero.webp', width: 1200, height: 630, alt: 'Awakened PoE Trade overlay demo' },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Awakened PoE Trade 3.27 Survival Kit',
-    description:
-      'Master Awakened PoE Trade 3.27 calibration, automation, and troubleshooting so your league grind stays efficient.',
-    images: ['/images/keepers-uberboss.jpg'],
+    type: 'article',
   },
 }
 
-export default function AwakenedPoeTradePage() {
+export default function Page() {
   return (
-    <>
+    <main>
       <PageHero
-        title="Awakened PoE Trade 3.27 Survival Kit"
-        description="This Awakened PoE Trade 3.27 field guide walks through calibration, automation, and escalation steps so the overlay stays rock solid from day one of Keepers of the Flame."
-        image="/images/keepers-uberboss.jpg"
-        kicker="Keepers of the Flame"
+        title="Awakened PoE Trade 3.27 — Beginner Guide & Download"
+        description="Everything you need to start trading faster: download Awakened PoE Trade 3.27, calibrate in minutes, learn the price‑check flow, and post bulk listings with clean whispers."
+        image="/images/poe327-hero.webp"
+        kicker="Trading Tools"
         metrics={heroMetrics}
+        actions={
+          <div className="flex gap-3">
+            <a
+              href="https://github.com/SnosMe/awakened-poe-trade/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Download
+            </a>
+            <a href="#quick-start" className="btn btn-ghost">Quick Start</a>
+          </div>
+        }
       />
-
-      <div className="container flex justify-center">
-        <LastUpdated date="November 3, 2025 — compiled from Awakened PoE Trade 3.27 release notes, community feedback hubs, and in-league testing" />
+      <div className="container">
+        <LastUpdated date="Nov 2025" />
       </div>
 
       <Section
-        id="setup"
-        title="Overlay Setup Sequence"
-        desc="Lay down the foundations for a responsive Awakened PoE Trade 3.27 overlay with controlled calibration, clean keybinds, and stash-aware profiles."
-        kicker="Awakened PoE Trade 3.27 setup"
+        id="intro"
+        title="What Is Awakened PoE Trade 3.27?"
+        desc="A lightweight overlay that helps you evaluate items, find fair prices, and send ready‑to‑go whispers without leaving the game. New players benefit most from consistent, fast price checks."
       >
-        <div className="grid gap-8 lg:grid-cols-[3fr_2fr]">
-          <div className="space-y-4 text-white/80">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Price Check Overlay">
             <p>
-              Kick things off by letting Awakened PoE Trade 3.27 auto-detect your resolution. Once the overlay anchors, screenshot the layout and save it in your documents
-              folder so you can restore the grid if a crash corrupts settings. Create separate profiles for mapping, bossing, and bulk sales; toggling between them keeps
-              Awakened PoE Trade 3.27 overlays from cluttering the screen during high-stress fights.
+              Hover an item and press your hotkey. Awakened PoE Trade 3.27 opens a compact panel with live results and a
+              suggested whisper. No browser juggling required.
             </p>
+          </Card>
+          <Card title="Bulk Selling">
             <p>
-              After calibration, walk through a test map and trigger every hotkey. Verify that Awakened PoE Trade 3.27 whispers land in chat, that the compact price check
-              modal stays readable, and that stash tab snapshots update within two refresh cycles. Adjust font scaling to 90% if your monitor sits farther away; clarity is
-              key when Awakened PoE Trade 3.27 floods the overlay with modifiers.
+              Scan a stash tab and generate listings in one pass. Awakened PoE Trade 3.27 speeds up currency and fragment
+              sales while keeping your pricing consistent.
             </p>
-            <ul className="list-disc space-y-3 pl-5">
-              {setupChecklist.map((item) => (
-                <li key={item}>{item}</li>
+          </Card>
+          <Card title="Clean Whispers">
+            <p>
+              Copy a single best message and paste it in game. Awakened PoE Trade 3.27 reduces typos and saves seconds on
+              every trade during peak hours.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section
+        id="download"
+        title="Download & Install"
+        desc="Use the official release of Awakened PoE Trade 3.27, keep Windows scaling at 100%, and complete the first‑launch wizard."
+        actions={<a href="#quick-start" className="btn btn-primary">Skip to Quick Start</a>}
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Official Release">
+            <p>
+              Get Awakened PoE Trade 3.27 from the official GitHub releases page. Choose the latest Windows installer or
+              portable zip.
+            </p>
+            <a
+              className="text-brand underline"
+              href="https://github.com/SnosMe/awakened-poe-trade/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Releases →
+            </a>
+          </Card>
+          <Card title="Linux (Wine)">
+            <p>
+              Many players use Wine to run Awakened PoE Trade 3.27 on Linux. Set PoE to windowed fullscreen and standard
+              DPI, then map your hotkeys.
+            </p>
+          </Card>
+          <Card title="Keep It Updated">
+            <p>
+              League start brings frequent patches. Restart Awakened PoE Trade 3.27 daily; Awakened PoE Trade 3.27 picks
+              up fixes early when you follow GitHub releases.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section id="quick-start" title="Quick Start" desc="From install to your first successful whisper with Awakened PoE Trade 3.27.">
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="2‑Minute Setup">
+            <ol className="list-decimal pl-4 space-y-2 text-sm text-white/80">
+              {quickStart.map((s) => (
+                <li key={s}>{s}</li>
               ))}
-            </ul>
-          </div>
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
-            <Image
-              src="/images/keepers-flame-hero.jpg"
-              alt="Overlay calibration screen for Awakened PoE Trade 3.27"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 480px, 100vw"
-            />
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        id="automation"
-        title="Automation Modules"
-        desc="Wire advanced workflows into Awakened PoE Trade 3.27 so overlays feed spreadsheets, guild alerts, and live league mechanics without manual babysitting."
-        kicker="Awakened PoE Trade 3.27 automation"
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {automationMatrix.map((card) => (
-            <Card key={card.title} title={card.title} footer={card.footer}>
-              <p>{card.description}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="roadmap"
-        title="Scaling With the Patch Cycle"
-        desc="Keep Awakened PoE Trade 3.27 aligned with hotfixes, guild operations, and evolving market loops across the league."
-        kicker="Awakened PoE Trade 3.27 planning"
-      >
-        <div className="grid gap-10 lg:grid-cols-2">
-          {roadmapItems.map((item) => (
-            <div key={item.title} className="glass flex flex-col gap-5 rounded-2xl border border-white/10 p-6">
-              <div className="relative h-56 overflow-hidden rounded-xl border border-white/10">
-                <Image src={item.image} alt={item.alt} fill className="object-cover" sizes="(min-width: 1024px) 480px, 100vw" />
-              </div>
-              <div className="space-y-4 text-white/80">
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                <ul className="list-disc space-y-2 pl-5">
-                  {item.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </div>
+            </ol>
+          </Card>
+          <Card title="Overlay Preview">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10">
+              <Image src="/images/screenshots/trade-results.png" alt="Overlay preview" fill className="object-cover" />
             </div>
-          ))}
+          </Card>
         </div>
       </Section>
 
-      <Section
-        id="troubleshooting"
-        title="Troubleshooting Flow"
-        desc="When Awakened PoE Trade 3.27 hiccups, run this recovery loop before escalating to the dev team."
-        kicker="Awakened PoE Trade 3.27 support"
-      >
-        <div className="grid gap-8 lg:grid-cols-[2fr_3fr]">
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
-            <Image
-              src="/images/keepers-oshabi.jpg"
-              alt="Support workflow for Awakened PoE Trade 3.27"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 420px, 100vw"
-            />
-          </div>
-          <div className="space-y-4 text-white/80">
-            <p>
-              Log every misfire with timestamps and stash the log bundle before you reboot. Attaching that package when you contact support means the Awakened PoE Trade 3.27
-              maintainers can reproduce issues faster. If overlays refuse to render after a Windows update, reinstall the Visual C++ runtime, then rerun the Awakened PoE Trade 3.27
-              setup wizard.
-            </p>
-            <p>
-              For persistent API throttling, stagger live search intervals to 5 seconds and disable background tabs. Awakened PoE Trade 3.27 respects the official trade limits
-              but still needs breathing room during weekend surges. Keep guildmates informed via webhook status pings so everyone knows when the service stabilises.
-            </p>
-            <ul className="list-disc space-y-3 pl-5">
-              {troubleshootingSteps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        id="faq"
-        title="Operations FAQ"
-        desc="Quick answers to recurring Awakened PoE Trade 3.27 questions from league start to endgame."
-        kicker="Awakened PoE Trade 3.27 knowledge base"
-        className="pb-16"
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {faqItems.map((item) => (
-            <Card key={item.question} title={item.question}>
-              <p>{item.answer}</p>
-            </Card>
-          ))}
-        </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {resourceCards.map((item) => (
-            <Card key={item.title} title={item.title} footer={item.footer}>
-              <p>{item.description}</p>
+      <Section id="shortcuts" title="Must‑Know Shortcuts" desc="Default mappings you can customize in settings.">
+        <div className="grid gap-4 md:grid-cols-4">
+          {mustKnowShortcuts.map(({ combo, tip }) => (
+            <Card key={combo}>
+              <p>
+                <strong>{combo}</strong> — {tip}
+              </p>
             </Card>
           ))}
         </div>
       </Section>
-    </>
+
+      <Section id="how-to" title="Price Check Basics" desc="A simple loop that works for almost every item using Awakened PoE Trade 3.27.">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Scan & Filter">
+            <p>
+              Press your price‑check key. Awakened PoE Trade 3.27 builds a sensible search and highlights outliers so you
+              avoid bait listings.
+            </p>
+          </Card>
+          <Card title="Pick A Target">
+            <p>
+              Choose the mid‑range result when demand is steady. For fast sales, undercut slightly. Awakened PoE Trade 3.27
+              shows recent sales to guide your decision.
+            </p>
+          </Card>
+          <Card title="Send The Whisper">
+            <p>
+              Copy the best message from Awakened PoE Trade 3.27 and paste it in game. If no answer in 60–90 seconds, try
+              the next one.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section id="bulk" title="Bulk Selling" desc="Turn a tab into listings with a single scan in Awakened PoE Trade 3.27.">
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="Stash Scan">
+            <p>
+              Open a premium tab and run a scan. Awakened PoE Trade 3.27 groups currencies, fragments, and maps, then
+              suggests prices you can post immediately.
+            </p>
+          </Card>
+          <Card title="Listing Hygiene">
+            <p>
+              Keep names short and prices round. If an item sits for 10+ minutes, re‑scan with Awakened PoE Trade 3.27 and
+              drop 5–8% to move stock.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section id="troubleshooting" title="Troubleshooting" desc="Fix common overlay and OCR issues in seconds.">
+        <div className="grid gap-4 md:grid-cols-3">
+          {troubleshooting.map((t) => (
+            <Card key={t}>
+              <p>{t}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="faq" title="FAQ" desc="Quick answers for new users">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Is it allowed?">
+            <p>
+              Awakened PoE Trade 3.27 reads the screen and formats whispers. Avoid automated clicks and you remain
+              policy‑compliant.
+            </p>
+          </Card>
+          <Card title="Can I share my config?">
+            <p>
+              Yes. Export your layout JSON and share it with friends or guildmates. Import in Awakened PoE Trade 3.27 to
+              mirror the same hotkeys and panels.
+            </p>
+          </Card>
+          <Card title="Best settings for speed?">
+            <p>
+              Use windowed fullscreen at 1080p–1440p, disable GPU scaling, and keep display scale at 100% so Awakened PoE
+              Trade 3.27 captures cleanly.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section id="new-players" title="For New Players" desc="Simple habits that make trading with Awakened PoE Trade 3.27 feel natural.">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="One Key, One Action">
+            <p>
+              Map a single price‑check key and stick with it. Muscle memory makes Awakened PoE Trade 3.27 effortless in
+              maps and boss rooms.
+            </p>
+          </Card>
+          <Card title="Short, Polite Messages">
+            <p>
+              Use the default whisper from Awakened PoE Trade 3.27 and avoid long intros. Sellers respond faster when the
+              ask is clear.
+            </p>
+          </Card>
+          <Card title="Review Before You Paste">
+            <p>
+              Glance at price, quantity, and league. Awakened PoE Trade 3.27 highlights the key bits so you don’t spam the
+              wrong listing.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Section id="safety" title="Safety & Privacy" desc="Staying compliant while using Awakened PoE Trade 3.27">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Input Safety">
+            <p>
+              Keep auto‑clickers off. Awakened PoE Trade 3.27 focuses on reading and formatting; you control every action.
+            </p>
+          </Card>
+          <Card title="Data Privacy">
+            <p>
+              Trade searches go to public endpoints. Awakened PoE Trade 3.27 does not need your account password for core
+              features.
+            </p>
+          </Card>
+          <Card title="Updates & Trust">
+            <p>
+              Install from official releases only. Verifying signatures before running Awakened PoE Trade 3.27 keeps your
+              system safe.
+            </p>
+          </Card>
+        </div>
+      </Section>
+    </main>
   )
 }
