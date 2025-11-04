@@ -108,7 +108,7 @@ const resourceCards = [
 export const metadata: Metadata = {
   title: 'Awakened PoE Trade 3.27 Survival Kit',
   description:
-    'Configure, automate, and troubleshoot Awakened PoE Trade 3.27 with overlays, OCR upgrades, webhook routing, and policy-safe macro templates for Keepers of the Flame.',
+    'Configure, automate, and troubleshoot Awakened PoE Trade 3.27 with overlays, OCR upgrades, webhooks, and policy-safe macro templates for Keepers of the Flame.',
   alternates: {
     canonical: 'https://poe327.net/awakened-poe-trade-3-27',
   },

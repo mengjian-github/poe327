@@ -154,7 +154,7 @@ const strictnessCards = [
 export const metadata: Metadata = {
   title: 'PoE 3.27 Loot Filter Beginner Guide',
   description:
-    'A no‑frills poe 3.27 loot filter guide: download, enable, pick strictness, stay updated, and avoid common mistakes for smoother mapping.',
+    'A no‑frills poe 3.27 loot filter guide: download, enable, pick strictness, stay updated, and avoid common mistakes for smoother mapping from campaign to maps.',
   alternates: {
     canonical: 'https://poe327.net/poe-3-27-loot-filter',
   },

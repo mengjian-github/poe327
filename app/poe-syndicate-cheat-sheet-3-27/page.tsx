@@ -7,7 +7,8 @@ import { SyndicateBoardPlanner } from '@/components/syndicate-board-planner'
 const KEY_PHRASE = 'poe syndicate cheat sheet 3.27'
 const SECONDARY_PHRASE = 'poe betrayal cheat sheet 3.27'
 
-const META_DESCRIPTION = `This ${KEY_PHRASE} unifies every Immortal Syndicate update from patch 3.27, folding the ${SECONDARY_PHRASE} notes into a single planner with presets and reward tables.`
+const META_DESCRIPTION =
+  'PoE 3.27 Syndicate cheat sheet: safehouses, member roles, Intervention tips, rewards, and board planning to streamline Betrayal runs from mapping to Mastermind.'
 
 const heroMetrics = [
   { label: 'Safehouse targets', value: '3 optimized rotations' },
