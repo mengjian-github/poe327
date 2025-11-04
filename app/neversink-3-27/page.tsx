@@ -4,99 +4,124 @@ import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
+// English page with real in‑game screenshots. Main keyword: "neversink 3.27" (target ~3–5%).
+
 const heroMetrics = [
-  { label: 'Latest push', value: 'Nov 3, 2025 · neversink 3.27 commit window' },
-  { label: 'Strictness tiers', value: '8 neversink 3.27 ladders from Regular to Uber Strict' },
-  { label: 'Auto-update ready', value: 'FilterBlade + Patreon updater · neversink 3.27 safe' },
+  { label: 'Install time', value: '≈3–5 min · copy & enable' },
+  { label: 'Presets', value: 'Campaign · Semi · Strict · Uber' },
+  { label: 'Sources', value: 'Ladder · FilterBlade · GitHub' },
 ]
 
-const quickStart = [
-  'Subscribe on the ladder for a plug-and-play neversink 3.27 baseline that auto-updates by simply restarting Path of Exile.',
-  'Jump into FilterBlade to import the neversink 3.27 profile, tweak colors, and save your custom strictness ahead of Keepers launch.',
-  'Download the GitHub release as a fallback; stash the neversink 3.27 files inside Documents/My Games/Path of Exile before the servers open.',
-]
-
-const strictnessCards = [
+const steps = [
   {
-    title: 'Semi-Strict Launch',
-    description:
-      'The neversink 3.27 semi-strict ladder keeps leveling rares, four-links, and league-start sustain items visible until your atlas stabilises.',
-    footer: 'Toggle to Regular when teaching new exiles the neversink 3.27 fundamentals.',
+    title: 'Step 1 · Follow on the Ladder',
+    body:
+      'For beginners, follow NeverSink on the PoE Item Filter Ladder for hands‑free updates. Alternatively, use FilterBlade one‑click or download the latest zip from GitHub releases.',
+    image: '/images/hero-keepers.jpg',
+    alt: 'Follow the neversink 3.27 filter on the official ladder',
   },
   {
-    title: 'Strict Mapping',
-    description:
-      'Switch to the strict profile once yellow maps feel crowded; the neversink 3.27 filters mute low-tier rares while preserving scarabs, essences, and Breach rings.',
-    footer: 'Revert temporarily if you pivot into off-meta farming inside neversink 3.27 testing blocks.',
+    title: 'Step 2 · Place into the right folder (manual path)',
+    body:
+      'If you downloaded a .filter: copy it into Documents/My Games/Path of Exile/ (same path for Steam).',
+    image: '/images/keepers-encounter.jpg',
+    alt: 'Place the filter into the Path of Exile folder',
   },
   {
-    title: 'Very Strict & Uber',
-    description:
-      'When farming deli maps or boss rushing, the neversink 3.27 very strict and uber strict tiers hide everything but curated chase drops and currency stacks.',
-    footer: 'Pair with custom sounds so neversink 3.27 loot pops over voice comms.',
+    title: 'Step 3 · Enable in‑game',
+    body:
+      'In‑game: Escape → Options → Game → Item Filter, then select your neversink 3.27. Use Reload Filter in town to confirm it is active.',
+    image: '/images/keepers-async.jpg',
+    alt: 'Enable neversink 3.27 in the options menu',
+  },
+  {
+    title: 'Step 4 · Pick a strictness',
+    body:
+      'Use Campaign or Semi while leveling. If your screen gets busy in maps, switch to Strict. Very Strict/Uber fit fast farming or high‑end content.',
+    image: '/images/keepers-kineticrain.jpg',
+    alt: 'Choose the right strictness for your stage',
+  },
+  {
+    title: 'Step 5 · Learn the cues & keep updated',
+    body:
+      'High‑value drops use louder sounds and clear beams. As you learn the neversink 3.27 cues, mapping becomes faster. Update via Ladder, FilterBlade or GitHub.',
+    image: '/images/foulborn-loot.jpg',
+    alt: 'Visual and audio cues for valuable loot',
   },
 ]
 
-const automationSteps = [
-  'Pull upstream changes from the NeverSink repository daily so your neversink 3.27 fork absorbs economy-driven tweaks before peak hours.',
-  'Merge local color scripts and styles, then publish the refreshed neversink 3.27 build through FilterBlade’s update button.',
-  'Kick off the Patreon auto-updater or your own CLI script to push the neversink 3.27 archive into the ladder and private leagues.',
-  'Log every edit in a Markdown changelog so guildmates can diff neversink 3.27 adjustments between Hotfix 6 and 7.',
+const ladders = [
+  {
+    title: 'Campaign (leveling/new)',
+    description:
+      'Shows more rares, 4‑links, and useful bases so new characters progress smoothly. A safe neversink 3.27 starting point.',
+    footer: 'Consider Semi/Strict once you reach yellows.',
+  },
+  {
+    title: 'Semi Strict (default)',
+    description:
+      'Hides obvious junk while keeping currency, maps, and common bases. A popular day‑to‑day neversink 3.27 choice.',
+    footer: 'If clutter returns, step up to Strict.',
+  },
+  {
+    title: 'Strict / Very Strict',
+    description:
+      'For established atlases or speed‑mapping. Strong filtering keeps valuable drops obvious in neversink 3.27.',
+    footer: 'If you miss useful bases, drop one step.',
+  },
+  {
+    title: 'Uber Strict (elite)',
+    description:
+      'For high‑end farming or dedicated party looters; keeps only curated targets. Ultra‑clean for neversink 3.27 speed runs.',
+    footer: 'Not recommended for brand‑new characters.',
+  },
 ]
 
-const styleNotes = [
-  'Use the neversink 3.27 CustomSounds package if you stream; it swaps every alert tone while keeping the same filtering logic.',
-  'Preview the neversink 3.27 style gallery on FilterBlade to pick colorways that match your gamma and monitor setup.',
-  'Avoid Krangled or Tabula styles for competitive play; stick to classic or minimalist modes for neversink 3.27 racing squads.',
+const automation = [
+  'Ladder: follow NeverSink; restart the game to pull updates automatically.',
+  'FilterBlade: refresh to the latest neversink 3.27 and restart the game to load it.',
+  'Manual: watch GitHub releases, download, overwrite the old file, then Reload Filter in town.',
 ]
 
 const faq = [
   {
-    title: 'When does the filter update for a new league?',
+    title: 'Which strictness should I use day‑to‑day?',
     description:
-      'The maintainer pushes the neversink 3.27 branch roughly 4–6 hours before launch, then refreshes multiple times during week one as prices settle.',
+      'Leveling: Campaign/Semi. Yellow maps: Strict. Fast farming or pinnacle content: Very Strict or Uber. Keep neversink 3.27 readable without hiding needed items.',
   },
   {
-    title: 'Can I automate strictness switches?',
+    title: 'Do I need FilterBlade?',
     description:
-      'Yes. Schedule scripts that swap the neversink 3.27 filter file when your atlas level or map tier triggers a threshold, or use FilterBlade presets you export per activity.',
+      'Recommended, not required. FilterBlade makes neversink 3.27 updates safer and visual. Manual users can rely on GitHub releases.',
   },
   {
-    title: 'How do I report bugs?',
+    title: 'How do I avoid missing drops?',
     description:
-      'Post on the FilterBlade Discord or GitHub issues with a Pastebin of your neversink 3.27 filter lines and a screenshot of the hidden drop.',
+      'Test sounds and beams in town; when unsure, step down a level. As you learn neversink 3.27 cues, speed naturally improves.',
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'NeverSink 3.27 Filter Field Guide',
+  title: 'NeverSink 3.27 Download & Beginner Guide',
   description:
-    'Step-by-step neversink 3.27 coverage spanning ladder subscriptions, strictness tuning, automation workflows, style variants, and support channels.',
-  alternates: {
-    canonical: 'https://poe327.net/neversink-3-27',
-  },
+    'Beginner‑friendly neversink 3.27 guide with official ladder follow, install/enable steps, strictness picking, update workflow, and practical tips.',
+  alternates: { canonical: 'https://poe327.net/neversink-3-27' },
   openGraph: {
-    title: 'NeverSink 3.27 Filter Field Guide',
+    title: 'NeverSink 3.27 Download & Beginner Guide',
     description:
-      'Navigate neversink 3.27 strictness tiers, update cadence, FilterBlade customisation, and support resources in one place.',
+      'Follow on the PoE Item Filter Ladder, enable in‑game, pick strictness, learn cues, and stay updated via Ladder/FilterBlade/GitHub.',
     url: 'https://poe327.net/neversink-3-27',
     siteName: 'poe327',
     type: 'article',
     images: [
-      {
-        url: '/images/neversink-3-27-hero.svg',
-        width: 1200,
-        height: 630,
-        alt: 'neversink 3.27 hero graphic',
-      },
+      { url: '/images/keepers-flame-hero.jpg', width: 1200, height: 630, alt: 'neversink 3.27 hero screenshot' },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NeverSink 3.27 Filter Field Guide',
-    description:
-      'Keep your neversink 3.27 profiles updated with strictness, automation, and style walkthroughs.',
-    images: ['/images/neversink-3-27-hero.svg'],
+    title: 'NeverSink 3.27 Download & Beginner Guide',
+    description: 'Set up neversink 3.27 fast: Ladder follow, enable, strictness, updates, and tips.',
+    images: ['/images/keepers-flame-hero.jpg'],
   },
 }
 
@@ -104,130 +129,169 @@ export default function NeverSinkPage() {
   return (
     <>
       <PageHero
-        title="NeverSink 3.27 Filter Field Guide"
-        description="This neversink 3.27 resource walks you through setup, strictness ladders, automation tooling, and stylistic tweaks so Keepers of the Flame starts clean and stays profitable."
-        image="/images/neversink-3-27-hero.svg"
-        kicker="Keepers of the Flame"
+        title="NeverSink 3.27 Download & Beginner Guide"
+        description="Clear, non‑templated walkthrough for first‑time users: follow on the PoE Item Filter Ladder, install/enable, strictness choices, update flow, and FAQs."
+        image="/images/keepers-flame-hero.jpg"
+        kicker="PoE 3.27"
         metrics={heroMetrics}
+        actions={
+          <>
+            <a
+              href="https://www.pathofexile.com/item-filter/ladder"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary"
+            >
+              Follow on Item Filter Ladder
+            </a>
+            <a
+              href="https://www.filterblade.xyz/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-secondary"
+            >
+              Open FilterBlade
+            </a>
+            <a
+              href="https://github.com/NeverSinkDev/NeverSink-Filter/releases"
+              target="_blank"
+              rel="noreferrer"
+              className="btn"
+            >
+              GitHub Releases
+            </a>
+          </>
+        }
       />
 
-      <div className="container flex justify-center">
-        <LastUpdated date="November 3, 2025 — NeverSink GitHub README, FilterBlade changelog, ladder snapshots" />
-      </div>
+      <Section
+        title="Official Options (Recommended First)"
+        desc="Three official paths: follow on the PoE Item Filter Ladder (auto‑updates), edit/refresh via FilterBlade, or download zips from GitHub Releases. Prefer the Ladder for beginners."
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="PoE Item Filter Ladder (recommended)" footer="Auto‑updates on game restart; no file management.">
+            <ul className="list-disc pl-5">
+              <li>Log in at pathofexile.com, search \"NeverSink\" and click Follow</li>
+              <li>Select it in Options → Game → Item Filter</li>
+            </ul>
+            <a href="https://www.pathofexile.com/item-filter/ladder" target="_blank" rel="noreferrer" className="btn btn-primary mt-3">Open Ladder</a>
+          </Card>
+          <Card title="FilterBlade (editor)" footer="One‑click refresh to the latest neversink 3.27. Best for everyday use.">
+            <ul className="list-disc pl-5">
+              <li>Import/save your colors and strictness as presets</li>
+              <li>Safer updates with visual diff</li>
+            </ul>
+            <a
+              href="https://www.filterblade.xyz/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary mt-3"
+            >
+              Open FilterBlade
+            </a>
+          </Card>
+          <Card title="GitHub Releases" footer="Manual download/overwrite. Useful offline or for rollbacks.">
+            <ul className="list-disc pl-5">
+              <li>Official neversink 3.27 archives from the repository</li>
+              <li>Pick historical versions for comparisons</li>
+            </ul>
+            <a
+              href="https://github.com/NeverSinkDev/NeverSink-Filter/releases"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-secondary mt-3"
+            >
+              Go to Releases
+            </a>
+          </Card>
+        </div>
+        <LastUpdated date="Nov 4, 2025" />
+      </Section>
 
       <Section
-        id="quick-start"
-        title="Quick Start Path"
-        desc="Secure a neversink 3.27 baseline before the league countdown hits zero so your stash never floods with junk."
-        kicker="neversink 3.27 onboarding"
+        title="3‑Minute Setup"
+        desc="Follow these pictures to follow on the Ladder (or download), place if needed, enable, and verify neversink 3.27, then pick the right strictness."
       >
-        <div className="grid gap-8 lg:grid-cols-[3fr_2fr]">
-          <div className="space-y-4 text-white/80">
-            <p>
-              Ladder subscription is the fastest route because the neversink 3.27 profile auto-updates the moment the maintainer pushes a release. You just restart the client and select the new entry in Options → Game → Loot Filters.
-            </p>
-            <p>
-              If you love custom palettes, import the neversink 3.27 package into FilterBlade, tweak the style, then download your personal archive. Keep a vanilla copy as a failsafe in case manual edits break.
-            </p>
-            <ul className="list-disc space-y-3 pl-5">
-              {quickStart.map((item) => (
-                <li key={item}>{item}</li>
+        <div className="grid gap-4 md:grid-cols-2">
+          {steps.map((s) => (
+            <Card key={s.title} title={s.title}>
+              <p>{s.body}</p>
+              <div className="relative mt-3 aspect-[16/9] w-full overflow-hidden rounded-lg border border-white/10 bg-white/5">
+                <Image src={s.image} alt={s.alt} fill className="object-cover" />
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        title="Picking Strictness"
+        kicker="Strictness"
+        desc="Aim for clear signals without hiding useful items. The neversink 3.27 ladder covers every stage—match your current needs."
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {ladders.map((c) => (
+            <Card key={c.title} title={c.title} footer={c.footer}>
+              <p>{c.description}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/5">
+          <Image src="/images/keepers-hive.jpg" alt="Strictness guidance in practice" fill className="object-cover" />
+        </div>
+      </Section>
+
+      <Section
+        title="Stay Updated"
+        kicker="Automation"
+        desc="Early‑league prices shift quickly. Keep neversink 3.27 current to avoid mis‑valuing drops. Two simple paths:"
+      >
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card title="Ladder / FilterBlade refresh">
+            <ul className="list-disc pl-5">
+              {automation.slice(0, 2).map((t) => (
+                <li key={t}>{t}</li>
               ))}
             </ul>
-          </div>
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
-            <Image
-              src="/images/neversink-3-27-strictness.svg"
-              alt="Strictness ladder chart for neversink 3.27"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 480px, 100vw"
-            />
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        id="strictness"
-        title="Strictness Ladder"
-        desc="Apply the right neversink 3.27 strictness for campaign rushes, atlas progression, and bossing windows."
-        kicker="neversink 3.27 strictness"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {strictnessCards.map((card) => (
-            <Card key={card.title} title={card.title} footer={card.footer}>
-              <p>{card.description}</p>
-            </Card>
-          ))}
-        </div>
-        <p className="mt-6 text-sm text-white/70">
-          The neversink 3.27 strictness ladder mirrors the official guidance: start Semi-Strict, escalate as you accelerate, and never fear losing mirror-tier drops.
-        </p>
-      </Section>
-
-      <Section
-        id="automation"
-        title="Automation & Update Cadence"
-        desc="Keep your team current by scripting neversink 3.27 pulls, merges, and deployments."
-        kicker="neversink 3.27 automation"
-      >
-        <div className="grid gap-8 lg:grid-cols-[3fr_2fr]">
-          <div className="space-y-4 text-white/80">
-            <p>
-              Treat updates as part of your daily reset. The neversink 3.27 repository usually refreshes every few hours during launch week, reacting to price swings and unexpected drops. Automate that flow so nobody plays on stale filters.
-            </p>
-            <ul className="list-disc space-y-3 pl-5">
-              {automationSteps.map((step) => (
-                <li key={step}>{step}</li>
+          </Card>
+          <Card title="GitHub manual overwrite">
+            <ul className="list-disc pl-5">
+              {automation.slice(2).map((t) => (
+                <li key={t}>{t}</li>
               ))}
             </ul>
-          </div>
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-white/10">
-            <Image
-              src="/images/neversink-3-27-automation.svg"
-              alt="Automation checklist for neversink 3.27"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 480px, 100vw"
-            />
-          </div>
+          </Card>
+        </div>
+        <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/5">
+          <Image src="/images/keepers-oshabi.jpg" alt="Keeping your filter updated" fill className="object-cover" />
         </div>
       </Section>
 
       <Section
-        id="styles"
-        title="Styles & Sound Packs"
-        desc="Personalise the visuals and audio while staying faithful to neversink 3.27 logic."
-        kicker="neversink 3.27 styles"
+        title="Notes From The GitHub Repo"
+        desc="What to know from https://github.com/NeverSinkDev/NeverSink-Filter before hand‑editing."
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          {styleNotes.map((note) => (
-            <Card key={note}>
-              <p>{note}</p>
-            </Card>
-          ))}
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card title="Release cadence">
+            <p>Updates land before league start and multiple times during week one as prices settle. Expect hotfix bursts.</p>
+          </Card>
+          <Card title="Variants & strictness">
+            <p>Regular → Semi → Strict → Very → Uber cover most use‑cases. Start lenient, tighten as clutter returns.</p>
+          </Card>
+          <Card title="Custom changes">
+            <p>Prefer FilterBlade for visual diffs and safer merges. If editing .filter directly, keep backups and test with Reload Filter.</p>
+          </Card>
         </div>
-        <p className="mt-6 text-sm text-white/70">
-          Export your presets to version control so every guild member can sync the same neversink 3.27 style pack before raid night.
-        </p>
       </Section>
 
-      <Section
-        id="faq"
-        title="FAQ & Support"
-        desc="Answer the hot questions the community keeps asking about neversink 3.27 upkeep."
-        kicker="neversink 3.27 FAQ"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {faq.map((item) => (
-            <Card key={item.title} title={item.title}>
-              <p>{item.description}</p>
+      <Section title="FAQ" desc="Quick answers so your neversink 3.27 stays comfortable and reliable.">
+        <div className="grid gap-4 md:grid-cols-3">
+          {faq.map((q) => (
+            <Card key={q.title} title={q.title}>
+              <p>{q.description}</p>
             </Card>
           ))}
         </div>
-        <p className="mt-6 text-sm text-white/70">
-          Keep Discord pings on so you catch surprise neversink 3.27 hotfixes—especially when GGG sneaks in new basetypes or div cards overnight.
-        </p>
       </Section>
     </>
   )

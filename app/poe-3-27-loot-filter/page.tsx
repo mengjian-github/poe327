@@ -203,12 +203,10 @@ export default function LootFilterPage() {
               Open FilterBlade
             </a>
             <a
-              href="https://github.com/NeverSinkDev/NeverSink-Filter/releases"
-              target="_blank"
-              rel="noreferrer"
+              href="/neversink-3-27"
               className="btn btn-ghost"
             >
-              Download Sample Filter
+              NeverSink 3.27 Guide
             </a>
           </>
         }
@@ -359,9 +357,9 @@ export default function LootFilterPage() {
             <p>Safest way to manage and update your poe 3.27 loot filter with one‑click refresh and visual diffs.</p>
             <a className="btn btn-primary mt-3 inline-flex" href="https://www.filterblade.xyz/" target="_blank" rel="noreferrer">Open FilterBlade</a>
           </Card>
-          <Card title="NeverSink Releases (Downloads)">
+          <Card title="NeverSink Guide & Downloads">
             <p>Download the latest packaged poe 3.27 loot filter zips if you prefer manual updates and local backups.</p>
-            <a className="btn btn-ghost mt-3 inline-flex" href="https://github.com/NeverSinkDev/NeverSink-Filter/releases" target="_blank" rel="noreferrer">Download Sample Filter</a>
+            <a className="btn btn-ghost mt-3 inline-flex" href="/neversink-3-27">Open Guide</a>
           </Card>
         </div>
       </Section>
