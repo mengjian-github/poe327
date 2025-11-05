@@ -79,12 +79,12 @@ export function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={twMerge('container py-10 md:py-14', className)}>
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6">
-        <div className="max-w-2xl space-y-2">
+    <section id={id} className={twMerge('container py-16 md:py-24', className)}>
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12">
+        <div className="max-w-3xl space-y-4">
           <div className="kicker">{kicker}</div>
           <h2 className="h2 text-white">{title}</h2>
-          {desc && <p className="subtle text-sm md:text-base leading-relaxed">{desc}</p>}
+          {desc && <p className="subtle text-base md:text-lg leading-relaxed">{desc}</p>}
         </div>
         {actions && <div className="flex gap-3">{actions}</div>}
       </div>
@@ -104,18 +104,18 @@ type CardProps = {
 
 export function Card({ children, className, eyebrow, title, icon, footer }: CardProps) {
   return (
-    <div className={twMerge('card flex flex-col gap-4', className)}>
+    <div className={twMerge('card flex flex-col gap-6', className)}>
       {(eyebrow || title || icon) && (
-        <header className="flex items-start justify-between gap-3">
+        <header className="flex items-start justify-between gap-4">
           <div>
-            {eyebrow && <span className="pill mb-2 inline-flex">{eyebrow}</span>}
-            {title && <h3 className="text-xl font-semibold text-white">{title}</h3>}
+            {eyebrow && <span className="pill mb-3 inline-flex">{eyebrow}</span>}
+            {title && <h3 className="text-2xl font-bold text-white">{title}</h3>}
           </div>
           {icon && <div className="shrink-0 text-brand">{icon}</div>}
         </header>
       )}
-      <div className="flex-1 space-y-3 text-sm text-white/80">{children}</div>
-      {footer && <footer className="pt-2 text-xs text-white/60">{footer}</footer>}
+      <div className="flex-1 space-y-4 text-base text-white/85">{children}</div>
+      {footer && <footer className="pt-3 text-sm text-white/65">{footer}</footer>}
     </div>
   )
 }

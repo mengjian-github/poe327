@@ -55,16 +55,16 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-[color:var(--overlay)]/80 backdrop-blur-xl">
-      <div className="container flex items-center justify-between gap-4 py-4">
-        <Link href="/" className="flex items-center gap-3" onClick={close}>
-          <Image src="/logo.svg" alt="PoE 3.27" width={36} height={36} className="h-9 w-9" />
+      <div className="container flex items-center justify-between gap-6 py-5">
+        <Link href="/" className="flex items-center gap-4" onClick={close}>
+          <Image src="/logo.svg" alt="PoE 3.27" width={44} height={44} className="h-11 w-11" />
           <div className="flex flex-col leading-tight">
-            <span className="kicker uppercase text-brand">poe league 3.27</span>
-            <span className="text-sm font-semibold text-white">Keepers of the Flame Hub</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-brand">poe league 3.27</span>
+            <span className="text-base font-bold text-white">Keepers of the Flame Hub</span>
           </div>
         </Link>
-        <nav className="hidden items-center gap-4 text-xs font-semibold uppercase tracking-wide text-white/70 md:flex">
-          <ul className="flex items-center gap-2">
+        <nav className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-wide text-white/70 md:flex">
+          <ul className="flex items-center gap-3">
             {navItems.map((item) => (
               <li
                 key={item.label}
@@ -75,7 +75,7 @@ export function SiteHeader() {
               >
                 <Link
                   href={item.href}
-                  className="rounded-full px-3 py-2 text-white/70 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70"
+                  className="rounded-full px-4 py-2.5 text-white/70 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70"
                   onFocus={() => setActiveDesktopItem(item.label)}
                 >
                   {item.label}
@@ -83,7 +83,7 @@ export function SiteHeader() {
                 {item.children && (
                   <div
                     className={twMerge(
-                      'pointer-events-none absolute left-0 top-full hidden min-w-[220px] flex-col gap-1 rounded-2xl border border-white/10 bg-black/90 p-3 text-[11px] uppercase tracking-wide text-white/70 shadow-xl shadow-black/50',
+                      'pointer-events-none absolute left-0 top-full hidden min-w-[240px] flex-col gap-2 rounded-2xl border border-white/10 bg-black/90 p-4 text-xs uppercase tracking-wide text-white/70 shadow-xl shadow-black/50',
                       activeDesktopItem === item.label && 'pointer-events-auto flex',
                     )}
                   >
@@ -91,7 +91,7 @@ export function SiteHeader() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="rounded-xl px-3 py-2 text-white/70 transition hover:bg-white/10 hover:text-white"
+                        className="rounded-xl px-4 py-3 text-white/70 transition hover:bg-white/10 hover:text-white"
                         onClick={close}
                         onFocus={() => setActiveDesktopItem(item.label)}
                       >
@@ -107,17 +107,17 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={toggle}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-black/30 text-white transition hover:border-brand/40 hover:text-brand md:hidden"
+          className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-black/30 text-white transition hover:border-brand/40 hover:text-brand md:hidden"
           aria-label="Toggle navigation"
         >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
       <div
         className={twMerge(
-          'md:hidden flex flex-col gap-2 bg-[color:var(--overlay)]/95 px-4 text-sm text-white/80 transition-all duration-200 ease-out overflow-hidden',
+          'md:hidden flex flex-col gap-3 bg-[color:var(--overlay)]/95 px-6 text-base text-white/80 transition-all duration-200 ease-out overflow-hidden',
           isOpen
-            ? 'max-h-[32rem] border-t border-white/5 py-3 opacity-100'
+            ? 'max-h-[32rem] border-t border-white/5 py-5 opacity-100'
             : 'pointer-events-none max-h-0 border-t-0 py-0 opacity-0',
         )}
       >
@@ -125,7 +125,7 @@ export function SiteHeader() {
           const expanded = mobileExpanded[item.label] ?? false
           return (
             <div key={item.label} className="rounded-xl border border-white/5 bg-white/5">
-              <div className="flex items-center justify-between px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white/70">
+              <div className="flex items-center justify-between px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white/70">
                 <Link href={item.href} className="flex-1 transition hover:text-white" onClick={close}>
                   {item.label}
                 </Link>
@@ -141,12 +141,12 @@ export function SiteHeader() {
                 )}
               </div>
               {item.children && (
-                <div className={twMerge('flex flex-col gap-1 px-3 pb-2', expanded ? 'max-h-64' : 'hidden')}>
+                <div className={twMerge('flex flex-col gap-2 px-4 pb-3', expanded ? 'max-h-64' : 'hidden')}>
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="rounded-lg px-2 py-2 text-sm transition hover:bg-white/10 hover:text-white"
+                      className="rounded-lg px-3 py-2.5 text-sm transition hover:bg-white/10 hover:text-white"
                       onClick={close}
                     >
                       {child.label}
@@ -159,7 +159,7 @@ export function SiteHeader() {
         })}
         <a
           href="mailto:support@poe327.net"
-          className="rounded-xl px-3 py-2 text-white/70 hover:bg-white/10 hover:text-white"
+          className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/10 hover:text-white"
           onClick={close}
         >
           support@poe327.net

@@ -323,7 +323,7 @@ const visualSections: VisualSection[] = [
 export default function Home() {
   return (
     <>
-      <section className="relative isolate flex min-h-[85vh] w-full items-center overflow-hidden bg-black">
+      <section className="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-black">
         <Image
           src="/images/keepers-flame-hero.jpg"
           alt="Official Keepers of the Flame reveal art with molten breaches"
@@ -334,74 +334,73 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#040509]/90 via-[#040509]/75 to-[#150a1f]/60" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#05060a] to-transparent" />
-        <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
-        <div className="container relative z-10 flex flex-col gap-10 py-24">
-          <div className="max-w-3xl space-y-6 text-white">
-            <span className="pill bg-brand/20 text-brand">poe league 3.27 launch HQ</span>
-            <h1 className="h1 text-balance leading-tight">poe league 3.27 Keepers of the Flame Launch Center</h1>
-            <p className="text-base text-white/80 md:text-lg">
+        <div className="container relative z-10 flex flex-col gap-16 py-32 md:py-40">
+          <div className="max-w-5xl space-y-10 text-white">
+            <span className="pill bg-brand/20 text-brand text-base font-semibold px-6 py-3">poe league 3.27 launch HQ</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-balance leading-[1.1] tracking-tight">poe league 3.27 Keepers of the Flame Launch Center</h1>
+            <p className="text-xl text-white/85 md:text-2xl leading-relaxed max-w-4xl">
               Keepers of the Flame kicks off on October 31, 2025 at 12:00 PM PDT in the Americas (rolling to ANZ on November 1). This hub compresses
               the essentials—timeline, navigation, and priority callouts—so you can map every Breach escort and Living Graft test without skimming a
               full patch note. It is the first stop for poe league 3.27 captains spinning up watch parties and private league scrims.
             </p>
-            <p className="text-base text-white/75 md:text-lg">
+            <p className="text-lg text-white/80 md:text-xl leading-relaxed max-w-4xl">
               Jump straight into the{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
                 poe league 3.27 starter planner
               </Link>
               ,{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
                 build tier list
               </Link>
               ,{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
                 loot filter lab
               </Link>
               , and{' '}
-              <Link href="/trade/awakened" className="text-brand underline-offset-4 transition hover:text-white hover:underline">
+              <Link href="/trade/awakened" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
                 trade toolkit
               </Link>
               , then loop back for hotfix coverage and the quick facts grid whenever strategies shift mid-session.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href="https://www.ign.com/videos/path-of-exile-keepers-of-the-flame-official-trailer"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-primary w-full justify-center sm:w-auto"
+              className="btn btn-primary w-full justify-center sm:w-auto text-base px-8 py-4"
             >
-              <PlayCircle size={18} />
+              <PlayCircle size={20} />
               Watch the official trailer
             </a>
-            <a href="#features" className="btn btn-ghost w-full justify-center sm:w-auto">
-              <Flame size={18} />
+            <a href="#features" className="btn btn-ghost w-full justify-center sm:w-auto text-base px-8 py-4">
+              <Flame size={20} />
               Enter the poe league 3.27 feature hub
             </a>
             <LastUpdated date="2025-11-02" className="mx-auto sm:ml-auto sm:mr-0" />
           </div>
-          <ul className="grid gap-4 text-white/80 md:grid-cols-3">
+          <ul className="grid gap-6 text-white/80 md:grid-cols-3">
             {heroHighlights.map((item) => (
               <li
                 key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur transition hover:border-brand/60 hover:bg-brand/15"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:border-brand/60 hover:bg-brand/15"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80 transition group-hover:opacity-100" />
-                <div className="relative z-10 space-y-2">
-                  <span className="text-sm font-semibold uppercase tracking-wide text-brand">{item.title}</span>
-                  <p className="text-sm leading-relaxed text-white/80">{item.description}</p>
+                <div className="relative z-10 space-y-4">
+                  <span className="text-base font-bold uppercase tracking-wide text-brand">{item.title}</span>
+                  <p className="text-base leading-relaxed text-white/85">{item.description}</p>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-brand transition hover:text-white"
+                    className="inline-flex items-center gap-2 text-base font-semibold text-brand transition hover:text-white"
                   >
                     {item.linkLabel}
-                    <ArrowRight size={14} />
+                    <ArrowRight size={16} />
                   </Link>
                 </div>
               </li>
             ))}
           </ul>
-          <p className="max-w-4xl text-sm text-white/70 md:text-base">
+          <p className="max-w-4xl text-base text-white/75 md:text-lg leading-relaxed">
             This poe league 3.27 knowledge base cross-links official posts, manifesto excerpts, and developer notes so squads can cite sources while
             planning builds, and every archived callout stays searchable when new adjustments land.
           </p>
@@ -418,21 +417,21 @@ export default function Home() {
           {hubCards.map((card) => (
             <div
               key={card.title}
-              className="group flex flex-col gap-4 rounded-3xl border border-white/10 bg-[#0b0d15]/80 p-6 text-white/80 transition hover:border-brand/40 hover:bg-brand/10"
+              className="group flex flex-col gap-5 rounded-3xl border border-white/10 bg-[#0b0d15]/80 p-8 text-white/80 transition hover:border-brand/40 hover:bg-brand/10"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="pill bg-brand/15 text-brand text-xs uppercase tracking-wide">poe league 3.27</span>
-                <ArrowRight size={16} className="text-white/40 transition group-hover:translate-x-1 group-hover:text-brand" />
+                <span className="pill bg-brand/15 text-brand text-sm uppercase tracking-wide font-semibold">poe league 3.27</span>
+                <ArrowRight size={18} className="text-white/40 transition group-hover:translate-x-1 group-hover:text-brand" />
               </div>
-              <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-              <p className="text-sm leading-relaxed text-white/75">{card.description}</p>
-              <p className="text-xs text-white/60">{card.meta}</p>
+              <h3 className="text-2xl font-bold text-white">{card.title}</h3>
+              <p className="text-base leading-relaxed text-white/80">{card.description}</p>
+              <p className="text-sm text-white/65">{card.meta}</p>
               <Link
                 href={card.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:text-white"
+                className="inline-flex items-center gap-2 text-base font-semibold text-brand transition hover:text-white"
               >
                 Open {card.title}
-                <ArrowRight size={14} />
+                <ArrowRight size={16} />
               </Link>
             </div>
           ))}
@@ -465,19 +464,19 @@ export default function Home() {
           {masteryBeats.map((beat) => (
             <article
               key={beat.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-6 text-white/85 shadow-xl shadow-black/40 transition hover:border-brand/40 hover:shadow-brand/30"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-10 text-white/85 shadow-xl shadow-black/40 transition hover:border-brand/40 hover:shadow-brand/30"
             >
               <Image
                 src={beat.image}
                 alt={beat.title}
                 fill
-                className="absolute inset-0 h-full w-full object-cover opacity-35 transition duration-500 group-hover:scale-105 group-hover:opacity-45"
+                className="absolute inset-0 h-full w-full object-cover opacity-35 transition duration-500 group-hover:opacity-45"
                 sizes="(min-width: 1024px) 360px, 100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#060709]/95 via-[#060709]/75 to-transparent" />
-              <div className="relative z-10 flex flex-col gap-3">
-                <h3 className="text-xl font-semibold text-white">{beat.title}</h3>
-                <p className="text-sm leading-relaxed text-white/80">{beat.body}</p>
+              <div className="relative z-10 flex flex-col gap-5">
+                <h3 className="text-2xl font-bold text-white">{beat.title}</h3>
+                <p className="text-base leading-relaxed text-white/85">{beat.body}</p>
               </div>
             </article>
           ))}
@@ -502,21 +501,21 @@ export default function Home() {
             }
             className="relative"
           >
-            <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-center">
-              <div className="space-y-6">
-                <p className="text-base leading-relaxed text-white/80">{section.lead}</p>
-                <ul className="grid gap-4 sm:grid-cols-2">
+            <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-center">
+              <div className="space-y-8">
+                <p className="text-lg leading-relaxed text-white/85">{section.lead}</p>
+                <ul className="grid gap-6 sm:grid-cols-2">
                   {section.links.map((link) => (
                     <li
                       key={link.label}
-                      className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 shadow-inner shadow-black/30 transition hover:border-brand/50 hover:bg-brand/15"
+                      className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80 shadow-inner shadow-black/30 transition hover:border-brand/50 hover:bg-brand/15"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80" />
-                      <div className="relative z-10 flex flex-col gap-1">
-                        <Link href={link.href} className="font-semibold text-brand transition hover:text-white">
+                      <div className="relative z-10 flex flex-col gap-2">
+                        <Link href={link.href} className="font-bold text-base text-brand transition hover:text-white">
                           {link.label}
                         </Link>
-                        <span className="text-xs leading-relaxed text-white/70">{link.description}</span>
+                        <span className="text-sm leading-relaxed text-white/75">{link.description}</span>
                       </div>
                     </li>
                   ))}
