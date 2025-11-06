@@ -7,8 +7,9 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
-// Navigation for PoE 3.27-only site. Starter/Builds removed; filter renamed to plural.
+// Navigation for PoE 3.27-only site. Expanded with Getting Started and Starters.
 const navItems = [
+  { label: 'Getting Started', href: '/getting-started' },
   {
     label: 'Filters',
     href: '/filters',
@@ -17,6 +18,7 @@ const navItems = [
       { href: '/filters/neversink', label: 'Neversink Filters' },
     ],
   },
+  { label: 'Starters', href: '/starters' },
   {
     label: 'Trade',
     href: '/trade/official',
@@ -25,14 +27,8 @@ const navItems = [
       { href: '/trade/official', label: 'Official Trade' },
     ],
   },
-  {
-    label: 'Cheat Sheet',
-    href: '/betrayal-cheatsheet#canvas',
-  },
-  {
-    label: 'Patch Notes',
-    href: '/patch-notes',
-  },
+  { label: 'Cheat Sheet', href: '/betrayal-cheatsheet#canvas' },
+  { label: 'Patch Notes', href: '/patch-notes' },
 ]
 
 export function SiteHeader() {

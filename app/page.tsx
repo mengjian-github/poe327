@@ -55,6 +55,20 @@ type HubCard = {
 
 const hubCards: HubCard[] = [
   {
+    title: 'Getting Started',
+    href: '/getting-started',
+    description:
+      'Fast, visual onboarding for brand‑new or returning players: leveling flow, resistances, gems/links, flasks, loot filters, trading, and atlas basics.',
+    meta: 'Built for PoE 3.27 with simple checklists and screenshots.',
+  },
+  {
+    title: 'Starters',
+    href: '/starters',
+    description:
+      'Beginner‑friendly league starters with summaries, roles, attributes, and POB links. Open a dedicated page for each build.',
+    meta: 'Pulls from our curated PoE 3.27 starter set.',
+  },
+  {
     title: 'Loot Filter Lab',
     href: '/filters',
     description:
@@ -70,7 +84,7 @@ const hubCards: HubCard[] = [
   },
   {
     title: 'Official Trade Board',
-    href: '/poe-trade',
+    href: '/trade/official',
     description:
       'Review poe league 3.27 official trade etiquette, bulk search templates, and 1-click whisper strings for currency and Breach relics.',
     meta: 'Live-search watchlists for poe league 3.27 Living Grafts.',

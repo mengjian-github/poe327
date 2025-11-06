@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // Ensure Next selects this folder as the workspace root when multiple lockfiles exist.
+  // This silences the build warning and makes route discovery reliable in CI.
+  // See: https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory
+  turbopack: { root: __dirname },
   async redirects() {
     return [
       // Legacy synonym → new short path
@@ -21,10 +25,7 @@ const nextConfig: NextConfig = {
       { source: '/poe-trade', destination: '/trade/official', permanent: true },
       { source: '/poe-betrayal-cheat-sheet-3-27', destination: '/betrayal-cheatsheet', permanent: true },
       { source: '/patch-notes-poe-3-27', destination: '/patch-notes', permanent: true },
-      // Removed sections → send to filters as main entry for now
-      { source: '/starter', destination: '/filters', permanent: true },
-      { source: '/starters', destination: '/filters', permanent: true },
-      { source: '/starters/:slug', destination: '/filters', permanent: true },
+      // Removed sections (none at the moment)
     ]
   },
 }
