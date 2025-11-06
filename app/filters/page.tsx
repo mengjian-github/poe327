@@ -16,7 +16,7 @@ const setupSteps = [
   {
     title: 'Step 1 · Download and place files',
     body:
-      'Download the poe 3.27 loot filter zip and extract it into My Games\\Path of Exile\\ (same for Steam). If the game is open, you will reload it in the next step.',
+      'Download the poe 3.27 loot filter zip and extract it into My Games\\Path of Exile\\ (Windows, incl. Steam). On macOS (Steam), use ~/Library/Application Support/Path of Exile/. If the game is open, you will reload it in the next step.',
     image: '/images/hero-keepers.jpg',
     alt: 'Copying the loot filter files into the Path of Exile folder',
   },
@@ -116,6 +116,21 @@ const faqItems = [
     title: 'Don’t like a color or sound?',
     description:
       'Test in town first, then adjust a little at a time. Swap to familiar sounds/colors while keeping top‑value items loud in your poe 3.27 loot filter.',
+  },
+  {
+    title: 'Why you need a loot filter',
+    description:
+      'Removes clutter for performance and clarity. Lets you lock onto value with colors, beams, and sounds instead of reading every item name at speed.',
+  },
+  {
+    title: 'When should I update?',
+    description:
+      'Before league start, multiple times during week one, and after big hotfixes. Updating keeps value tiers and new league items correct.',
+  },
+  {
+    title: 'Console or color‑blind tips',
+    description:
+      'Use higher contrast borders, thicker beams, and louder cues. Prefer stricter presets earlier to keep screens readable from distance.',
   },
 ]
 
@@ -223,6 +238,30 @@ export default function LootFilterPage() {
           Updating your poe 3.27 loot filter is one‑click with FilterBlade or a fast manual copy.
         </p>
       </div>
+
+      <Section
+        id="basics"
+        title="Loot Filter Basics"
+        desc="What a loot filter is and why it helps performance and clarity."
+        kicker="Start Here"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card title="What it does">
+            <p>A loot filter hides junk and highlights valuable drops with readable colors, beams, and sounds. You spend less time reading every line and more time mapping.</p>
+          </Card>
+          <Card title="Why you need it">
+            <p>Clutter hurts performance and decision making. With a filter, screens stay readable and you react to clear cues instead of scanning dozens of item names.</p>
+          </Card>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10">
+            <Image src="/images/rpgstash-poe-loot-filter-1.jpg" alt="Without loot filter: cluttered screen" fill className="object-cover" />
+          </div>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10">
+            <Image src="/images/rpgstash-poe-loot-filter-2.jpg" alt="With loot filter: clean highlights" fill className="object-cover" />
+          </div>
+        </div>
+      </Section>
 
       <Section
         id="setup"
