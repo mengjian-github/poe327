@@ -60,7 +60,7 @@ export default async function PatchNotesPage() {
       />
 
       <div className="container py-12">
-        <LastUpdated date="November 3, 2025 - sources: pathofexile.com forums, dev posts, wiki mirrors" />
+        <LastUpdated date="November 4, 2025 - sources: pathofexile.com forums, dev posts, wiki mirrors" />
 
         <h2 className="mt-8 text-2xl font-semibold text-white">Pinned Sources</h2>
         <p className="mt-2 text-sm text-white/70">Authoritative links for patch notes poe 3.27. Bookmark these for verification.</p>
