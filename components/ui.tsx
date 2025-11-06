@@ -1,35 +1,28 @@
 'use client'
 import { twMerge } from 'tailwind-merge'
-import {
-  ArrowRight,
-  CalendarClock,
-  Flame,
-  LineChart,
-  Map,
-  Newspaper,
-} from 'lucide-react'
+import { ArrowRight, CalendarClock, LineChart, Map, Newspaper } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
 export function HeroCTA() {
   const items = [
     {
-      href: '/starter',
-      title: 'League Starter Tierlist',
-      subtitle: 'Day 1 builds that reach maps fast.',
-      icon: <Flame size={18} />,
-    },
-    {
-      href: '/meta',
-      title: 'Meta Builds & Guides',
-      subtitle: 'S-tier mapping and boss killers.',
-      icon: <LineChart size={18} />,
-    },
-    {
-      href: '/lab',
-      title: "Today's Lab Compass",
-      subtitle: 'Ascendancy path & layout notes.',
+      href: '/filters',
+      title: 'Loot Filter Lab',
+      subtitle: 'Copy-ready presets and setup steps.',
       icon: <Map size={18} />,
+    },
+    {
+      href: '/patch-notes',
+      title: 'Patch Notes Radar',
+      subtitle: 'Hotfix timelines and manifestos.',
+      icon: <Newspaper size={18} />,
+    },
+    {
+      href: '/trade/awakened',
+      title: 'Trade Toolkit',
+      subtitle: 'Overlay configs and price macros.',
+      icon: <LineChart size={18} />,
     },
   ]
 

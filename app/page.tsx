@@ -14,20 +14,6 @@ type HeroHighlight = {
 
 const heroHighlights: HeroHighlight[] = [
   {
-    title: 'Launch control center',
-    description:
-      'Follow the poe league 3.27 release timeline with timezone conversions for the October 31, 2025 Americas launch and the November 1 ANZ rollout, then pin the reveal livestream, realm status pings, and supporter pack countdowns so your crew stays locked in.',
-    href: '/starter',
-    linkLabel: 'Open the poe league 3.27 starter planner',
-  },
-  {
-    title: 'Information architecture guide',
-    description:
-      'Use the navigation to hop from this hub to the Starter Planner, Build Tier List, and Loot Filter Lab while the poe league 3.27 subpages surface role-specific checklists, curated art, and linked patch sources for quick verification.',
-    href: '/starters',
-    linkLabel: 'Review poe league 3.27 build tiers',
-  },
-  {
     title: 'Live service radar',
     description:
       'Monitor hotfixes, server alerts, and official posts inside the poe league 3.27 newsroom module so you can escalate assignments, call for reruns, or swap atlas strategies before the next reset.',
@@ -68,20 +54,6 @@ type HubCard = {
 }
 
 const hubCards: HubCard[] = [
-  {
-    title: 'Starter Operations',
-    href: '/starter',
-    description:
-      'Lock in poe league 3.27 leveling splits, Breach escort assignments, and launch-night consumable checklists with the interactive starter dashboard.',
-    meta: 'Includes poe league 3.27 downloadable timelines and Ailith escort drills.',
-  },
-  {
-    title: 'Build Tier List',
-    href: '/starters',
-    description:
-      'Compare poe league 3.27 starter archetypes by clear speed, boss pressure, and Genesis Tree synergy so the roster spreads roles with intent.',
-    meta: 'poe league 3.27 filters for softcore, ruthless, SSF, and controller.',
-  },
   {
     title: 'Loot Filter Lab',
     href: '/filters',
@@ -146,16 +118,6 @@ const visualSections: VisualSection[] = [
       'The overview module anchors your timeline with release times, reveal coverage, and the priority list for each squad role. It ties the poe league 3.27 countdown to the dedicated Starter Planner and Loot Filter Lab, then links forward to trade and patch hubs so nothing slips between tabs. With this poe league 3.27 roadmap up top, your guild can brief new members in minutes.',
     links: [
       {
-        href: '/starter',
-        label: 'Starter planner timeline',
-        description: 'Add the October 23, 2025 reveal livestream markers and launch-day rehearsals straight from the poe league 3.27 planner.',
-      },
-      {
-        href: '/starters',
-        label: 'Build tier quick swap',
-        description: 'Confirm who is on Breach escort duty versus Atlas rushers with the poe league 3.27 tier filters.',
-      },
-      {
         href: '/patch-notes',
         label: 'Patch digest tracker',
         description: 'Embed the Hotfix 1–7 digest into your prep doc so daylight-saving shifts and bug fixes are in sync.',
@@ -170,23 +132,8 @@ const visualSections: VisualSection[] = [
     kicker: 'Leveling lab',
     lead:
       'Leveling guidance combines the Starter Planner with notes pulled from the builds page so your poe league 3.27 openers stay disciplined while the rest of the roster preps mapping gear. Crosslink callouts direct speed runners to route overlays and highlight when to switch to Hive Defense practice.',
-    links: [
-      {
-        href: '/starter',
-        label: 'Route PDF & checklists',
-        description: 'Download poe league 3.27 escort rotations, vendor recipes, and gem timings in one bundle ready for poe league 3.27 launch night.',
-      },
-      {
-        href: '/starters',
-        label: 'Tier list filters',
-        description: 'Highlight caster, melee, and minion archetypes with tags tuned for Keepers of the Flame.',
-      },
-      {
-        href: '/starter#videos',
-        label: 'Hive Defense drills',
-        description: 'Practice Ailith shielding and Dreamer’s Flame wall positioning before private leagues open.',
-      },
-    ],
+    // Starter section pending – no deep-link actions available right now.
+    links: [],
     image: '/images/keepers-kineticrain.jpg',
   },
   {
@@ -229,11 +176,6 @@ const visualSections: VisualSection[] = [
         description: 'Assign safehouse rewards and Betrayal targets before mapping blocks begin inside the poe league 3.27 cheat sheet.',
       },
       {
-        href: '/starter#atlas',
-        label: 'Atlas tree templates',
-        description: 'Rotate Breach, Expedition, and Delve passives using downloadable poe league 3.27 snapshots.',
-      },
-      {
         href: '/patch-notes#bossing',
         label: 'Boss timer log',
         description: 'Bookmark Trialmaster, Oshabi, and Catarina schedule updates after each hotfix.',
@@ -250,19 +192,9 @@ const visualSections: VisualSection[] = [
       'Community coordination channels news posts, creator callouts, and event bulletins so poe league 3.27 operations stay aligned with official updates while leaving room for custom Discord macro tips. The section also lists content creator spotlights for players chasing advanced mechanical breakdowns.',
     links: [
       {
-        href: '/starter#comms',
-        label: 'Guild ops toolkit',
-        description: 'Publish announcements with ready-made Markdown templates and rota charts for poe league 3.27 crews.',
-      },
-      {
         href: '/patch-notes#newsroom',
         label: 'RSS relay setup',
         description: 'Embed official forum posts and poe league 3.27 hotfix alerts directly into Discord.',
-      },
-      {
-        href: '/starters#coaching',
-        label: 'Coaching schedule',
-        description: 'Pair voice comm checklists with role-by-role build refreshers.',
       },
     ],
     image: '/images/keepers-hive.jpg',
@@ -274,16 +206,6 @@ const visualSections: VisualSection[] = [
     lead:
       'Quick facts condense server times, challenge thresholds, and gear breakpoints into an easy scroll so poe league 3.27 reference checks take seconds during voice comms. Pair the checklist with the navigation links to jump straight into the deeper guide once someone needs more context.',
     links: [
-      {
-        href: '/starter#countdown',
-        label: 'Launch countdown card',
-        description: 'Pin the October 31, 2025 server unlocks and ANZ rollover minutes before the poe league 3.27 go time.',
-      },
-      {
-        href: '/starters#bloodline',
-        label: 'Bloodline thresholds',
-        description: 'Review ascendancy unlock requirements per class for poe league 3.27 parties.',
-      },
       {
         href: '/patch-notes#supporter',
         label: 'Supporter pack FAQ',
