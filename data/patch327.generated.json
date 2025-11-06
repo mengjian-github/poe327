@@ -17,8 +17,17 @@
     "date": "2025-11-04",
     "title": "3.27.0b Hotfix 2",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0b Hotfix 2 — Fixed a bug where packs of monsters near Shrines were not spawning if the Shrine was located within a Breach Hive. — The 'League Interface' bind (default 'V') can no longer trigger actions other than Breach encounter skills while in range and the encounter is in progress. — Fixed a bug where Foulborn United in Dreams quality was not applying immediately to minion gems.",
+    "bullets": [
+      "Fixed a bug where packs of monsters near Shrines were not spawning if the Shrine was located within a Breach Hive.",
+      "The 'League Interface' bind (default 'V') can no longer trigger actions other than Breach encounter skills while in range and the encounter is in progress.",
+      "Fixed a bug where Foulborn United in Dreams quality was not applying immediately to minion gems.",
+      "Fixed an issue where the Black Scythe Arbalist monster from Expedition was dealing more damage than intended.",
+      "Fixed an issue where Quick Currency UI can be unusable on object such as Strongboxes when using a controller.",
+      "Fixed an issue where the player was unable to create Solo-Self-Found characters if they didn't have Scion unlocked when using a controller.",
+      "Fixed two client crashes.",
+      "Fixed an instance crash."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3874313"
   },
@@ -27,8 +36,10 @@
     "date": "2025-11-03",
     "title": "3.27.0b Hotfix",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0b Hotfix — Fixed a bug introduced in 3.27.0b causing Wombgifts from Hive Fortresses to incorrectly drop inside the Fortress area instead of outside.",
+    "bullets": [
+      "Fixed a bug introduced in 3.27.0b causing Wombgifts from Hive Fortresses to incorrectly drop inside the Fortress area instead of outside."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3873872"
   },
@@ -37,8 +48,21 @@
     "date": "2025-11-03",
     "title": "3.27.0b Patch Notes (restartless)",
     "type": "notes",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0b Patch Notes — Monsters that are targeting Ailith will now move closer before using their skills. — Ailith will create skills more frequently during Hive Fortress encounters. Note there is a maximum of 6 skill objects active at a time. — Increased the cooldown for which Ailith cannot be damaged for after taking damage. This cooldown becomes longer the more damage she takes from an individual hit.",
+    "bullets": [
+      "Monsters that are targeting Ailith will now move closer before using their skills.",
+      "Ailith will create skills more frequently during Hive Fortress encounters. Note there is a maximum of 6 skill objects active at a time.",
+      "Increased the cooldown for which Ailith cannot be damaged for after taking damage. This cooldown becomes longer the more damage she takes from an individual hit.",
+      "Failing a Breach Hive or Hive Fortress encounter will now drop all the loot of the monsters you had killed up to that point. You will not however gain any Graftblood or Wombgifts.",
+      "Rare Breach and Blight Monsters can no longer spawn with the Soul Eater modifier.",
+      "Mysterious Wombgifts were failing to generate Maps sometimes. Mysterious Wombgifts now no longer grant regular Maps, and there is now a small chance for higher level Mysterious Wombgifts to birth special types of Maps such as Shaper Guardian Maps or Synthesis Unique Maps.",
+      "The Artificial Selection Genesis Tree notable now affects the chance to get Hivebrain Glands from the Tree.",
+      "Breach Encounter skills can now be activated by pressing the 'League Interface' bind (default 'V') while in range.",
+      "Ailith now has the same quick action shortcuts as other vendors. Most notably, Ctrl + Click now opens the sell items window when using keyboard and mouse.",
+      "It that was Tul and It that was Esh now have unusable corpses. This fixes a bug where if you destroyed the corpse of these bosses shortly after they die the Hiveborn Body Part quest item would not drop.",
+      "Fixed desync that could occur with Unstable Breaches which caused them to sometimes appear already expanded.",
+      "Fixed a bug with the Gifts for the Genesis Tree quest saying you had turned in no body parts when you had turned in exactly 9 body parts."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3873809"
   },
@@ -47,8 +71,10 @@
     "date": "2025-11-02",
     "title": "3.27.0 Hotfix 9",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 9 — Fixed a bug where Delirium encounters could have a large delay before finishing and giving rewards.",
+    "bullets": [
+      "Fixed a bug where Delirium encounters could have a large delay before finishing and giving rewards."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3873215"
   },
@@ -57,8 +83,10 @@
     "date": "2025-11-02",
     "title": "3.27.0 Hotfix 8",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 8 — Fixed a bug causing players to sometimes get large latency spikes and disconnections.",
+    "bullets": [
+      "Fixed a bug causing players to sometimes get large latency spikes and disconnections."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3873131"
   },
@@ -67,8 +95,16 @@
     "date": "2025-11-01",
     "title": "3.27.0 Hotfix 7",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 7 — Fixed Incursion Breach Rooms incorrectly still being available in Keepers Leagues. — Fixed Delve rewards not matching what was displayed on the chart. — Kirac's Vault Pass now awards an Operative's Scouting Report at 40 Map bonus objectives completed, instead of an Otherworldly Scouting Report. This will display incorrectly until another upcoming patch.",
+    "bullets": [
+      "Fixed Incursion Breach Rooms incorrectly still being available in Keepers Leagues.",
+      "Fixed Delve rewards not matching what was displayed on the chart.",
+      "Kirac's Vault Pass now awards an Operative's Scouting Report at 40 Map bonus objectives completed, instead of an Otherworldly Scouting Report. This will display incorrectly until another upcoming patch.",
+      "Fixed a bug where monsters trapped in Essences would sometimes not show their world description.",
+      "Fixed an issue preventing players from joining PvP events.",
+      "Fixed a client crash that could occur when changing area.",
+      "Fixed a client crash when linking items to chat from The Market earnings tab."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3872540"
   },
@@ -77,8 +113,18 @@
     "date": "2025-10-31",
     "title": "3.27.0 Hotfix 6",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 6 — Increased the chances of finding body parts from in-area Breach encounters. — Unstable Breaches now progress slower until they collapse, particularly in the very early game. Note: You are not expected to be able to Stabilise the Unstable Breaches early on. — Ailith's \"Conjure a wall of the Dreamer's Flame\" is now removed when the Breach Hive encounter ends.",
+    "bullets": [
+      "Increased the chances of finding body parts from in-area Breach encounters.",
+      "Unstable Breaches now progress slower until they collapse, particularly in the very early game. Note: You are not expected to be able to Stabilise the Unstable Breaches early on.",
+      "Ailith's \"Conjure a wall of the Dreamer's Flame\" is now removed when the Breach Hive encounter ends.",
+      "Vruun, Marshal of Xesht now always drops a breach ring. Ruthless versions of the boss have a common chance to drop a breach ring.",
+      "Fixed a bug where the \"Gain an Enhanced Flame\" skill during Hive encounters was not visually giving you the flame, and it dealt damage but didn't burn down walls.",
+      "Fixed a bug in the in-game market browser where the 'min' and 'max' filter options for \"Sockets\" and \"Links\" would not work.",
+      "Fixed a bug where some list prices in the in-game market browser would display as '-1' of a currency.",
+      "Fixed a bug where some versions of the Nebulis Void Sceptre unique could spawn with the pre-3.27.0 modifiers. These changes will not affect existing items.",
+      "Fixed 2 instance crashes."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871826"
   },
@@ -87,8 +133,10 @@
     "date": "2025-10-31",
     "title": "3.27.0 Hotfix 5",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 5 — Fixed a rare bug where Ailith's \"Conjure a wall of the Dreamer's Flame\" could damage players instead of monsters after the Breach Hive encounter had ended.",
+    "bullets": [
+      "Fixed a rare bug where Ailith's \"Conjure a wall of the Dreamer's Flame\" could damage players instead of monsters after the Breach Hive encounter had ended."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871302"
   },
@@ -97,8 +145,21 @@
     "date": "2025-10-30",
     "title": "3.27.0 Hotfix 4",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 4 — [Home](https://www.pathofexile.com/) — [News](https://www.pathofexile.com/news) — [Create Account](https://www.pathofexile.com/account/create)",
+    "bullets": [
+      "[Home](https://www.pathofexile.com/)",
+      "[News](https://www.pathofexile.com/news)",
+      "[Create Account](https://www.pathofexile.com/account/create)",
+      "[Log In](https://www.pathofexile.com/login)",
+      "[Patch Notes](https://www.pathofexile.com/forum/view-forum/patch-notes)",
+      "[Game](https://www.pathofexile.com/game)",
+      "[Videos](https://www.pathofexile.com/video)",
+      "[Overview](https://www.pathofexile.com/game)",
+      "[Passive Tree](https://www.pathofexile.com/passive-skill-tree)",
+      "[Atlas Tree](https://www.pathofexile.com/atlas-skill-tree)",
+      "[Ascendancy Classes](https://www.pathofexile.com/ascendancy/classes)",
+      "[Items](https://www.pathofexile.com/item-data)"
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871140"
   },
@@ -107,8 +168,12 @@
     "date": "2025-10-30",
     "title": "3.27.0 Hotfix 3",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 3 — Fixed a bug where Earnings Tabs at Faustus were being hidden by the Hide Remove-only Tabs Option. — Fixed an issue with patching for Windows 7 and 8 users. — Fixed 4 client crashes.",
+    "bullets": [
+      "Fixed a bug where Earnings Tabs at Faustus were being hidden by the Hide Remove-only Tabs Option.",
+      "Fixed an issue with patching for Windows 7 and 8 users.",
+      "Fixed 4 client crashes."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871114"
   },
@@ -117,8 +182,11 @@
     "date": "2025-10-30",
     "title": "3.27.0 Hotfix 2",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix 2 — Fixed a bug where incorrect items could be placed in your Off-hand Weapon slots. We are investigating a fix for characters that have placed items in these slots before the hotfix was deployed. — Fixed 3 instance crashes.",
+    "bullets": [
+      "Fixed a bug where incorrect items could be placed in your Off-hand Weapon slots. We are investigating a fix for characters that have placed items in these slots before the hotfix was deployed.",
+      "Fixed 3 instance crashes."
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871058"
   },
@@ -127,8 +195,21 @@
     "date": "2025-10-30",
     "title": "3.27.0 Hotfix",
     "type": "hotfix",
-    "summary": "See official forum thread for full details.",
-    "bullets": [],
+    "summary": "3.27.0 Hotfix — [Home](https://www.pathofexile.com/) — [News](https://www.pathofexile.com/news) — [Create Account](https://www.pathofexile.com/account/create)",
+    "bullets": [
+      "[Home](https://www.pathofexile.com/)",
+      "[News](https://www.pathofexile.com/news)",
+      "[Create Account](https://www.pathofexile.com/account/create)",
+      "[Log In](https://www.pathofexile.com/login)",
+      "[Patch Notes](https://www.pathofexile.com/forum/view-forum/patch-notes)",
+      "[Game](https://www.pathofexile.com/game)",
+      "[Videos](https://www.pathofexile.com/video)",
+      "[Overview](https://www.pathofexile.com/game)",
+      "[Passive Tree](https://www.pathofexile.com/passive-skill-tree)",
+      "[Atlas Tree](https://www.pathofexile.com/atlas-skill-tree)",
+      "[Ascendancy Classes](https://www.pathofexile.com/ascendancy/classes)",
+      "[Items](https://www.pathofexile.com/item-data)"
+    ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3870955"
   }

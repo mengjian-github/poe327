@@ -84,23 +84,57 @@ async function fetchForumIndex() {
 async function fetchForumThread(item) {
   try {
     const html = await fetchText(item.url)
-    const $ = cheerio.load(html)
-    const firstPost = $('.post_content').first().text().trim().replace(/\s+/g, ' ')
-    const summary = firstPost ? firstPost.slice(0, 300) : 'See official forum thread for full details.'
-    // Try to find a date string near the header; fallback to today
-    let date = isoToday()
-    const dateText = $('.post_date').first().text().trim()
-    const match = dateText.match(/(\w+ \d{1,2}, \d{4})/)
-    if (match) {
-      date = new Date(match[1]).toISOString().slice(0, 10)
+    let summary = ''
+    let bullets = []
+
+    // Always try a quick parse from HTML, but avoid nav noise or CF blocks
+    if (!/Attention Required!\s*\|\s*Cloudflare/i.test(html)) {
+      const $ = cheerio.load(html)
+      const firstPost = $('.post .content, .post_content, .postrow .content, .content').first().text().trim().replace(/\s+/g, ' ')
+      if (firstPost && !/^Forum Index/i.test(firstPost)) {
+        summary = firstPost.slice(0, 420)
+      }
     }
+
+    // Use r.jina.ai reader for reliable content and proper bullet extraction
+    const proxied = 'https://r.jina.ai/http://' + new URL(item.url).host + new URL(item.url).pathname
+    const md = await fetchText(proxied)
+    const start = md.indexOf('Markdown Content:')
+    let body = start >= 0 ? md.slice(start + 'Markdown Content:'.length) : md
+    body = body.replace(/\r/g, '').trim()
+    const lines = body.split('\n').map((l) => l.trim())
+    // Collect bullets from markdown lists, skipping images/links
+    const mdBullets = lines.filter((l) => /^\*\s+[^*]/.test(l)).map((l) => l.replace(/^\*\s+/, '').trim())
+    if (mdBullets.length) bullets = mdBullets.slice(0, 12)
+    // Prefer a summary built from the first heading + 2-3 bullets
+    if (!summary || /^(Extracted summary unavailable|See official forum)/i.test(summary)) {
+      const heading = lines.find((l) => l.startsWith('###') || /^\*\*/.test(l)) || ''
+      const headText = heading.replace(/^###\s*/, '').replace(/^\*\*(.*?)\*\*$/, '$1').trim()
+      const joined = [headText, ...bullets.slice(0, 3)].filter(Boolean).join(' — ')
+      if (joined) summary = joined.slice(0, 420)
+      else {
+        // Fallback to first non-empty non-link line
+        const para = lines.find((l) => l && !l.startsWith('![') && !l.startsWith('[') && !/^Title:/.test(l)) || ''
+        if (para) summary = para.slice(0, 420)
+      }
+    }
+
+    // Try to find a date; default to today
+    let date = isoToday()
+    try {
+      const $ = cheerio.load(html)
+      const dateText = $('.post_date').first().text().trim()
+      const match = dateText.match(/(\w+ \d{1,2}, \d{4})/)
+      if (match) date = new Date(match[1]).toISOString().slice(0, 10)
+    } catch {}
+
     return toItem({
       id: `${date}-${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
       date,
       title: item.title,
       type: item.type,
-      summary: summary || 'See official forum thread for full details.',
-      bullets: [],
+      summary: summary || 'Extracted summary unavailable; open source link for full details.',
+      bullets,
       image: '/images/keepers-encounter.jpg',
       sourceUrl: item.url,
     })
