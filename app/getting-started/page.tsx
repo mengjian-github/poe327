@@ -63,7 +63,7 @@ const mapping = [
     title: 'Loot Filters',
     body:
       'Install a filter before you reach maps. Start with Campaign/Semi, then move to Strict once your screen clutters. Our NeverSink page covers install, strictness, and updates.',
-    image: '/images/poe-3-27-loot-filter-hero.svg',
+    image: '/images/rpgstash-poe-loot-filter-32.jpg',
     alt: 'Loot filter hero',
     href: '/filters/neversink',
   },
@@ -185,7 +185,14 @@ export default function GettingStartedPage() {
           ))}
         </ul>
       </Section>
+
+      <Section id="gallery" title="Quick Gallery" desc="A few captures to set the vibe for your first mapping sessions.">
+        <div className="grid gap-4 md:grid-cols-3">
+          <Image src="/images/keepers-uberboss.jpg" alt="Boss fight" width={640} height={420} className="h-48 w-full rounded-2xl object-cover" />
+          <Image src="/images/foulborn-loot.jpg" alt="Loot explosion" width={640} height={420} className="h-48 w-full rounded-2xl object-cover" />
+          <Image src="/images/screenshots/trade-home.png" alt="Official trade site" width={640} height={420} className="h-48 w-full rounded-2xl object-cover" />
+        </div>
+      </Section>
     </>
   )
 }
-

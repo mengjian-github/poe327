@@ -77,7 +77,7 @@ export default async function StarterPage({ params }: Props) {
       <div className="container flex justify-center">
         <LastUpdated date={meta.lastUpdated ?? 'Updated recently'} />
       </div>
-      {/* The reference content ships as static HTML in ref-pages. We render it directly here, plus a small gallery. */
+      {/* The reference content ships as static HTML in ref-pages. We render it directly here, plus a small gallery. */}
       <div className="container prose prose-invert max-w-none">
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <hr />
