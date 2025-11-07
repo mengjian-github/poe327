@@ -30,6 +30,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function heroFor(role: string) {
+  if (role === 'Melee') return '/images/keepers-encounter.jpg'
+  if (role === 'Ranged') return '/images/keepers-kineticrain.jpg'
+  if (role === 'Caster') return '/images/keepers-async.jpg'
+  if (role === 'Summoner') return '/images/keepers-hive.jpg'
+  return '/images/keepers-supporter.jpg'
+}
+
 export default async function StarterPage({ params }: Props) {
   const meta = starterGuides.find((s) => s.slug === params.slug)
   if (!meta) notFound()
@@ -39,7 +47,16 @@ export default async function StarterPage({ params }: Props) {
   try {
     html = await fs.readFile(filePath, 'utf8')
   } catch {
-    notFound()
+    html = `
+      <main class=\"container prose prose-invert\">
+        <h2>Guide Under Construction</h2>
+        <p>We are preparing the full write‑up for <strong>${meta.title}</strong>. In the meantime, use the PoB link above and the Getting Started guide for gearing and mapping basics.</p>
+        <ul>
+          <li>Role: ${meta.role} — Attribute: ${meta.attribute} — Ascendancy: ${meta.ascendancy}</li>
+          <li>Core skill: ${meta.skill}</li>
+        </ul>
+      </main>
+    `
   }
 
   return (
@@ -47,7 +64,7 @@ export default async function StarterPage({ params }: Props) {
       <PageHero
         title={meta.title}
         description={meta.summary}
-        image="/images/keepers-supporter.jpg"
+        image={heroFor(meta.role)}
         kicker="League Starters"
         actions={
           meta.pob ? (
@@ -64,7 +81,17 @@ export default async function StarterPage({ params }: Props) {
       <div className="container prose prose-invert max-w-none">
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
+        <hr />
+        <section>
+          <h3>In‑Action Gallery</h3>
+          <p>Quick captures to give you a feel for the vibe while mapping and bossing.</p>
+          <div class=\"grid gap-4 md:grid-cols-3\">
+            <img src=\"/images/keepers-uberboss.jpg\" alt=\"Bossing\" class=\"rounded-2xl\" />
+            <img src=\"/images/foulborn-loot.jpg\" alt=\"Loot pile\" class=\"rounded-2xl\" />
+            <img src=\"/images/genesis-tree.jpg\" alt=\"Atlas planning\" class=\"rounded-2xl\" />
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
-

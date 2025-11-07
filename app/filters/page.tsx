@@ -204,7 +204,7 @@ export default function LootFilterPage() {
       <PageHero
         title="PoE 3.27 Loot Filter Beginner Guide"
         description="What a filter is, how to install and enable it, how to choose strictness, and how to keep it updated. Follow along and get your poe 3.27 loot filter working in minutes. This poe 3.27 loot filter guide stays up to date every league."
-        image="/images/poe-3-27-loot-filter-hero.svg"
+        image="/images/rpgstash-poe-loot-filter-32.jpg"
         kicker="Keepers of the Flame"
         metrics={heroMetrics}
         actions={
