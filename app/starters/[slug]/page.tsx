@@ -48,7 +48,7 @@ export default async function StarterPage({ params }: Props) {
     html = await fs.readFile(filePath, 'utf8')
   } catch {
     html = `
-      <main class=\"container prose prose-invert\">
+      <main className="container prose prose-invert\">
         <h2>Guide Under Construction</h2>
         <p>We are preparing the full write‑up for <strong>${meta.title}</strong>. In the meantime, use the PoB link above and the Getting Started guide for gearing and mapping basics.</p>
         <ul>
@@ -85,10 +85,10 @@ export default async function StarterPage({ params }: Props) {
         <section>
           <h3>In‑Action Gallery</h3>
           <p>Quick captures to give you a feel for the vibe while mapping and bossing.</p>
-          <div class=\"grid gap-4 md:grid-cols-3\">
-            <img src=\"/images/keepers-uberboss.jpg\" alt=\"Bossing\" class=\"rounded-2xl\" />
-            <img src=\"/images/foulborn-loot.jpg\" alt=\"Loot pile\" class=\"rounded-2xl\" />
-            <img src=\"/images/genesis-tree.jpg\" alt=\"Atlas planning\" class=\"rounded-2xl\" />
+          <div className="grid gap-4 md:grid-cols-3">
+            <img src="/images/keepers-uberboss.jpg" alt="Bossing" className="rounded-2xl" />
+            <img src="/images/foulborn-loot.jpg" alt="Loot pile" className="rounded-2xl" />
+            <img src="/images/genesis-tree.jpg" alt="Atlas planning" className="rounded-2xl" />
           </div>
         </section>
       </div>
