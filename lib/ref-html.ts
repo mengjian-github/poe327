@@ -252,7 +252,10 @@ export function transformStarterHtml(input: string): string {
 }
 
 export function extractHeadings(transformedHtml: string) {
-  const $ = load(`<div id="root">${transformedHtml}</div>`, { decodeEntities: false })
+  const $ = load(
+    `<div id="root">${transformedHtml}</div>`,
+    { decodeEntities: false } as Parameters<typeof load>[1],
+  )
   const items: { id: string; text: string; level: 2 | 3 }[] = []
   $('h2, h3').each((_, el) => {
     const id = $(el).attr('id') || slugify($(el).text().trim())
