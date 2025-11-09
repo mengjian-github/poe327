@@ -260,7 +260,8 @@ export function extractHeadings(transformedHtml: string) {
   $('h2, h3').each((_, el) => {
     const id = $(el).attr('id') || slugify($(el).text().trim())
     const text = $(el).text().trim()
-    const level = ($(el).get(0).tagName === 'h3' ? 3 : 2) as 2 | 3
+    const tagName = $(el).get(0)?.tagName?.toLowerCase()
+    const level = (tagName === 'h3' ? 3 : 2) as 2 | 3
     items.push({ id, text, level })
   })
   return items
