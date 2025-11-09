@@ -10,7 +10,7 @@ function slugify(s: string): string {
 
 // Transform reference HTML into site-styled, brand-neutral content.
 export function transformStarterHtml(input: string): string {
-  const $ = load(input, { decodeEntities: false })
+  const $ = load(input, { decodeEntities: false } as Parameters<typeof load>[1])
 
   // 1) Strip scripts/styles and obvious ad/video containers
   // Keep non-ad iframes for video; we'll handle them below.
