@@ -196,8 +196,14 @@ export async function getStarterGuide(slug: string): Promise<StarterGuide> {
 
   working.find('a').each((_, el) => {
     const $el = $(el)
-    const href = $el.attr('href')
+    const href = ($el.attr('href') || '').trim()
     if (!href) {
+      $el.replaceWith($el.text())
+      return
+    }
+
+    const isPobLink = href.startsWith('/@') || /pob/i.test(href) || /pobb\.in/i.test(href)
+    if (isPobLink) {
       $el.replaceWith($el.text())
       return
     }

@@ -77,10 +77,6 @@ export default function EarthshatterSlayer({ meta }: CuratedProps) {
         </div>
       </GuideSection>
 
-      <GuideSection title="PoB">
-        <p>Latest tree and gems: <a href={meta.pob} target="_blank" rel="noopener noreferrer" className="btn btn-primary ml-2">Open PoB</a></p>
-      </GuideSection>
-
       <GuideSection title="In‑Action Gallery">
         <Gallery images={['/images/starters/earthshatter-slayer-1.jpg']} />
       </GuideSection>

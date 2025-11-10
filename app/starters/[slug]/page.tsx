@@ -61,7 +61,7 @@ export default async function StarterPage({ params }: Props) {
     } catch {
       html = `
         <h2>Guide Under Construction</h2>
-        <p>We are preparing the full write-up for <strong>${meta.title}</strong>. In the meantime, use the PoB link above and the Getting Started guide for gearing and mapping basics.</p>
+        <p>We are preparing the full write-up for <strong>${meta.title}</strong>. In the meantime, follow the Getting Started guide for gearing and mapping basics.</p>
         <ul>
           <li>Role: ${meta.role} — Attribute: ${meta.attribute} — Ascendancy: ${meta.ascendancy}</li>
           <li>Core skill: ${meta.skill}</li>
@@ -79,13 +79,6 @@ export default async function StarterPage({ params }: Props) {
         description={meta.summary}
         image={heroFor(meta.role)}
         kicker="League Starters"
-        actions={
-          meta.pob ? (
-            <a href={meta.pob} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              Open POB
-            </a>
-          ) : undefined
-        }
       />
       <div className="container flex justify-center">
         <LastUpdated date={meta.lastUpdated ?? 'Updated recently'} />
@@ -97,9 +90,6 @@ export default async function StarterPage({ params }: Props) {
             <Card title="Role"><p>{meta.role}</p></Card>
             <Card title="Ascendancy"><p>{meta.ascendancy}</p></Card>
             <Card title="Core Skill"><p>{meta.skill}</p></Card>
-            {meta.pob && (
-              <Card title="PoB"><a href={meta.pob} className="text-brand hover:text-white" target="_blank" rel="noopener noreferrer">Open PoB</a></Card>
-            )}
           </div>
 
           <article className="starter-content">

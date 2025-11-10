@@ -11,16 +11,13 @@ const publicDir = path.join(ROOT, 'poe327', 'public', 'images', 'starters')
 
 function parseGuides(text) {
   const items = []
-  const re = /\{\s*slug:\s*'([^']+)'[^}]*?title:\s*'([^']+)'[^}]*?file:\s*'([^']+)'([^}]*)\}/gms
+  const re = /\{\s*slug:\s*'([^']+)'[^}]*?title:\s*'([^']+)'[^}]*?file:\s*'([^']+)'/gms
   let m
   while ((m = re.exec(text))) {
     const slug = m[1]
     const title = m[2]
     const file = m[3]
-    const rest = m[4]
-    const pobMatch = /pob:\s*'([^']+)'/.exec(rest)
-    const pob = pobMatch ? pobMatch[1] : ''
-    items.push({ slug, title, file, pob })
+    items.push({ slug, title, file })
   }
   return items
 }
@@ -105,7 +102,7 @@ function mediaCard(title, image, items) {
           />\n`
 }
 
-function buildComponent(slug, title, images, pob) {
+function buildComponent(slug, title, images) {
   const hero1 = images[0] || '/images/keepers-encounter.jpg'
   const hero2 = images[1] || '/images/keepers-async.jpg'
   const hero3 = images[2] || '/images/keepers-hive.jpg'
@@ -155,8 +152,6 @@ ${mediaCard('Acts 7–10', hero3, ['Target a basic 4–5 link and a movement ski
         </div>
       </GuideSection>
 
-      ${pob ? `<GuideSection title="PoB">\n        <p>Latest tree and gems: <a href={meta.pob} target=\"_blank\" rel=\"noopener noreferrer\" className=\"btn btn-primary ml-2\">Open PoB</a></p>\n      </GuideSection>` : ''}
-
       <GuideSection title="In‑Action Gallery">
         <Gallery images={[${gallery.map((g)=>`'${g}'`).join(',')}]} />
       </GuideSection>
@@ -193,7 +188,7 @@ async function run() {
       await download(src, outPath)
       localImgs.push(`/images/starters/${outName}`)
     }
-    const compCode = buildComponent(g.slug, g.title, localImgs, g.pob)
+    const compCode = buildComponent(g.slug, g.title, localImgs)
     const filePath = path.join(curatedDir, `${g.slug}.tsx`)
     await fs.writeFile(filePath, compCode)
     const compName = g.slug.split('-').map(s=>s[0].toUpperCase()+s.slice(1)).join('')

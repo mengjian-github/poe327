@@ -13,7 +13,6 @@ type Guide = {
   attribute: 'Strength' | 'Dexterity' | 'Intelligence' | 'Hybrid'
   summary: string
   lastUpdated?: string
-  pob?: string
 }
 
 const roles = ['All', 'Melee', 'Ranged', 'Caster', 'Summoner'] as const
@@ -96,11 +95,6 @@ export function StartersFilter({ items }: { items: Guide[] }) {
             <p className="text-sm leading-relaxed text-white/80">{g.summary}</p>
             <div className="mt-auto flex gap-3">
               <Link href={`/starters/${g.slug}`} className="btn btn-primary btn-sm">Open Guide</Link>
-              {g.pob && (
-                <a href={g.pob} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                  POB
-                </a>
-              )}
             </div>
             {g.lastUpdated && (
               <p className="text-right text-[11px] text-white/50">Updated {g.lastUpdated}</p>
