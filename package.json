@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "scrape:patch327": "node scripts/fetch-patch327.mjs",
-    "shots:trade": "node scripts/capture-trade-screenshots.mjs"
+    "shots:trade": "node scripts/capture-trade-screenshots.mjs",
+    "indexnow:starters": "node scripts/submit-indexnow.mjs https://poe327.net/starters"
   },
   "dependencies": {
     "cheerio": "^1.1.2",
