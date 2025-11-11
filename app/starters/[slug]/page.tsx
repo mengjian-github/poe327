@@ -17,16 +17,22 @@ export function generateStaticParams() {
   return starterGuides.map((s) => ({ slug: s.slug }))
 }
 
+function buildSeoTitle(title: string) {
+  const trimmed = title.replace(/\s+League Starter$/, '')
+  return `${trimmed} | PoE 3.27`
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const meta = starterGuides.find((s) => s.slug === slug)
   if (!meta) return { title: 'Starter Not Found' }
+  const seoTitle = buildSeoTitle(meta.title)
   return {
-    title: `${meta.title} — PoE 3.27 Starter Guide`,
+    title: seoTitle,
     description: meta.summary,
     alternates: { canonical: `https://poe327.net/starters/${meta.slug}` },
     openGraph: {
-      title: `${meta.title} — PoE 3.27 Starter Guide`,
+      title: seoTitle,
       description: meta.summary,
       type: 'article',
       url: `https://poe327.net/starters/${meta.slug}`,
