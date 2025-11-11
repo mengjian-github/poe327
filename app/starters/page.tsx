@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { PageHero } from '@/components/page-hero'
@@ -12,6 +11,29 @@ export const metadata: Metadata = {
   description:
     'Curated PoE 3.27 league starters with roles, attributes, summaries, and POB links. Filter by archetype and open a focused detail page per build.',
   alternates: { canonical: 'https://poe327.net/starters' },
+  openGraph: {
+    title: 'PoE 3.27 Starters — Beginner-Friendly Build Picks',
+    description:
+      'Curated PoE 3.27 league starters with roles, attributes, summaries, and POB links. Filter by archetype and open a focused detail page per build.',
+    url: 'https://poe327.net/starters',
+    siteName: 'poe327',
+    type: 'website',
+    images: [
+      {
+        url: '/images/poe327-hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'PoE 3.27 Keepers of the Flame Meta Hub',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PoE 3.27 Starters — Beginner-Friendly Build Picks',
+    description:
+      'Filter forgiving PoE 3.27 starter builds by archetype and attributes, then dive into full writeups with POB links.',
+    images: ['/images/poe327-hero.webp'],
+  },
 }
 
 const heroMetrics = [
