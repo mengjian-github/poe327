@@ -13,6 +13,19 @@
     "sourceUrl": "https://www.poewiki.net/wiki/Version_3.27.0"
   },
   {
+    "id": "2025-11-05-3-27-0b-hotfix-3",
+    "date": "2025-11-05",
+    "title": "3.27.0b Hotfix 3",
+    "type": "hotfix",
+    "summary": "3.27.0b Hotfix 3 — The Market now shows a warning if you're trying to buy an item that is the same Item Class but has a different price to the one you've travelled to purchase. — Fixed a client crash in the Hall of Grandmasters.",
+    "bullets": [
+      "The Market now shows a warning if you're trying to buy an item that is the same Item Class but has a different price to the one you've travelled to purchase.",
+      "Fixed a client crash in the Hall of Grandmasters."
+    ],
+    "image": "/images/keepers-encounter.jpg",
+    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3874809"
+  },
+  {
     "id": "2025-11-04-3-27-0b-hotfix-2",
     "date": "2025-11-04",
     "title": "3.27.0b Hotfix 2",
@@ -189,28 +202,5 @@
     ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871058"
-  },
-  {
-    "id": "2025-10-30-3-27-0-hotfix",
-    "date": "2025-10-30",
-    "title": "3.27.0 Hotfix",
-    "type": "hotfix",
-    "summary": "3.27.0 Hotfix — [Home](https://www.pathofexile.com/) — [News](https://www.pathofexile.com/news) — [Create Account](https://www.pathofexile.com/account/create)",
-    "bullets": [
-      "[Home](https://www.pathofexile.com/)",
-      "[News](https://www.pathofexile.com/news)",
-      "[Create Account](https://www.pathofexile.com/account/create)",
-      "[Log In](https://www.pathofexile.com/login)",
-      "[Patch Notes](https://www.pathofexile.com/forum/view-forum/patch-notes)",
-      "[Game](https://www.pathofexile.com/game)",
-      "[Videos](https://www.pathofexile.com/video)",
-      "[Overview](https://www.pathofexile.com/game)",
-      "[Passive Tree](https://www.pathofexile.com/passive-skill-tree)",
-      "[Atlas Tree](https://www.pathofexile.com/atlas-skill-tree)",
-      "[Ascendancy Classes](https://www.pathofexile.com/ascendancy/classes)",
-      "[Items](https://www.pathofexile.com/item-data)"
-    ],
-    "image": "/images/keepers-encounter.jpg",
-    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3870955"
   }
 ]
