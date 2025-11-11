@@ -21,6 +21,20 @@ const heroHighlights: HeroHighlight[] = [
     href: '/patch-notes',
     linkLabel: 'Check poe league 3.27 patch notes',
   },
+  {
+    title: 'Starter planner queue',
+    description:
+      'Flag which captains own the first twelve hours with the shared starter planner, then hand off their PoB links plus loot filter presets to the next squad block without digging through Discord pins.',
+    href: '/starters',
+    linkLabel: 'Open starter planner',
+  },
+  {
+    title: 'Trade alert macros',
+    description:
+      'Wire Awakened PoE Trade overlays, chaos-per-hour ledgers, and Discord alert scripts together so everyone sees Living Graft and Hive drops spike before prices swing.',
+    href: '/trade/awakened',
+    linkLabel: 'View trade toolkit',
+  },
 ]
 
 type MasteryBeat = {
@@ -315,16 +329,18 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#040509]/90 via-[#040509]/75 to-[#150a1f]/60" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#05060a] to-transparent" />
-        <div className="container relative z-10 flex flex-col gap-16 py-32 md:py-40">
-          <div className="max-w-5xl space-y-10 text-white">
-            <span className="pill bg-brand/20 text-brand text-base font-semibold px-6 py-3">poe league 3.27 launch HQ</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-balance leading-[1.1] tracking-tight">poe league 3.27 Keepers of the Flame Launch Center</h1>
-            <p className="text-xl text-white/85 md:text-2xl leading-relaxed max-w-4xl">
+        <div className="container relative z-10 flex flex-col gap-10 py-32 md:gap-14 md:py-40">
+          <div className="max-w-7xl space-y-10 text-white">
+            <span className="pill bg-brand/20 text-brand text-base font-semibold px-6 py-3 w-max">poe league 3.27 launch HQ</span>
+            <h1 className="max-w-7xl text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight text-pretty">
+              poe league 3.27 Keepers of the Flame Launch Hub
+            </h1>
+            <p className="text-xl text-white/85 md:text-2xl leading-relaxed text-pretty">
               Keepers of the Flame kicks off on October 31, 2025 at 12:00 PM PDT in the Americas (rolling to ANZ on November 1). This hub compresses
               the essentials—timeline, navigation, and priority callouts—so you can map every Breach escort and Living Graft test without skimming a
               full patch note. It is the first stop for poe league 3.27 captains spinning up watch parties and private league scrims.
             </p>
-            <p className="text-lg text-white/80 md:text-xl leading-relaxed max-w-4xl">
+            <p className="text-lg text-white/80 md:text-xl leading-relaxed text-pretty">
               Jump straight into the{' '}
               <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
                 poe league 3.27 starter planner
@@ -360,31 +376,40 @@ export default function Home() {
             </a>
             <LastUpdated date="2025-11-02" className="mx-auto sm:ml-auto sm:mr-0" />
           </div>
-          <ul className="grid gap-6 text-white/80 md:grid-cols-3">
-            {heroHighlights.map((item) => (
-              <li
-                key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:border-brand/60 hover:bg-brand/15"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80 transition group-hover:opacity-100" />
-                <div className="relative z-10 space-y-4">
-                  <span className="text-base font-bold uppercase tracking-wide text-brand">{item.title}</span>
-                  <p className="text-base leading-relaxed text-white/85">{item.description}</p>
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-2 text-base font-semibold text-brand transition hover:text-white"
-                  >
-                    {item.linkLabel}
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="max-w-4xl text-base text-white/75 md:text-lg leading-relaxed">
+          <p className="max-w-7xl text-base text-white/75 md:text-lg leading-relaxed text-pretty">
             This poe league 3.27 knowledge base cross-links official posts, manifesto excerpts, and developer notes so squads can cite sources while
             planning builds, and every archived callout stays searchable when new adjustments land.
           </p>
+          {heroHighlights.length > 0 && (
+            <aside className="rounded-[32px] border border-white/10 bg-black/35 p-8 shadow-2xl shadow-black/30 backdrop-blur">
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-3 text-white/70">
+                  <span className="text-xs font-semibold uppercase tracking-[0.4em] text-white/80">Hero highlights</span>
+                  <div className="h-px flex-1 bg-white/15" aria-hidden />
+                </div>
+                <ul className="grid gap-5 md:grid-cols-3 text-white/85">
+                  {heroHighlights.map((item) => (
+                    <li
+                      key={item.title}
+                      className="group rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:border-brand/50 hover:bg-black/50"
+                    >
+                      <div className="space-y-3">
+                        <span className="text-sm font-semibold uppercase tracking-wide text-brand">{item.title}</span>
+                        <p className="text-base leading-relaxed text-white/90">{item.description}</p>
+                        <Link
+                          href={item.href}
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-brand"
+                        >
+                          {item.linkLabel}
+                          <ArrowRight size={16} />
+                        </Link>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          )}
         </div>
       </section>
 

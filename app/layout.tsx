@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 const siteUrl = 'https://poe327.net'
 const siteDescription =
-  'Instant access to poe league 3.27 release times, build planners, loot filters, trade macros, and live hotfix coverage so Keepers of the Flame squads click in prepared.'
+  'Keepers of the Flame launch hub packs release timers, starter planner, loot filters, trade macros, and live hotfix radar so poe 3.27 squads pivot fast.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'poe league 3.27 Launch Toolkit – Release Timers, Builds & Trade Radar | poe327.net',
+  title: 'poe 3.27 Launch Hub – Timers, Builds & Trade | poe327',
   description: siteDescription,
   keywords: [
     'poe 3.27',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      maxSnippet: -1,
-      maxImagePreview: 'large',
-      maxVideoPreview: -1,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
     },
   },
   alternates: {
