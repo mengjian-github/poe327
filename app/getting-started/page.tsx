@@ -8,7 +8,7 @@ import { Card, LastUpdated, Section } from '@/components/ui'
 export const metadata: Metadata = {
   title: 'Path of Exile 3.27 Getting Started — Beginner Roadmap',
   description:
-    'A friendly, visual PoE 3.27 getting started guide. Learn the basics: leveling, loot filters, trading, defenses, flasks, atlas, and early mapping with clear screenshots.',
+    'Step into PoE 3.27 with leveling routes, loot filters, trading tips, flask setups, atlas priorities, and mapping checkpoints for smooth league starts.',
   alternates: { canonical: 'https://poe327.net/getting-started' },
   openGraph: {
     title: 'PoE 3.27 Getting Started — Beginner Roadmap',
