@@ -164,7 +164,7 @@ const visualSections: VisualSection[] = [
         description: 'Tag high-demand bases and Living Graft gambles with the poe league 3.27 vault checklist and poe league 3.27 overlay presets.',
       },
       {
-        href: '/poe-trade',
+        href: '/trade/official',
         label: 'Official trade macros',
         description: 'Clone bulk-buy templates and chaos ratios ready for async trade rebuilds.',
       },
