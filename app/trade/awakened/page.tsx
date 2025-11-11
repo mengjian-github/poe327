@@ -14,13 +14,30 @@ const heroMetrics = [
   { label: 'Platforms', value: 'Windows (native) · Linux (Wine)' },
 ]
 
-const quickStart = [
-  'Install Awakened PoE Trade 3.27, then launch Path of Exile in windowed fullscreen.',
-  'Run the first‑time wizard in Awakened PoE Trade 3.27 to calibrate OCR and pick your hotkeys.',
-  'Hover an item and press your price‑check key to open the overlay.',
-  'Copy the best whisper with Awakened PoE Trade 3.27 and paste it in‑game to contact the seller.',
-  'Enable bulk selling, scan a stash tab, and post the generated listings.',
+const howToSteps = [
+  {
+    name: 'Download & install',
+    text: 'Install Awakened PoE Trade 3.27, then launch Path of Exile in windowed fullscreen.',
+  },
+  {
+    name: 'Run the setup wizard',
+    text: 'Use the first‑time wizard in Awakened PoE Trade 3.27 to calibrate OCR and choose hotkeys.',
+  },
+  {
+    name: 'Price check faster',
+    text: 'Hover an item, press your price‑check key, and review the Awakened PoE Trade 3.27 overlay.',
+  },
+  {
+    name: 'Send clean whispers',
+    text: 'Copy the best whisper from Awakened PoE Trade 3.27 and paste it in‑game to contact sellers.',
+  },
+  {
+    name: 'Enable bulk selling',
+    text: 'Turn on bulk selling, scan a stash tab, and post the generated listings with Awakened PoE Trade 3.27.',
+  },
 ]
+
+const quickStart = howToSteps.map(({ text }) => text)
 
 const mustKnowShortcuts = [
   { combo: 'Ctrl + D', tip: 'Instant price check overlay via Awakened PoE Trade 3.27.' },
@@ -35,15 +52,69 @@ const troubleshooting = [
   'OCR misreads: switch to a brighter hideout, increase contrast, and repeat the capture.',
 ]
 
+const faqItems = [
+  {
+    question: 'Is Awakened PoE Trade 3.27 allowed?',
+    answer:
+      'Awakened PoE Trade 3.27 reads the screen and formats whispers. Avoid automated clicks and you remain policy‑compliant.',
+  },
+  {
+    question: 'Can I share my Awakened PoE Trade 3.27 config?',
+    answer:
+      'Yes. Export your layout JSON and share it with friends or guildmates. Import it to mirror the same hotkeys and panels.',
+  },
+  {
+    question: 'Best settings for speed?',
+    answer:
+      'Use windowed fullscreen at 1080p–1440p, disable GPU scaling, and keep display scale at 100% so Awakened PoE Trade 3.27 captures cleanly.',
+  },
+]
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://poe327.net/' },
+        { '@type': 'ListItem', position: 2, name: 'Awakened Trade', item: 'https://poe327.net/trade/awakened' },
+      ],
+    },
+    {
+      '@type': 'HowTo',
+      name: 'Set up Awakened PoE Trade 3.27',
+      description: '5‑minute setup checklist: install, calibrate OCR, map hotkeys, copy whispers, and enable bulk selling.',
+      totalTime: 'PT8M',
+      supply: [{ '@type': 'HowToSupply', name: 'Path of Exile account' }],
+      tool: [{ '@type': 'HowToTool', name: 'Awakened PoE Trade 3.27 overlay' }],
+      step: howToSteps.map(({ name, text }, index) => ({
+        '@type': 'HowToStep',
+        position: index + 1,
+        name,
+        text,
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    },
+  ],
+} as const
+
 export const metadata: Metadata = {
-  title: 'Awakened PoE Trade 3.27 — Download, Setup & Beginner Guide',
+  title: 'Awakened PoE Trade 3.27 Download — Safe Overlay & 5‑Min Setup',
   description:
-    "Beginner-friendly Awakened PoE Trade 3.27 guide. Download, install, price check, bulk sell, and trade faster in PoE 3.27 with safe overlays and clear steps.",
+    'Grab the official Awakened PoE Trade 3.27 overlay, follow the 5‑minute install, learn price checks, bulk selling, troubleshooting, and FAQs for PoE 3.27.',
+  keywords: ['Awakened PoE Trade 3.27', 'awakened trade download', 'poe trade overlay'],
   alternates: { canonical: 'https://poe327.net/trade/awakened' },
   openGraph: {
-    title: 'Awakened PoE Trade 3.27 — Download & Setup',
+    title: 'Awakened PoE Trade 3.27 Download — Safe Overlay & Shortcuts',
     description:
-      "Install Awakened PoE Trade 3.27 in minutes with step-by-step setup, keybinds, screenshots, bulk selling, and quick troubleshooting for PoE 3.27.",
+      'Download Awakened PoE Trade 3.27, calibrate OCR, master keybinds, bulk sell, and fix issues with beginner‑friendly steps.',
     url: 'https://poe327.net/trade/awakened',
     images: [
       { url: '/images/poe327-hero.webp', width: 1200, height: 630, alt: 'Awakened PoE Trade overlay demo' },
@@ -55,6 +126,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <PageHero
         title="Awakened PoE Trade 3.27 — Beginner Guide & Download"
         description="Everything you need to start trading faster: download Awakened PoE Trade 3.27, calibrate in minutes, learn the price‑check flow, and post bulk listings with clean whispers."
@@ -223,24 +298,11 @@ export default function Page() {
 
       <Section id="faq" title="FAQ" desc="Quick answers for new users">
         <div className="grid gap-4 md:grid-cols-3">
-          <Card title="Is it allowed?">
-            <p>
-              Awakened PoE Trade 3.27 reads the screen and formats whispers. Avoid automated clicks and you remain
-              policy‑compliant.
-            </p>
-          </Card>
-          <Card title="Can I share my config?">
-            <p>
-              Yes. Export your layout JSON and share it with friends or guildmates. Import in Awakened PoE Trade 3.27 to
-              mirror the same hotkeys and panels.
-            </p>
-          </Card>
-          <Card title="Best settings for speed?">
-            <p>
-              Use windowed fullscreen at 1080p–1440p, disable GPU scaling, and keep display scale at 100% so Awakened PoE
-              Trade 3.27 captures cleanly.
-            </p>
-          </Card>
+          {faqItems.map(({ question, answer }) => (
+            <Card key={question} title={question}>
+              <p>{answer}</p>
+            </Card>
+          ))}
         </div>
       </Section>
 
