@@ -7,23 +7,48 @@ import { SiteHeader } from '@/components/site-header'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const siteUrl = 'https://poe327.net'
+const siteDescription =
+  'Instant access to poe league 3.27 release times, build planners, loot filters, trade macros, and live hotfix coverage so Keepers of the Flame squads click in prepared.'
+
 export const metadata: Metadata = {
-  title: 'poe league 3.27 Keepers of the Flame Launch HQ | poe327.net',
-  description:
-    'poe league 3.27 launch hub covering release timing, async trading prep, Genesis Tree planning, Bloodline ascendancies, and live hotfix updates for squads.',
+  metadataBase: new URL(siteUrl),
+  title: 'poe league 3.27 Launch Toolkit – Release Timers, Builds & Trade Radar | poe327.net',
+  description: siteDescription,
+  keywords: [
+    'poe 3.27',
+    'keepers of the flame',
+    'path of exile build planner',
+    'poe loot filter',
+    'poe trade toolkit',
+    'poe hotfix tracker',
+  ],
+  category: 'Gaming',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxSnippet: -1,
+      maxImagePreview: 'large',
+      maxVideoPreview: -1,
+    },
+  },
   alternates: {
-    canonical: 'https://poe327.net/',
+    canonical: siteUrl,
   },
   openGraph: {
-    title: 'poe league 3.27 Keepers of the Flame Launch HQ',
+    title: 'poe league 3.27 Launch Toolkit | Keepers of the Flame HQ',
     description:
-      'Release timeline, Genesis Tree guides, Bloodline ascendancy prep, and async trading context for poe league 3.27 Keepers of the Flame.',
-    url: 'https://poe327.net',
+      'Countdown timers, Bloodline ascendancy guides, Genesis Tree prep, trade overlays, and hotfix radar for poe league 3.27 captains.',
+    url: siteUrl,
     siteName: 'poe327',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/og-image.svg',
+        url: `${siteUrl}/og-image.svg`,
         width: 1200,
         height: 630,
         alt: 'PoE 3.27 Keepers of the Flame Meta Hub',
@@ -32,9 +57,27 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'poe league 3.27 Keepers HQ',
-    description: 'Keepers of the Flame launch prep with async trade, Genesis Tree, Bloodline quick hits, and live hotfix coverage.',
-    images: ['/og-image.svg'],
+    title: 'poe league 3.27 Launch Toolkit',
+    description: 'Top-click prep: release timers, builds, loot filters, trade intel, and live patch notes for Keepers squads.',
+    images: [`${siteUrl}/og-image.svg`],
+  },
+}
+
+const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'poe league 3.27 Launch Toolkit',
+  url: siteUrl,
+  description: siteDescription,
+  inLanguage: 'en-US',
+  publisher: {
+    '@type': 'Organization',
+    name: 'poe327.net',
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/og-image.svg`,
+    },
   },
 }
 
@@ -48,6 +91,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-D8GENWGNMS');`}
+        </Script>
+        <Script id="website-schema" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(siteJsonLd)}
         </Script>
         <Script id="ms-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){

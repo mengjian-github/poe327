@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import { PlayCircle, Flame, ArrowRight } from 'lucide-react'
 import { FeatureCard } from '@/components/feature-card'
 import { LastUpdated, Section } from '@/components/ui'
@@ -109,6 +110,34 @@ const hubCards: HubCard[] = [
     description:
       'Browse poe league 3.27 Neversink presets, strictness paths, and color schemes tailored to Keepers loot goals.',
     meta: 'Side-by-side art plus poe league 3.27 smart download buttons.',
+  },
+]
+
+type FaqItem = {
+  question: string
+  answer: string
+}
+
+const faqItems: FaqItem[] = [
+  {
+    question: 'When does poe league 3.27 Keepers of the Flame launch?',
+    answer:
+      'Keepers of the Flame opens on October 31, 2025 at 12:00 PM PDT (7:00 PM UTC) for the Americas and rolls to ANZ on November 1, so squads can sync their countdowns here before servers unlock.',
+  },
+  {
+    question: 'What will I get by clicking into the poe327.net launch HQ?',
+    answer:
+      'The homepage bundles the release timeline, starter planner, build tier list, loot filter lab, trade macros, and Betrayal cheat sheets so you grab every linked toolkit from one tab.',
+  },
+  {
+    question: 'How often is the homepage updated once patch notes or hotfixes drop?',
+    answer:
+      'We refresh the hero highlights, hotfix digest, and Last Updated stamp any time Grinding Gear posts new manifestos, hotfixes, or support pack changes, keeping the SERP answer in sync with live notes.',
+  },
+  {
+    question: 'Can I prep loot filters and trade macros before the league starts?',
+    answer:
+      'Yes—use the Loot Filter Lab for side-by-side previews and the Trade Toolkit for Awakened PoE Trade overlays so your presets and whisper templates are exported before the first reset.',
   },
 ]
 
@@ -256,9 +285,25 @@ const visualSections: VisualSection[] = [
     image: '/images/keepers-supporter.jpg',
   },
 ]
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
 export default function Home() {
   return (
     <>
+      <Script id="homepage-faq-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(faqJsonLd)}
+      </Script>
       <section className="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-black">
         <Image
           src="/images/keepers-flame-hero.jpg"
@@ -479,6 +524,25 @@ export default function Home() {
           </Section>
         )
       })}
+
+      <Section
+        id="faq"
+        kicker="SERP quick answers"
+        title="Keepers of the Flame launch FAQ"
+        desc="Answer the most-clicked search prompts right on the homepage so Google can surface expanded snippets that point directly to the hub."
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          {faqItems.map((faq) => (
+            <article
+              key={faq.question}
+              className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-8 text-white/80 transition hover:border-brand/50 hover:bg-brand/10"
+            >
+              <h3 className="text-xl font-bold text-white">{faq.question}</h3>
+              <p className="text-base leading-relaxed text-white/85">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
     </>
   )
 }
