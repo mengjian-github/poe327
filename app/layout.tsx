@@ -180,6 +180,15 @@ gtag('config', 'G-D8GENWGNMS');`}
                     </a>
                   </li>
                 </ul>
+                <div className="pt-2">
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">Recommended Sites</span>
+                  <ul className="mt-3 space-y-3">
+                    <li><a href="https://stunt-simulator.com/" className="text-white/75 transition hover:text-white">Stunt Simulator 2</a></li>
+                    {/* Exclude self-link to poe327.net */}
+                    <li><a href="https://legionremixhub.com/" className="text-white/75 transition hover:text-white">Legion Remix</a></li>
+                    <li><a href="https://cowboysafari.online/" className="text-white/75 transition hover:text-white">Cowboy Safari</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="flex flex-col gap-6">
