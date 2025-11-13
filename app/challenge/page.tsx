@@ -35,7 +35,7 @@ const statCallouts = [
   },
 ]
 
-const tocItems = [
+const tocItems: { id: string; text: string; level: 2 | 3 }[] = [
   { id: 'rewards', text: 'PoE 3.27 Challenge Guide rewards ladder', level: 2 },
   { id: 'route', text: 'PoE 3.27 Challenge Guide route buckets', level: 2 },
   { id: 'library', text: 'PoE 3.27 Challenge Guide library', level: 2 },
