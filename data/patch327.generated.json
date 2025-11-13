@@ -13,6 +13,41 @@
     "sourceUrl": "https://www.poewiki.net/wiki/Version_3.27.0"
   },
   {
+    "id": "2025-11-11-3-27-0c-hotfix",
+    "date": "2025-11-11",
+    "title": "3.27.0c Hotfix",
+    "type": "hotfix",
+    "summary": "3.27.0c Hotfix — Fixed a bug introduced in 3.27.0c where currencies in storage within areas, such as Syndicate Crafting Bench or the Corruption Altar, were unusable.",
+    "bullets": [
+      "Fixed a bug introduced in 3.27.0c where currencies in storage within areas, such as Syndicate Crafting Bench or the Corruption Altar, were unusable."
+    ],
+    "image": "/images/keepers-encounter.jpg",
+    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3877607"
+  },
+  {
+    "id": "2025-11-11-3-27-0c-patch-notes",
+    "date": "2025-11-11",
+    "title": "3.27.0c Patch Notes",
+    "type": "notes",
+    "summary": "3.27.0c Patch Notes — Added over 80 new Foulborn Unique items to discover. — Increased the amount of Graftblood and Wombgifts you get back from Breach Hive encounters in areas. The buffs are most prominent in higher level areas with up to 50% more Graftblood in level 83 Maps. Hive Fortresses grant up to 25% more Graftblood in level 83 Maps. — Growing Wombgift now require 40% less Graftblood to grow on the Genesis Tre",
+    "bullets": [
+      "Added over 80 new Foulborn Unique items to discover.",
+      "Increased the amount of Graftblood and Wombgifts you get back from Breach Hive encounters in areas. The buffs are most prominent in higher level areas with up to 50% more Graftblood in level 83 Maps. Hive Fortresses grant up to 25% more Graftblood in level 83 Maps.",
+      "Growing Wombgift now require 40% less Graftblood to grow on the Genesis Tree.",
+      "Increased the number of monster packs that spawn each wave in regular Breach Hive encounters in Maps, up to 80% more packs in level 83 Maps.",
+      "Increased the breakable Hive pack spawners by 40% in Maps.",
+      "Slightly increased the number of Breach monster packs spawned within a Breach Hive.",
+      "Slightly increased the number of Skill objects granted by Ailith in Breach Hive encounters in Maps .",
+      "Slaying It that was Esh and It that was Tul will now grant players Graftblood.",
+      "In Breach Hive encounters, destroying a burnable Hive pack spawner will now release a wave of purple flame destroying all walls within a 7.5 metre radius. The wave can chain react causing any other spawner objects burnt to release additional waves.",
+      "Added a variety of obstructions to the centre of Hive Fortress encounters to channel monster paths.",
+      "You can now vendor five Wombgifts to receive a random Wombgift in return.",
+      "The Genesis Tree will now show a confirmation prompt if you have pending changes when closing it."
+    ],
+    "image": "/images/keepers-encounter.jpg",
+    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3877526"
+  },
+  {
     "id": "2025-11-05-3-27-0b-hotfix-3",
     "date": "2025-11-05",
     "title": "3.27.0b Hotfix 3",
@@ -175,32 +210,5 @@
     ],
     "image": "/images/keepers-encounter.jpg",
     "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871140"
-  },
-  {
-    "id": "2025-10-30-3-27-0-hotfix-3",
-    "date": "2025-10-30",
-    "title": "3.27.0 Hotfix 3",
-    "type": "hotfix",
-    "summary": "3.27.0 Hotfix 3 — Fixed a bug where Earnings Tabs at Faustus were being hidden by the Hide Remove-only Tabs Option. — Fixed an issue with patching for Windows 7 and 8 users. — Fixed 4 client crashes.",
-    "bullets": [
-      "Fixed a bug where Earnings Tabs at Faustus were being hidden by the Hide Remove-only Tabs Option.",
-      "Fixed an issue with patching for Windows 7 and 8 users.",
-      "Fixed 4 client crashes."
-    ],
-    "image": "/images/keepers-encounter.jpg",
-    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871114"
-  },
-  {
-    "id": "2025-10-30-3-27-0-hotfix-2",
-    "date": "2025-10-30",
-    "title": "3.27.0 Hotfix 2",
-    "type": "hotfix",
-    "summary": "3.27.0 Hotfix 2 — Fixed a bug where incorrect items could be placed in your Off-hand Weapon slots. We are investigating a fix for characters that have placed items in these slots before the hotfix was deployed. — Fixed 3 instance crashes.",
-    "bullets": [
-      "Fixed a bug where incorrect items could be placed in your Off-hand Weapon slots. We are investigating a fix for characters that have placed items in these slots before the hotfix was deployed.",
-      "Fixed 3 instance crashes."
-    ],
-    "image": "/images/keepers-encounter.jpg",
-    "sourceUrl": "https://www.pathofexile.com/forum/view-thread/3871058"
   }
 ]

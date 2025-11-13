@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
 import { PageHero } from '@/components/page-hero'
 import { LastUpdated, Card } from '@/components/ui'
@@ -9,7 +10,7 @@ import { transformStarterHtml, extractHeadings } from '@/lib/ref-html'
 import { curatedStarters } from '@/curated/starters'
 import { ArticleTOC } from '@/components/article-toc'
 import { CuratedTOC } from '@/components/curated-toc'
-import { starterGuides } from '@/data/starter-guides'
+import { starterGuides, type StarterGuideMeta } from '@/data/starter-guides'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -20,6 +21,24 @@ export function generateStaticParams() {
 function buildSeoTitle(title: string) {
   const trimmed = title.replace(/\s+League Starter$/, '')
   return `${trimmed} | PoE 3.27`
+}
+
+function getRelatedStarters(current: StarterGuideMeta, max = 4) {
+  const sameAscendancy = starterGuides.filter(
+    (guide) => guide.slug !== current.slug && guide.ascendancy === current.ascendancy,
+  )
+  const sameRole = starterGuides.filter(
+    (guide) =>
+      guide.slug !== current.slug && guide.role === current.role && guide.ascendancy !== current.ascendancy,
+  )
+  const everyoneElse = starterGuides.filter(
+    (guide) =>
+      guide.slug !== current.slug && guide.ascendancy !== current.ascendancy && guide.role !== current.role,
+  )
+
+  const ordered = [...sameAscendancy, ...sameRole, ...everyoneElse]
+  const unique = ordered.filter((guide, index, arr) => arr.findIndex((g) => g.slug === guide.slug) === index)
+  return unique.slice(0, max)
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -53,6 +72,7 @@ export default async function StarterPage({ params }: Props) {
   const { slug } = await params
   const meta = starterGuides.find((s) => s.slug === slug)
   if (!meta) notFound()
+  const relatedStarters = getRelatedStarters(meta)
 
   // Prefer curated content when available, fallback to transformed reference HTML.
   const Curated = curatedStarters[slug]
@@ -101,6 +121,32 @@ export default async function StarterPage({ params }: Props) {
           <article className="starter-content">
             {useCurated ? <Curated meta={meta} /> : <div dangerouslySetInnerHTML={{ __html: clean }} />}
           </article>
+
+          {relatedStarters.length > 0 && (
+            <section>
+              <h3>Related League Starters</h3>
+              <p className="text-white/80">
+                Jump to another proven 3.27 build if you want a different role or ascendancy but the same level of
+                polish.
+              </p>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                {relatedStarters.map((guide) => (
+                  <Link
+                    key={guide.slug}
+                    href={`/starters/${guide.slug}`}
+                    className="group rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/40"
+                  >
+                    <p className="text-sm text-white/60">
+                      {guide.ascendancy} • {guide.role}
+                    </p>
+                    <p className="font-semibold text-white group-hover:text-amber-200">
+                      {guide.title.replace(/\s+League Starter$/, '')}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section>
             <h3>In‑Action Gallery</h3>
