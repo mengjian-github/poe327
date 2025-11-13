@@ -21,6 +21,7 @@ const staticRoutes: StaticRoute[] = [
   { path: '/patch-notes', changeFrequency: 'daily', priority: 0.8 },
   { path: '/getting-started', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/starters', changeFrequency: 'weekly', priority: 0.75 },
+  { path: '/challenge', changeFrequency: 'weekly', priority: 0.8 },
 ]
 
 function parseLastUpdated(value?: string) {

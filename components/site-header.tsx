@@ -7,9 +7,19 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
-// Navigation for PoE 3.27-only site. Expanded with Getting Started and Starters.
+// Navigation tailored to keep primary lanes on one line; deeper guides live inside dropdowns.
 const navItems = [
-  { label: 'Getting Started', href: '/getting-started' },
+  {
+    label: 'Guides',
+    href: '/getting-started',
+    children: [
+      { href: '/getting-started', label: 'Getting Started' },
+      { href: '/challenge', label: 'PoE 3.27 Challenge Guide' },
+      { href: '/patch-notes', label: 'Patch Notes Timeline' },
+      { href: '/betrayal-cheatsheet#canvas', label: 'Syndicate Cheat Sheet' },
+    ],
+  },
+  { label: 'Starters', href: '/starters' },
   {
     label: 'Filters',
     href: '/filters',
@@ -18,7 +28,6 @@ const navItems = [
       { href: '/filters/neversink', label: 'Neversink Filters' },
     ],
   },
-  { label: 'Starters', href: '/starters' },
   {
     label: 'Trade',
     href: '/trade/official',
@@ -27,8 +36,6 @@ const navItems = [
       { href: '/trade/official', label: 'Official Trade' },
     ],
   },
-  { label: 'Cheat Sheet', href: '/betrayal-cheatsheet#canvas' },
-  { label: 'Patch Notes', href: '/patch-notes' },
 ]
 
 export function SiteHeader() {
