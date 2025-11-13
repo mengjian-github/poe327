@@ -9,7 +9,7 @@ import { getAwakenedRelease } from '@/lib/awakened-release'
 const GITHUB_RELEASE_BASE = 'https://github.com/SnosMe/awakened-poe-trade/releases/download'
 
 const buildHeroMetrics = (version: string) => [
-  { label: 'Latest version', value: `Awakened PoE Trade v${version}` },
+  { label: 'Latest version', value: `Awakened PoE Trade 3.27 (v${version})` },
   { label: 'Platforms', value: 'Windows installer & portable · Linux AppImage · macOS dmg' },
   { label: 'Docs mirrored', value: 'Download · Quick Start · Chat commands · OCR guide · FAQ' },
 ]
@@ -61,56 +61,60 @@ const requirementCards = [
   {
     title: 'Permissions & environments',
     detail:
-      'Awakened PoE Trade does not need Admin rights, but it must match PoE if you launch the game as Admin. Cloud gaming solutions such as GeForce Now block clipboard access and are not supported.',
+      'Awakened PoE Trade 3.27 does not need Admin rights, but it must match PoE if you launch the game as Admin. Cloud gaming solutions such as GeForce Now block clipboard access and are not supported.',
   },
 ]
 
 const setupChecklist = [
   {
     name: 'Download from the official GitHub release',
-    text: 'Grab the installer, portable exe, AppImage, or dmg directly from the release table above. Any other mirror is unverified by the developer.',
+    text:
+      'Grab the installer, portable exe, AppImage, or dmg directly from the release table above for Awakened PoE Trade 3.27. Any other mirror is unverified by the developer.',
   },
   {
     name: 'Prep your Path of Exile client',
-    text: 'Switch to Windowed Fullscreen or Windowed, keep display scale at 100%, and launch the game before opening Awakened PoE Trade.',
+    text:
+      'Switch to Windowed Fullscreen or Windowed, keep display scale at 100%, and launch the game before opening Awakened PoE Trade 3.27.',
   },
   {
     name: 'Complete the first-time wizard',
-    text: 'The wizard calibrates OCR, confirms your monitor bounds, and lets you pick the price-check hotkey before the overlay loads.',
+    text:
+      'The wizard calibrates OCR, confirms your monitor bounds, and lets you pick the price-check hotkey before the Awakened PoE Trade 3.27 overlay loads.',
   },
   {
     name: 'Match privileges & clipboard access',
-    text: 'If whispers fail to copy, relaunch the tool as Administrator (only when PoE also runs as Admin) so clipboard hooks stay reliable.',
+    text:
+      'If whispers fail to copy, relaunch Awakened PoE Trade 3.27 as Administrator (only when PoE also runs as Admin) so clipboard hooks stay reliable.',
   },
 ]
 
 const quickStartPrinciples = [
-  'Every action begins with Ctrl + C. PoE copies the hovered item text to your clipboard, which Awakened PoE Trade formats for you.',
-  'The overlay does not magically know the right price—tick the stats that actually matter for your build, including pseudo stats that group similar mods.',
-  'Use the auto-filled min/max ranges as a baseline, then tighten them for perfect rolls or broaden them for cheaper comps.',
-  'Hold CTRL if you want the price window to stay open; once your cursor is inside the overlay you can release the key and continue editing filters.',
+  'Every action begins with Ctrl + C. PoE copies the hovered item text to your clipboard, which Awakened PoE Trade 3.27 formats for you.',
+  'The overlay does not magically know the right price—tick the stats that actually matter for your build, including pseudo stats that group similar mods inside Awakened PoE Trade 3.27.',
+  'Use the auto-filled min/max ranges as a baseline, then tighten them for perfect rolls or broaden them for cheaper comps when Awakened PoE Trade 3.27 suggests a wider spread.',
+  'Hold CTRL if you want the price window to stay open; once your cursor is inside the Awakened PoE Trade 3.27 overlay you can release the key and continue editing filters.',
 ]
 
 const quickStartInsights = [
   {
     title: 'Understand the clipboard loop',
     body:
-      'Pressing Ctrl + C over an item copies its raw text. Awakened PoE Trade simply parses that text and renders a nicer UI so you stay in fullscreen.',
+      'Pressing Ctrl + C over an item copies its raw text. Awakened PoE Trade 3.27 simply parses that text and renders a nicer UI so you stay in fullscreen.',
   },
   {
     title: 'Pseudo stats keep things tidy',
     body:
-      'Multiple similar modifiers are grouped into a single pseudo stat (e.g., spell damage on a wand). Pick the pseudo stat when it represents what buyers care about most.',
+      'Multiple similar modifiers are grouped into a single pseudo stat (e.g., spell damage on a wand). Pick the pseudo stat when it represents what buyers care about most inside Awakened PoE Trade 3.27.',
   },
   {
     title: 'Range suggestions are just a start',
     body:
-      'Each checkbox shows a suggested min–max range that is slightly below your actual roll. Dial it back up when selling perfectly rolled T1 mods.',
+      'Each checkbox shows a suggested min–max range that is slightly below your actual roll. Dial it back up when selling perfectly rolled T1 mods so Awakened PoE Trade 3.27 surfaces better comps.',
   },
   {
     title: 'Knowledge still matters',
     body:
-      'Choosing the right stats comes from playing different archetypes. The app highlights data, but you decide which affixes make the listing valuable.',
+      'Choosing the right stats comes from playing different archetypes. Awakened PoE Trade 3.27 highlights data, but you decide which affixes make the listing valuable.',
   },
 ]
 
@@ -160,27 +164,27 @@ const defaultHotkeys = [
 ]
 
 const settingTips = [
-  'Open the overlay (Shift + Space) and click the cog icon to swap leagues, adjust hotkeys, or see every widget in one place.',
-  'Settings → Debug exposes live logs so you can copy errors verbatim when troubleshooting.',
-  'Turn off Mousewheel Zoom under Options → UI if you want Ctrl + Mouse Wheel to focus on stash tabs instead of your character.',
-  'If the overlay is offset, confirm Windows display scale is 100% and rerun the capture wizard from the tray icon.',
+  'Open the Awakened PoE Trade 3.27 overlay (Shift + Space) and click the cog icon to swap leagues, adjust hotkeys, or see every widget in one place.',
+  'Settings → Debug exposes live Awakened PoE Trade 3.27 logs so you can copy errors verbatim when troubleshooting.',
+  'Turn off Mousewheel Zoom under Options → UI if you want Ctrl + Mouse Wheel to focus on stash tabs instead of your character while Awakened PoE Trade 3.27 listens in.',
+  'If the overlay is offset, confirm Windows display scale is 100% and rerun the Awakened PoE Trade 3.27 capture wizard from the tray icon.',
 ]
 
 const priceInsights = [
   {
     title: 'Price window anatomy',
     body:
-      'Hover the item screenshot and you see the right-side pricing window. Each affix checkbox mirrors what the official trade site expects.',
+      'Hover the item screenshot and you see the right-side pricing window. Each affix checkbox mirrors what the official trade site expects inside Awakened PoE Trade 3.27.',
   },
   {
     title: 'Manual filter responsibility',
     body:
-      'Tiers, corruptions, and implicits must be toggled on by you. Select the stats that synergize with the build you are targeting.',
+      'Tiers, corruptions, and implicits must be toggled on by you. Select the stats that synergize with the build you are targeting before Awakened PoE Trade 3.27 searches.',
   },
   {
     title: 'Pseudo stats & numeric ladders',
     body:
-      'Grouped stats keep the UI shorter. Use the numeric sliders shown beside each filter to tighten or loosen the comparable listings.',
+      'Grouped stats keep the UI shorter. Use the numeric sliders shown beside each filter to tighten or loosen the comparable listings within Awakened PoE Trade 3.27.',
   },
 ]
 
@@ -188,17 +192,17 @@ const priceFlow = [
   {
     title: 'Basic price check',
     body:
-      'Copy the item (Ctrl + C), press Ctrl + D, and read the median price at the top of the window. Compare listings instead of trusting outliers.',
+      'Copy the item (Ctrl + C), press Ctrl + D, and read the median price at the top of the Awakened PoE Trade 3.27 window. Compare listings instead of trusting outliers.',
   },
   {
     title: 'Refine rares & uniques',
     body:
-      'Toggle only the premium affixes, click Search after each edit, and watch how the comparable pool shrinks to the closest matches.',
+      'Toggle only the premium affixes, click Search after each edit, and watch how the comparable pool shrinks to the closest matches inside Awakened PoE Trade 3.27.',
   },
   {
     title: 'Currency ratios & whispers',
     body:
-      'Use the currency converter embedded in the window, then copy the cleanest whisper to contact sellers without leaving fullscreen.',
+      'Use the currency converter embedded in the window, then copy the cleanest whisper to contact sellers without leaving fullscreen through Awakened PoE Trade 3.27.',
   },
 ]
 
@@ -206,22 +210,22 @@ const advancedFeatures = [
   {
     title: 'Overlay cheat sheets',
     detail:
-      'Shift + Space opens reference cards for Syndicate, Temple rooms, Delve biomes, and more—perfect for league mechanics mid-map.',
+      'Shift + Space opens Awakened PoE Trade 3.27 reference cards for Syndicate, Temple rooms, Delve biomes, and more—perfect for league mechanics mid-map.',
   },
   {
     title: 'Dump sorting',
     detail:
-      'Run stash searches that isolate currency, bases, or divination cards, then drag results into organized sale tabs.',
+      'Run stash searches that isolate currency, bases, or divination cards, then drag results into organized sale tabs with Awakened PoE Trade 3.27 acting as your sorter.',
   },
   {
     title: 'Delve grid helper',
     detail:
-      'Ctrl + G adds a 3×3 overlay grid to Delve, nudging you toward fractured walls and side rooms.',
+      'Ctrl + G adds a 3×3 Awakened PoE Trade 3.27 overlay grid to Delve, nudging you toward fractured walls and side rooms.',
   },
   {
     title: 'Chat macros',
     detail:
-      'Bind F-keys to polite invites, thank-yous, or /kick commands so every response is a single tap.',
+      'Bind F-keys to polite invites, thank-yous, or /kick commands so every Awakened PoE Trade 3.27 response is a single tap.',
   },
 ]
 
@@ -229,12 +233,12 @@ const chatAutomations = [
   {
     title: '@last as a prefix',
     body:
-      'Start a message with @last to whisper the most recent trade partner automatically. Example: "@last Good luck!" becomes "@UltraSkillPlayer Good luck!"',
+      'Start a message with @last to whisper the most recent trade partner automatically through Awakened PoE Trade 3.27 chat macros. Example: "@last Good luck!" becomes "@UltraSkillPlayer Good luck!"',
   },
   {
     title: '@last as a suffix',
     body:
-      'Finish a command with @last and it substitutes the last name. Example: "/invite @last" sends "/invite UltraSkillPlayer".',
+      'Finish a command with @last and it substitutes the last name when Awakened PoE Trade 3.27 fires the macro. Example: "/invite @last" sends "/invite UltraSkillPlayer".',
   },
 ]
 
@@ -268,7 +272,7 @@ const ocrSetupSteps = [
   },
   {
     title: 'Restart the overlay',
-    body: 'Close Awakened PoE Trade completely before launching it again so the new OCR bundle loads.',
+    body: 'Close Awakened PoE Trade 3.27 completely before launching it again so the new OCR bundle loads.',
   },
 ]
 
@@ -294,7 +298,7 @@ const troubleshooting = [
   'Update GPU drivers if you run the Vulkan renderer. Test DirectX 11/12 to confirm it is a driver issue.',
   'Delete %appdata%/awakened-poe-trade (back up apt-data first) to reset corrupted configs.',
   'Close every tray application, then reopen them one by one to find software conflicts.',
-  'Quit Awakened PoE Trade before restarting it—launching a second instance on top does nothing.',
+  'Quit Awakened PoE Trade 3.27 before restarting it—launching a second instance on top does nothing.',
   'Visit the official Discord only after you have specific error details; otherwise you will be redirected back to this checklist.',
 ]
 
@@ -311,7 +315,7 @@ const faqItems = [
   {
     question: 'Is the app approved by GGG? Will I get banned?',
     answer:
-      'No community tool is formally approved, but Awakened PoE Trade follows the ToS by performing one action per key press and avoiding memory injection.',
+      'No community tool is formally approved, but Awakened PoE Trade 3.27 follows the ToS by performing one action per key press and avoiding memory injection.',
   },
   {
     question: 'How do I scroll stash tabs without zooming my character?',
@@ -331,7 +335,7 @@ const faqItems = [
   {
     question: 'Why can’t I price check Divination cards, Heist curios, or Kirac map offers?',
     answer:
-      'Those interfaces do not copy text to the clipboard when you press Ctrl + C, so Awakened PoE Trade has nothing to parse. Use external stash pricing tools instead.',
+      'Those interfaces do not copy text to the clipboard when you press Ctrl + C, so Awakened PoE Trade 3.27 has nothing to parse. Use external stash pricing tools instead.',
   },
   {
     question: 'What does the orange or red circle next to a listing mean?',
@@ -349,19 +353,19 @@ const videos = [
     id: 'Vf4unpUU25I',
     title: 'Full install & overlay tour',
     duration: '12:37',
-    summary: 'Download Awakened PoE Trade, walk through the installer, and see every widget triggered with Shift + Space.',
+    summary: 'Download Awakened PoE Trade 3.27, walk through the installer, and see every widget triggered with Shift + Space.',
   },
   {
     id: '2sGfpPJaQAc',
     title: 'Map mods & stash workflows',
     duration: '09:41',
-    summary: 'Use map-mod filters, dump sorting, and rare-item refinements that mirror the official quick-start advice.',
+    summary: 'Use map-mod filters, dump sorting, and rare-item refinements that mirror the official Awakened PoE Trade 3.27 quick-start advice.',
   },
   {
     id: 'dkF23lEy2as',
     title: 'Currency ratios & chat macros',
     duration: '08:55',
-    summary: 'Showcases Chaos ↔ Divine conversions, bulk selling, and customizing @last chat commands.',
+    summary: 'Showcases Chaos ↔ Divine conversions, bulk selling, and customizing @last chat commands inside Awakened PoE Trade 3.27.',
   },
 ]
 
@@ -369,11 +373,11 @@ const screenshots = [
   {
     src: '/images/awakened/price-check-item.png',
     alt: 'Path of Exile wand text copied via Ctrl + C',
-    caption: 'Ctrl + C copies the raw wand text before Awakened PoE Trade parses it.',
+    caption: 'Ctrl + C copies the raw wand text before Awakened PoE Trade 3.27 parses it.',
   },
   {
     src: '/images/awakened/price-check-overlay.png',
-    alt: 'Awakened PoE Trade price window with filters',
+    alt: 'Awakened PoE Trade 3.27 price window with filters',
     caption: 'The pricing window shows pseudo stats, sliders, and comparable listings exactly like the official screenshot.',
   },
   {
@@ -441,11 +445,12 @@ const buildStructuredData = (version: string) =>
       },
       {
         '@type': 'HowTo',
-        name: `Set up Awakened PoE Trade v${version}`,
-        description: 'Download the official release, prep your PoE client, run the wizard, and match privileges in under 8 minutes.',
+        name: `Set up Awakened PoE Trade 3.27 (v${version})`,
+        description:
+          'Download the official Awakened PoE Trade 3.27 release, prep your PoE client, run the wizard, and match privileges in under 8 minutes.',
         totalTime: 'PT8M',
         supply: [{ '@type': 'HowToSupply', name: 'Path of Exile account' }],
-        tool: [{ '@type': 'HowToTool', name: 'Awakened PoE Trade overlay' }],
+        tool: [{ '@type': 'HowToTool', name: 'Awakened PoE Trade 3.27 overlay' }],
         step: setupChecklist.map(({ name, text }, index) => ({
           '@type': 'HowToStep',
           position: index + 1,
@@ -466,21 +471,23 @@ const buildStructuredData = (version: string) =>
 
 export async function generateMetadata(): Promise<Metadata> {
   const release = await getAwakenedRelease()
-  const versionTitle = `Awakened PoE Trade v${release.version}`
+  const versionTitle = 'Awakened PoE Trade 3.27'
+  const serpTitle = 'Awakened PoE Trade 3.27 Download — Hotkeys & OCR Guide'
+  const serpDescription =
+    'Secure the official Awakened PoE Trade 3.27 release: mirrored downloads, OCR setup, hotkeys, chat macros, troubleshooting steps, and FAQs for PoE 3.27.'
 
   return {
-    title: `${versionTitle} — Official Download, OCR Guide & Hotkeys`,
-    description:
-      'Mirror the official Awakened PoE Trade docs: verified downloads, requirements, quick-start hotkeys, chat commands, OCR setup, troubleshooting, and FAQs for PoE 3.27.',
-    keywords: ['Awakened PoE Trade 3.27', 'awakened trade download', 'poe trade overlay'],
+    title: serpTitle,
+    description: serpDescription,
+    keywords: ['Awakened PoE Trade 3.27 download', 'Awakened PoE Trade 3.27', 'awakened trade download', 'poe trade overlay'],
     alternates: { canonical: 'https://poe327.net/trade/awakened' },
     openGraph: {
-      title: `${versionTitle} — Official Setup & Shortcuts`,
+      title: `${versionTitle} — Setup & Shortcuts`,
       description:
-        'Download the signed-off release, follow the mirrored quick-start, master chat commands, configure OCR, and troubleshoot faster.',
+        'Install Awakened PoE Trade 3.27 safely, follow the mirrored quick-start, configure OCR, and keep chat macros compliant before mapping.',
       url: 'https://poe327.net/trade/awakened',
       images: [
-        { url: '/images/poe327-hero.webp', width: 1200, height: 630, alt: 'Awakened PoE Trade overlay demo' },
+        { url: '/images/poe327-hero.webp', width: 1200, height: 630, alt: 'Awakened PoE Trade 3.27 overlay demo' },
       ],
       type: 'article',
     },
@@ -492,7 +499,7 @@ export default async function Page() {
   const metrics = buildHeroMetrics(release.version)
   const downloadMatrix = buildDownloadMatrix(release)
   const structuredData = buildStructuredData(release.version)
-  const heroDescription = `Use the exact instructions from awakened-poe-trade.github.io: download v${release.version}, run the wizard, learn hotkeys, configure OCR, and keep chat macros compliant.`
+  const heroDescription = `Use the exact instructions from awakened-poe-trade.github.io to install Awakened PoE Trade 3.27: download v${release.version}, run the wizard, learn hotkeys, configure OCR, and keep chat macros compliant.`
 
   return (
     <main>
@@ -527,7 +534,7 @@ export default async function Page() {
       <Section
         id="overview"
         title="Why Awakened PoE Trade 3.27?"
-        desc="The official overlay price checks items in place, formats whispers, bulk lists stash tabs, and mirrors the same widgets documented on awakened-poe-trade.github.io."
+        desc="The official Awakened PoE Trade 3.27 overlay price checks items in place, formats whispers, bulk lists stash tabs, and mirrors the same widgets documented on awakened-poe-trade.github.io."
       >
         <div className="grid gap-4 md:grid-cols-3">
           <Card title="Instant valuations">
@@ -551,7 +558,7 @@ export default async function Page() {
       <Section
         id="download"
         title={`Official Downloads & Version ${release.version}`}
-        desc="These links, requirements, and warnings are pulled directly from the Awakened PoE Trade download page so you never grab an unsafe mirror."
+        desc="These links, requirements, and warnings are pulled directly from the Awakened PoE Trade 3.27 download page so you never grab an unsafe mirror."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 overflow-x-auto rounded-xl border border-white/10 bg-white/[0.02]">
@@ -610,7 +617,7 @@ export default async function Page() {
       <Section
         id="gallery"
         title="Screenshot Walkthrough"
-        desc="Every image here is mirrored from the official documentation so you know exactly what to expect."
+        desc="Every image here is mirrored from the official Awakened PoE Trade 3.27 documentation so you know exactly what to expect."
       >
         <div className="grid gap-6 lg:grid-cols-2">
           {screenshots.map(({ src, alt, caption }) => (
@@ -626,7 +633,7 @@ export default async function Page() {
       <Section
         id="beginner"
         title="Quick-Start Insights"
-        desc="Direct pull-quotes from the official Quick Start page keep new traders grounded before they dive into the overlay."
+        desc="Direct pull-quotes from the Awakened PoE Trade 3.27 Quick Start page keep new traders grounded before they dive into the overlay."
       >
         <div className="grid gap-4 md:grid-cols-2">
           {quickStartInsights.map(({ title, body }) => (
@@ -640,7 +647,7 @@ export default async function Page() {
       <Section
         id="install"
         title="Installation Checklist"
-        desc="Follow the sequence mirrored from the official download page so Awakened PoE Trade boots cleanly on day one."
+        desc="Follow the sequence mirrored from the official download page so Awakened PoE Trade 3.27 boots cleanly on day one."
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <Card title="4 essential steps">
@@ -674,7 +681,7 @@ export default async function Page() {
       <Section
         id="hotkeys"
         title="How It Works & Default Hotkeys"
-        desc="The official Quick Start page breaks down every factory keybind so you always know which action fires."
+        desc="The official Quick Start page breaks down every Awakened PoE Trade 3.27 default keybind so you always know which action fires."
       >
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="overflow-x-auto rounded-xl border border-white/10 bg-white/[0.02]">
@@ -715,7 +722,7 @@ export default async function Page() {
       <Section
         id="price-window"
         title="Price Check Window"
-        desc="Screenshots from the official guide explain what each checkbox, pseudo stat, and slider represents."
+        desc="Screenshots from the official Awakened PoE Trade 3.27 guide explain what each checkbox, pseudo stat, and slider represents."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {priceInsights.map(({ title, body }) => (
@@ -729,7 +736,7 @@ export default async function Page() {
       <Section
         id="price-check"
         title="Price Check Workflow"
-        desc="Use one baseline loop, then refine with filters and currency math pulled straight from the official documentation."
+        desc="Use one baseline loop inside Awakened PoE Trade 3.27, then refine with filters and currency math pulled straight from the official documentation."
       >
         <div className="grid gap-4 md:grid-cols-3">
           {priceFlow.map(({ title, body }) => (
@@ -743,7 +750,7 @@ export default async function Page() {
       <Section
         id="advanced-tools"
         title="Overlay Helpers & Quality-of-Life Extras"
-        desc="Shift + Space reveals every widget documented in the official guide—these four tend to save the most time."
+        desc="Shift + Space reveals every Awakened PoE Trade 3.27 widget documented in the official guide—these four tend to save the most time."
       >
         <div className="grid gap-4 md:grid-cols-2">
           {advancedFeatures.map(({ title, detail }) => (
@@ -757,7 +764,7 @@ export default async function Page() {
       <Section
         id="chat"
         title="Chat Commands & Etiquette"
-        desc="Follow the official chat-commands page so your macros stay compliant with the Path of Exile ToS."
+        desc="Follow the official chat-commands page so your Awakened PoE Trade 3.27 macros stay compliant with the Path of Exile ToS."
       >
         <div className="grid gap-4 md:grid-cols-2">
           {chatAutomations.map(({ title, body }) => (
@@ -778,7 +785,7 @@ export default async function Page() {
       <Section
         id="ocr"
         title="OCR Setup & Widget Rules"
-        desc="The step-by-step sequence below mirrors the dedicated OCR guide so you never miss a capture."
+        desc="The step-by-step sequence below mirrors the dedicated Awakened PoE Trade 3.27 OCR guide so you never miss a capture."
       >
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="Install the OCR bundle">
@@ -814,7 +821,7 @@ export default async function Page() {
       <Section
         id="videos"
         title="Video Lessons"
-        desc="Watch curated tutorials that reinforce the official docs—no alt-tabbing required."
+        desc="Watch curated Awakened PoE Trade 3.27 tutorials that reinforce the official docs—no alt-tabbing required."
       >
         <div className="grid gap-8 lg:grid-cols-3">
           {videos.map((video) => (
@@ -823,7 +830,7 @@ export default async function Page() {
         </div>
       </Section>
 
-      <Section id="troubleshooting" title="Troubleshooting" desc="Clear every common issue before pinging Discord—exactly as the official guide recommends.">
+      <Section id="troubleshooting" title="Troubleshooting" desc="Clear every common Awakened PoE Trade 3.27 issue before pinging Discord—exactly as the official guide recommends.">
         <div className="grid gap-4 md:grid-cols-3">
           {troubleshooting.map((tip) => (
             <Card key={tip}>
@@ -833,7 +840,7 @@ export default async function Page() {
         </div>
       </Section>
 
-      <Section id="faq" title="FAQ" desc="Answers lifted verbatim from the official FAQ so you can trust every detail.">
+      <Section id="faq" title="FAQ" desc="Answers lifted verbatim from the official Awakened PoE Trade 3.27 FAQ so you can trust every detail.">
         <div className="grid gap-4 md:grid-cols-3">
           {faqItems.map(({ question, answer }) => (
             <Card key={question} title={question}>
