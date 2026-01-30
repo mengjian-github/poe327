@@ -102,6 +102,11 @@ gtag('config', 'G-D8GENWGNMS');`}
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "tzbwxao7j5");`}
         </Script>
+        {/* Plausible (self-hosted) */}
+        <Script src="https://plausible.shipsolo.io/js/pa-Ao2hmkTmXAM8EoY1N7_aB.js" strategy="afterInteractive" />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()`}
+        </Script>
         <SiteHeader />
         <main>{children}</main>
         <footer className="mt-32 border-t border-white/10 bg-gradient-to-b from-black/45 via-black/70 to-black/90 text-base text-white/70">
