@@ -192,6 +192,7 @@ gtag('config', 'G-D8GENWGNMS');`}
                     {/* Exclude self-link to poe327.net */}
                     <li><a href="https://legionremixhub.com/" className="text-white/75 transition hover:text-white">Legion Remix</a></li>
                     <li><a href="https://cowboysafari.online/" className="text-white/75 transition hover:text-white">Cowboy Safari</a></li>
+                    <li><a href="https://getchargen.com/" className="text-white/75 transition hover:text-white">AI Character Generator</a></li>
                   </ul>
                 </div>
               </div>
