@@ -34,7 +34,7 @@ function parseLastUpdated(value?: string) {
 export default function sitemap(): MetadataRoute.Sitemap {
   const starterRoutes: MetadataRoute.Sitemap = starterGuides.map((starter) => ({
     url: `${siteUrl}/starters/${starter.slug}`,
-    lastModified: parseLastUpdated(starter.lastUpdated),
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
   }))
