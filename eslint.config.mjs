@@ -1,11 +1,19 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+      '@typescript-eslint': tsPlugin,
+    },
     rules: {
       // Existing generated/content-heavy pages still contain these patterns; keep lint exit green
       // while retaining visibility as warnings in the follow-up log.
@@ -21,6 +29,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".vercel/**",
+    "cf-dist/**",
+    ".open-next/**",
+    ".wrangler/**",
   ]),
 ]);
 
