@@ -20,6 +20,8 @@ body {
   background: radial-gradient(circle at 20% -10%, rgba(249, 115, 22, 0.25), transparent 55%), radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.18), transparent 60%), var(--bg);
   color: #f4f7fb;
   min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body::before {

@@ -1,41 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
-import { PlayCircle, Flame, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { FeatureCard } from '@/components/feature-card'
+import { TrackedLink } from '@/components/tracked-link'
 import { LastUpdated, Section } from '@/components/ui'
 import { leagueFeatures } from '@/data/league'
-
-type HeroHighlight = {
-  title: string
-  description: string
-  href: string
-  linkLabel: string
-}
-
-const heroHighlights: HeroHighlight[] = [
-  {
-    title: 'Live service radar',
-    description:
-      'Monitor hotfixes, server alerts, and official posts inside the poe league 3.27 newsroom module so you can escalate assignments, call for reruns, or swap atlas strategies before the next reset.',
-    href: '/patch-notes',
-    linkLabel: 'Check poe league 3.27 patch notes',
-  },
-  {
-    title: 'Starter planner queue',
-    description:
-      'Flag which captains own the first twelve hours with the shared starter planner, then hand off their PoB links plus loot filter presets to the next squad block without digging through Discord pins.',
-    href: '/starters',
-    linkLabel: 'Open starter planner',
-  },
-  {
-    title: 'Trade alert macros',
-    description:
-      'Wire Awakened PoE Trade overlays, chaos-per-hour ledgers, and Discord alert scripts together so everyone sees Living Graft and Hive drops spike before prices swing.',
-    href: '/trade/awakened',
-    linkLabel: 'View trade toolkit',
-  },
-]
 
 type MasteryBeat = {
   title: string
@@ -58,6 +28,72 @@ const masteryBeats: MasteryBeat[] = [
     title: 'Sustainable profit',
     body: `Treat your poe league 3.27 economy as a nightly review: cross-check Foulborn drops against Awakened PoE Trade listings, separate bulk tabs for the official Trade board, and tag any Living Graft gambles you plan to run after hotfixes. Keep Delve, Expedition, and Hive pivots on standby so you can rotate strategies the moment prices plateau.`,
     image: '/images/foulborn-loot.jpg',
+  },
+]
+
+type LaunchFact = {
+  label: string
+  value: string
+  note: string
+}
+
+const launchFacts: LaunchFact[] = [
+  {
+    label: 'Release date',
+    value: 'Oct 31, 2025 · 12:00 PM PDT',
+    note: 'ANZ rolls into Nov 1; use UTC conversion before party planning.',
+  },
+  {
+    label: 'League name',
+    value: 'Keepers of the Flame',
+    note: 'PoE 3.27 league with Breach escorts and Living Graft progression.',
+  },
+  {
+    label: 'Official patch notes',
+    value: 'Read source first',
+    note: 'Check GGG notes before starters, filters, trade macros, or respec calls.',
+  },
+  {
+    label: 'New mechanics / trade changes',
+    value: 'Grafts, Hive, economy alerts',
+    note: 'Track Bloodline rewards, FilterBlade strictness, and Awakened trade setup.',
+  },
+]
+
+type LaunchTask = {
+  label: string
+  href: string
+  eventName: string
+  description: string
+  external?: boolean
+}
+
+const launchTasks: LaunchTask[] = [
+  {
+    label: 'Check Patch Notes',
+    href: '/patch-notes',
+    eventName: 'patch_notes_click',
+    description: 'Read hotfixes, manifesto notes, and official-source references.',
+  },
+  {
+    label: 'Pick Starter',
+    href: '/starters',
+    eventName: 'starter_click',
+    description: 'Choose a beginner-safe build before your first campaign block.',
+  },
+  {
+    label: 'Install Loot Filter',
+    href: 'https://www.filterblade.xyz/',
+    eventName: 'filterblade_click',
+    description: 'Open FilterBlade / NeverSink and load your strictness preset.',
+    external: true,
+  },
+  {
+    label: 'Setup Trade',
+    href: 'https://github.com/SnosMe/awakened-poe-trade/releases',
+    eventName: 'trade_download_click',
+    description: 'Download Awakened PoE Trade and prep price-check overlays.',
+    external: true,
   },
 ]
 
@@ -318,7 +354,7 @@ export default function Home() {
       <Script id="homepage-faq-schema" type="application/ld+json" strategy="beforeInteractive">
         {JSON.stringify(faqJsonLd)}
       </Script>
-      <section className="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-black">
+      <section className="relative isolate flex w-full overflow-hidden bg-black">
         <Image
           src="/images/keepers-flame-hero.jpg"
           alt="Official Keepers of the Flame reveal art with molten breaches"
@@ -327,89 +363,77 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#040509]/90 via-[#040509]/75 to-[#150a1f]/60" />
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#05060a] to-transparent" />
-        <div className="container relative z-10 flex flex-col gap-10 py-32 md:gap-14 md:py-40">
-          <div className="max-w-7xl space-y-10 text-white">
-            <span className="pill bg-brand/20 text-brand text-base font-semibold px-6 py-3 w-max">poe league 3.27 launch HQ</span>
-            <h1 className="max-w-7xl text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tight text-pretty">
-              poe league 3.27 Keepers of the Flame Launch Hub
-            </h1>
-            <p className="text-xl text-white/85 md:text-2xl leading-relaxed text-pretty">
-              Keepers of the Flame kicks off on October 31, 2025 at 12:00 PM PDT in the Americas (rolling to ANZ on November 1). This hub compresses
-              the essentials—timeline, navigation, and priority callouts—so you can map every Breach escort and Living Graft test without skimming a
-              full patch note. It is the first stop for poe league 3.27 captains spinning up watch parties and private league scrims.
-            </p>
-            <p className="text-lg text-white/80 md:text-xl leading-relaxed text-pretty">
-              Jump straight into the{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
-                poe league 3.27 starter planner
-              </Link>
-              ,{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
-                build tier list
-              </Link>
-              ,{' '}
-              <Link href="/filters" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
-                loot filter lab
-              </Link>
-              , and{' '}
-              <Link href="/trade/awakened" className="text-brand underline-offset-4 transition hover:text-white hover:underline font-semibold">
-                trade toolkit
-              </Link>
-              , then loop back for hotfix coverage and the quick facts grid whenever strategies shift mid-session.
-            </p>
-          </div>
-          <div className="flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href="https://www.ign.com/videos/path-of-exile-keepers-of-the-flame-official-trailer"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary w-full justify-center sm:w-auto text-base px-8 py-4"
-            >
-              <PlayCircle size={20} />
-              Watch the official trailer
-            </a>
-            <a href="#features" className="btn btn-ghost w-full justify-center sm:w-auto text-base px-8 py-4">
-              <Flame size={20} />
-              Enter the poe league 3.27 feature hub
-            </a>
-            <LastUpdated date="2025-11-02" className="mx-auto sm:ml-auto sm:mr-0" />
-          </div>
-          <p className="max-w-7xl text-base text-white/75 md:text-lg leading-relaxed text-pretty">
-            This poe league 3.27 knowledge base cross-links official posts, manifesto excerpts, and developer notes so squads can cite sources while
-            planning builds, and every archived callout stays searchable when new adjustments land.
-          </p>
-          {heroHighlights.length > 0 && (
-            <aside className="rounded-[32px] border border-white/10 bg-black/35 p-8 shadow-2xl shadow-black/30 backdrop-blur">
-              <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-3 text-white/70">
-                  <span className="text-xs font-semibold uppercase tracking-[0.4em] text-white/80">Hero highlights</span>
-                  <div className="h-px flex-1 bg-white/15" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#040509]/95 via-[#040509]/82 to-[#150a1f]/65" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#05060a] to-transparent" />
+        <div className="container relative z-10 grid min-h-[calc(100svh-84px)] gap-4 py-5 text-white md:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] md:items-center md:gap-8 md:py-16">
+          <div className="min-w-0 space-y-4 md:space-y-5">
+            <span className="pill w-fit bg-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand sm:tracking-[0.25em]">
+              PoE 3.27 Launch Checklist
+            </span>
+            <div className="space-y-3">
+              <h1 className="max-w-5xl break-words text-3xl font-black leading-[1.04] tracking-tight text-pretty sm:text-5xl lg:text-7xl">
+                PoE 3.27 Keepers of the Flame launch checklist
+              </h1>
+              <p className="max-w-4xl text-sm leading-relaxed text-white/85 sm:text-lg md:text-xl">
+                Release date, league name, official patch notes, new mechanics, starter, loot filter, and trade setup in one first-screen checklist.
+              </p>
+            </div>
+            <dl className="grid grid-cols-2 gap-2 md:hidden">
+              {launchFacts.map((fact) => (
+                <div key={fact.label} className="rounded-xl border border-white/10 bg-black/35 p-2">
+                  <dt className="text-[10px] font-semibold uppercase leading-tight tracking-wide text-brand">{fact.label}</dt>
+                  <dd className="mt-1 text-xs font-bold leading-tight text-white">{fact.value}</dd>
                 </div>
-                <ul className="grid gap-5 md:grid-cols-3 text-white/85">
-                  {heroHighlights.map((item) => (
-                    <li
-                      key={item.title}
-                      className="group rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:border-brand/50 hover:bg-black/50"
-                    >
-                      <div className="space-y-3">
-                        <span className="text-sm font-semibold uppercase tracking-wide text-brand">{item.title}</span>
-                        <p className="text-base leading-relaxed text-white/90">{item.description}</p>
-                        <Link
-                          href={item.href}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-brand"
-                        >
-                          {item.linkLabel}
-                          <ArrowRight size={16} />
-                        </Link>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-          )}
+              ))}
+            </dl>
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              {launchTasks.map((task, index) => (
+                <TrackedLink
+                  key={task.label}
+                  href={task.href}
+                  eventName={index === 0 ? 'home_cta_click' : task.eventName}
+                  extraEventNames={index === 0 ? [task.eventName] : undefined}
+                  eventProps={{ location: 'hero_checklist', task: task.label }}
+                  className="group flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-16 sm:gap-3 sm:px-4 sm:py-3"
+                  target={task.external ? '_blank' : undefined}
+                >
+                  <span className="min-w-0">
+                    <span className="block text-xs font-bold sm:text-base">{task.label}</span>
+                    <span className="mt-1 hidden text-xs leading-snug text-white/70 sm:block sm:text-sm">{task.description}</span>
+                  </span>
+                  <ArrowRight size={18} className="shrink-0 transition group-hover:translate-x-1" />
+                </TrackedLink>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-3 text-sm text-white/75">
+              <TrackedLink
+                href="https://www.pathofexile.com/forum/view-forum/patch-notes"
+                eventName="external_official_click"
+                eventProps={{ location: 'hero_source_link', source: 'ggg_patch_notes' }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 font-semibold text-brand hover:text-white"
+                target="_blank"
+              >
+                Official patch notes source <ArrowRight size={14} />
+              </TrackedLink>
+              <LastUpdated date="2025-11-02" />
+            </div>
+          </div>
+
+          <aside className="hidden min-w-0 rounded-[28px] border border-white/12 bg-black/40 p-4 shadow-2xl shadow-black/30 backdrop-blur md:block md:p-5">
+            <div className="mb-3 flex items-center gap-3 text-white/70">
+              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-white/75">Quick Facts</span>
+              <div className="h-px flex-1 bg-white/15" aria-hidden />
+            </div>
+            <dl className="grid gap-3">
+              {launchFacts.map((fact) => (
+                <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-brand">{fact.label}</dt>
+                  <dd className="mt-1 text-base font-bold leading-tight text-white md:text-lg">{fact.value}</dd>
+                  <dd className="mt-1 text-xs leading-relaxed text-white/70 sm:text-sm">{fact.note}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </div>
       </section>
 
