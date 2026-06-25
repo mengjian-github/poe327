@@ -37,6 +37,14 @@ export function trackEvent(eventName: string, eventProps: Record<string, unknown
   analyticsWindow.dataLayer.push({ event: eventName, ...payload })
 }
 
+export function trackNavClick(label: string, location: string = 'site_header') {
+  trackEvent('nav_click', {
+    event_category: 'navigation',
+    event_label: label,
+    location,
+  })
+}
+
 export function TrackedLink({
   href,
   eventName,

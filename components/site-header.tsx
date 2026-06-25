@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
+import { trackEvent, trackNavClick } from '@/components/tracked-link'
 
 // Navigation tailored to keep primary lanes on one line; deeper guides live inside dropdowns.
 const navItems = [
@@ -80,6 +81,7 @@ export function SiteHeader() {
                   href={item.href}
                   className="rounded-full px-4 py-2.5 text-white/70 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70"
                   onFocus={() => setActiveDesktopItem(item.label)}
+                  onClick={() => trackNavClick(item.label, 'site_header_desktop')}
                 >
                   {item.label}
                 </Link>
@@ -95,7 +97,10 @@ export function SiteHeader() {
                         key={child.href}
                         href={child.href}
                         className="rounded-xl px-4 py-3 text-white/70 transition hover:bg-white/10 hover:text-white"
-                        onClick={close}
+                        onClick={() => {
+                          close()
+                          trackNavClick(`${item.label} > ${child.label}`, 'site_header_desktop_dropdown')
+                        }}
                         onFocus={() => setActiveDesktopItem(item.label)}
                       >
                         {child.label}
@@ -129,7 +134,7 @@ export function SiteHeader() {
           return (
             <div key={item.label} className="rounded-xl border border-white/5 bg-white/5">
               <div className="flex items-center justify-between px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white/70">
-                <Link href={item.href} className="flex-1 transition hover:text-white" onClick={close}>
+                <Link href={item.href} className="flex-1 transition hover:text-white" onClick={() => { close(); trackNavClick(item.label, 'site_header_mobile') }}>
                   {item.label}
                 </Link>
                 {item.children && (
@@ -150,7 +155,7 @@ export function SiteHeader() {
                       key={child.href}
                       href={child.href}
                       className="rounded-lg px-3 py-2.5 text-sm transition hover:bg-white/10 hover:text-white"
-                      onClick={close}
+                      onClick={() => { close(); trackNavClick(`${item.label} > ${child.label}`, 'site_header_mobile_dropdown') }}
                     >
                       {child.label}
                     </Link>
@@ -163,7 +168,7 @@ export function SiteHeader() {
         <a
           href="mailto:support@poe327.net"
           className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/10 hover:text-white"
-          onClick={close}
+          onClick={() => trackEvent('contact_us', { event_category: 'engagement', event_label: 'Email Support', location: 'nav_mobile' })}
         >
           support@poe327.net
         </a>

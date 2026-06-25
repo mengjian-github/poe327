@@ -11,6 +11,7 @@ type MasteryBeat = {
   title: string
   body: string
   image: string
+  href?: string
 }
 
 const masteryBeats: MasteryBeat[] = [
@@ -64,6 +65,7 @@ type LaunchTask = {
   label: string
   href: string
   eventName: string
+  eventProps?: Record<string, unknown>
   description: string
   external?: boolean
 }
@@ -78,20 +80,22 @@ const launchTasks: LaunchTask[] = [
   {
     label: 'Pick Starter',
     href: '/starters',
-    eventName: 'starter_click',
+    eventName: 'starter_open',
     description: 'Choose a beginner-safe build before your first campaign block.',
   },
   {
     label: 'Install Loot Filter',
     href: 'https://www.filterblade.xyz/',
-    eventName: 'filterblade_click',
+    eventName: 'outbound_official',
+    eventProps: { event_label: 'FilterBlade', destination: 'https://www.filterblade.xyz/' },
     description: 'Open FilterBlade / NeverSink and load your strictness preset.',
     external: true,
   },
   {
     label: 'Setup Trade',
     href: 'https://github.com/SnosMe/awakened-poe-trade/releases',
-    eventName: 'trade_download_click',
+    eventName: 'outbound_official',
+    eventProps: { event_label: 'Awakened PoE Trade GitHub', destination: 'https://github.com/SnosMe/awakened-poe-trade/releases' },
     description: 'Download Awakened PoE Trade and prep price-check overlays.',
     external: true,
   },
@@ -393,7 +397,7 @@ export default function Home() {
                   href={task.href}
                   eventName={index === 0 ? 'home_cta_click' : task.eventName}
                   extraEventNames={index === 0 ? [task.eventName] : undefined}
-                  eventProps={{ location: 'hero_checklist', task: task.label }}
+                  eventProps={{ location: 'hero_checklist', task: task.label, ...task.eventProps }}
                   className="group flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-16 sm:gap-3 sm:px-4 sm:py-3"
                   target={task.external ? '_blank' : undefined}
                 >
@@ -408,8 +412,8 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/75">
               <TrackedLink
                 href="https://www.pathofexile.com/forum/view-forum/patch-notes"
-                eventName="external_official_click"
-                eventProps={{ location: 'hero_source_link', source: 'ggg_patch_notes' }}
+                eventName="outbound_official"
+                eventProps={{ location: 'hero_source_link', source: 'ggg_patch_notes', destination: 'https://www.pathofexile.com/forum/view-forum/patch-notes' }}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 font-semibold text-brand hover:text-white"
                 target="_blank"
               >
@@ -492,9 +496,10 @@ export default function Home() {
       >
         <div className="relative grid gap-4 md:grid-cols-3">
           {masteryBeats.map((beat) => (
-            <article
+            <Link
               key={beat.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-10 text-white/85 shadow-xl shadow-black/40 transition hover:border-brand/40 hover:shadow-brand/30"
+              href={beat.href ?? '#'}
+              className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-10 text-white/85 shadow-xl shadow-black/40 transition hover:border-brand/40 hover:shadow-brand/30"
             >
               <Image
                 src={beat.image}
@@ -508,7 +513,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white">{beat.title}</h3>
                 <p className="text-base leading-relaxed text-white/85">{beat.body}</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </Section>

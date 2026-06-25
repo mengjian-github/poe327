@@ -4,6 +4,7 @@ export type LeagueFeature = {
   description: string
   points: string[]
   image: string
+  href?: string
 }
 
 export const leagueFeatures: LeagueFeature[] = [

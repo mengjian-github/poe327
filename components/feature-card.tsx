@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { LeagueFeature } from '@/data/league'
 
 type FeatureCardProps = {
@@ -7,7 +8,10 @@ type FeatureCardProps = {
 
 export function FeatureCard({ feature }: FeatureCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#11131a]/80 shadow-2xl shadow-black/30 backdrop-blur-xl">
+    <Link
+      href={feature.href ?? '#'}
+      className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-[#11131a]/80 shadow-2xl shadow-black/30 backdrop-blur-xl transition hover:border-brand/40 hover:bg-brand/10"
+    >
       <div className="relative h-44 w-full overflow-hidden">
         <Image
           src={feature.image}
@@ -34,6 +38,6 @@ export function FeatureCard({ feature }: FeatureCardProps) {
           ))}
         </ul>
       </div>
-    </article>
+    </Link>
   )
 }
