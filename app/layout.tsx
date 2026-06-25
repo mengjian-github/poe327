@@ -118,11 +118,7 @@ gtag('config', 'G-D8GENWGNMS');`}
                 starter prep, and economy intel so poe league 3.27 squads can make fast decisions.
               </p>
               <p className="leading-relaxed text-white/70">
-                Need something tailored for your roster? Email{' '}
-                <a href="mailto:support@poe327.net" className="font-semibold underline hover:text-white">
-                  support@poe327.net
-                </a>{' '}
-                with "poe league 3.27" in the subject line and we'll route it to the right desk.
+                Need something tailored for your roster? Reach us via the contact form below.
               </p>
             </div>
             <div className="grid gap-12 md:grid-cols-2">
@@ -203,9 +199,9 @@ gtag('config', 'G-D8GENWGNMS');`}
                 Follow our daily resets, hotfix alerts, and build notes in the Keepers newsroom. Join the newsletter to keep poe league 3.27 updates
                 in your inbox.
               </p>
-              <a href="mailto:support@poe327.net?subject=poe%20league%203.27%20newsletter" className="inline-flex items-center gap-2 text-base font-bold text-brand transition hover:text-white">
+              <Link href="/newsletter" className="inline-flex items-center gap-2 text-base font-bold text-brand transition hover:text-white">
                 Request newsletter access
-              </a>
+              </Link>
             </div>
           </div>
           <div className="border-t border-white/10">

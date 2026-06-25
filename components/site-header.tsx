@@ -165,13 +165,13 @@ export function SiteHeader() {
             </div>
           )
         })}
-        <a
-          href="mailto:support@poe327.net"
+        <Link
+          href="/contact"
           className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/10 hover:text-white"
-          onClick={() => trackEvent('contact_us', { event_category: 'engagement', event_label: 'Email Support', location: 'nav_mobile' })}
+          onClick={() => trackEvent('contact_us', { event_category: 'engagement', event_label: 'Contact Page', location: 'nav_mobile' })}
         >
-          support@poe327.net
-        </a>
+          Contact
+        </Link>
       </div>
     </header>
   )
