@@ -137,12 +137,12 @@ export default function NeverSinkPage() {
         actions={
           <>
             <a
-              href="https://www.pathofexile.com/item-filter/ladder"
+              href="https://www.pathofexile.com/item-filter"
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary"
             >
-              Follow on Item Filter Ladder
+              Item Filter Directory
             </a>
             <a
               href="https://www.filterblade.xyz/"
@@ -174,7 +174,7 @@ export default function NeverSinkPage() {
               <li>Log in at pathofexile.com, search \"NeverSink\" and click Follow</li>
               <li>Select it in Options → Game → Item Filter</li>
             </ul>
-            <a href="https://www.pathofexile.com/item-filter/ladder" target="_blank" rel="noreferrer" className="btn btn-primary mt-3">Open Ladder</a>
+            <a href="https://www.pathofexile.com/item-filter" target="_blank" rel="noreferrer" className="btn btn-primary mt-3">Open Item Filter Directory</a>
           </Card>
           <Card title="FilterBlade (editor)" footer="One‑click refresh to the latest neversink 3.27. Best for everyday use.">
             <ul className="list-disc pl-5">

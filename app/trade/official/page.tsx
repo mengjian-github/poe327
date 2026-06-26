@@ -42,8 +42,8 @@ const steps = [
           <li>Keep one browser window dedicated to poe trade to prevent accidental resets while alt-tabbing.</li>
           <li>
             Link:{' '}
-            <a className="text-brand underline" href="https://www.pathofexile.com/trade" target="_blank" rel="noopener noreferrer">
-              Official poe trade
+            <a className="text-brand underline" href="https://www.pathofexile.com/trade/search/" target="_blank" rel="noopener noreferrer">
+              Official poe trade search
             </a>
           </li>
         </ul>

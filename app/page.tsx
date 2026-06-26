@@ -252,7 +252,7 @@ const visualSections: VisualSection[] = [
         description: 'Clone bulk-buy templates and chaos ratios ready for async trade rebuilds.',
       },
       {
-        href: '/trade/awakened#ledger',
+        href: '/trade/awakened',
         label: 'Guild profit sheets',
         description: 'Log nightly chaos-per-hour reports so pivots trigger before prices slide.',
       },
@@ -273,9 +273,9 @@ const visualSections: VisualSection[] = [
         description: 'Assign safehouse rewards and Betrayal targets before mapping blocks begin inside the poe league 3.27 cheat sheet.',
       },
       {
-        href: '/patch-notes#bossing',
-        label: 'Boss timer log',
-        description: 'Bookmark Trialmaster, Oshabi, and Catarina schedule updates after each hotfix.',
+        href: '/patch-notes',
+        label: 'Patch notes feed',
+        description: 'Bookmark hotfix timeline and schedule updates after each release.',
       },
     ],
     image: '/images/keepers-uberboss.jpg',
@@ -289,7 +289,7 @@ const visualSections: VisualSection[] = [
       'Community coordination channels news posts, creator callouts, and event bulletins so poe league 3.27 operations stay aligned with official updates while leaving room for custom Discord macro tips. The section also lists content creator spotlights for players chasing advanced mechanical breakdowns.',
     links: [
       {
-        href: '/patch-notes#newsroom',
+        href: '/patch-notes',
         label: 'RSS relay setup',
         description: 'Embed official forum posts and poe league 3.27 hotfix alerts directly into Discord.',
       },
@@ -304,8 +304,8 @@ const visualSections: VisualSection[] = [
       'Quick facts condense server times, challenge thresholds, and gear breakpoints into an easy scroll so poe league 3.27 reference checks take seconds during voice comms. Pair the checklist with the navigation links to jump straight into the deeper guide once someone needs more context.',
     links: [
       {
-        href: '/patch-notes#supporter',
-        label: 'Supporter pack FAQ',
+        href: '/patch-notes',
+        label: 'Patch notes feed',
         description: 'Answer cosmetics questions without digging through the full notes.',
       },
     ],
@@ -326,12 +326,12 @@ const visualSections: VisualSection[] = [
         description: 'Track Hotfixes 1–7 with timestamps, download links, and community mirrors for poe league 3.27 squads.',
       },
       {
-        href: '/patch-notes#manifesto',
-        label: 'Manifesto breakouts',
-        description: 'Compare balance excerpts to build tier shifts before respeccing.',
+        href: '/patch-notes',
+        label: 'Patch digest tracker',
+        description: 'Embed the Hotfix 1–7 digest into your prep doc so daylight-saving shifts and bug fixes are in sync.',
       },
       {
-        href: '/trade/awakened#alerts',
+        href: '/trade/awakened',
         label: 'Economy ping setup',
         description: 'Pipe loot conversion changes into the trade desk alert channel.',
       },
