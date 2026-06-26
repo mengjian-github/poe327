@@ -449,8 +449,9 @@ export default function Home() {
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {hubCards.map((card) => (
-            <div
+            <Link
               key={card.title}
+              href={card.href}
               className="group flex flex-col gap-5 rounded-3xl border border-white/10 bg-[#0b0d15]/80 p-8 text-white/80 transition hover:border-brand/40 hover:bg-brand/10"
             >
               <div className="flex items-center justify-between gap-3">
@@ -460,14 +461,11 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-white">{card.title}</h3>
               <p className="text-base leading-relaxed text-white/80">{card.description}</p>
               <p className="text-sm text-white/65">{card.meta}</p>
-              <Link
-                href={card.href}
-                className="inline-flex items-center gap-2 text-base font-semibold text-brand transition hover:text-white"
-              >
+              <span className="inline-flex items-center gap-2 text-base font-semibold text-brand transition hover:text-white">
                 Open {card.title}
                 <ArrowRight size={16} />
-              </Link>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
       </Section>

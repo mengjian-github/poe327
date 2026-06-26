@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { LastUpdated } from '@/components/ui'
 import { getPatch327Feed } from '@/lib/patch-feed'
@@ -66,22 +67,22 @@ export default async function PatchNotesPage() {
         <p className="mt-2 text-sm text-white/70">Authoritative links for patch notes poe 3.27. Bookmark these for verification.</p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {notes.slice(0, 2).map((item) => (
-            <article key={`pin-${item.id}`} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+            <a
+              key={`pin-${item.id}`}
+              href={item.sourceUrl || '#'}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-brand/40 hover:bg-brand/10"
+            >
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                {item.sourceUrl && (
-                  <a
-                    href={item.sourceUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-white/70 transition hover:border-brand/40 hover:bg-brand/10 hover:text-white"
-                  >
-                    Open
-                  </a>
-                )}
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-2 text-xs text-white/70 transition group-hover:border-brand/40 group-hover:bg-brand/10 group-hover:text-white">
+                  Open
+                  <ArrowRight size={14} className="text-white/50 transition group-hover:translate-x-0.5 group-hover:text-brand" />
+                </span>
               </div>
-              <p className="mt-2 text-sm text-white/70">{item.summary}</p>
-            </article>
+              <p className="text-sm text-white/70">{item.summary}</p>
+            </a>
           ))}
         </div>
 

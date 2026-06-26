@@ -117,6 +117,7 @@ export function SiteHeader() {
           onClick={toggle}
           className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-black/30 text-white transition hover:border-brand/40 hover:text-brand md:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -133,16 +134,17 @@ export function SiteHeader() {
           const expanded = mobileExpanded[item.label] ?? false
           return (
             <div key={item.label} className="rounded-xl border border-white/5 bg-white/5">
-              <div className="flex items-center justify-between px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white/70">
-                <Link href={item.href} className="flex-1 transition hover:text-white" onClick={() => { close(); trackNavClick(item.label, 'site_header_mobile') }}>
+              <div className="flex items-center justify-between text-sm font-semibold uppercase tracking-wide text-white/70">
+                <Link href={item.href} className="flex-1 px-4 py-3 transition hover:text-white" onClick={() => { close(); trackNavClick(item.label, 'site_header_mobile') }}>
                   {item.label}
                 </Link>
                 {item.children && (
                   <button
                     type="button"
-                    className="ml-3 rounded-full px-2 py-1 text-white/60 transition hover:text-white"
+                    className="ml-3 flex h-11 w-11 items-center justify-center rounded-full text-white/60 transition hover:text-white"
                     onClick={() => toggleMobileItem(item.label)}
                     aria-expanded={expanded}
+                    aria-label={`${expanded ? 'Collapse' : 'Expand'} ${item.label} submenu`}
                   >
                     {expanded ? '−' : '+'}
                   </button>
