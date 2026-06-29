@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import Script from 'next/script'
 import './globals.css'
+import { AnalyticsContract } from '@/components/analytics-contract'
 import { SiteHeader } from '@/components/site-header'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -107,6 +108,7 @@ gtag('config', 'G-D8GENWGNMS');`}
         <Script id="plausible-init" strategy="afterInteractive">
           {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()`}
         </Script>
+        <AnalyticsContract />
         <SiteHeader />
         <main>{children}</main>
         <footer className="mt-32 border-t border-white/10 bg-gradient-to-b from-black/45 via-black/70 to-black/90 text-base text-white/70">
@@ -205,7 +207,11 @@ gtag('config', 'G-D8GENWGNMS');`}
           </div>
           <div className="border-t border-white/10">
             <div className="container flex flex-col gap-4 py-8 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-              <span>Made by players, for players. Keepers of the Flame forever.</span>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span>Made by players, for players. Keepers of the Flame forever.</span>
+                <Link href="/privacy" className="text-white/50 transition hover:text-white/90">Privacy Policy</Link>
+                <Link href="/terms" className="text-white/50 transition hover:text-white/90">Terms of Use</Link>
+              </div>
               <span>Stay kind to your party — log out safe.</span>
             </div>
           </div>

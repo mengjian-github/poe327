@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 
 import { starterGuides } from '@/data/starter-guides'
 
+export const dynamic = 'force-static'
+
 const siteUrl = 'https://poe327.net'
 
 type StaticRoute = {

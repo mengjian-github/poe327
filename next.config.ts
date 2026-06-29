@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  output: 'export',
   // Cloudflare Pages direct upload is static-only; avoid /_next/image optimization routes.
   images: { unoptimized: true },
   // Ensure Next selects this folder as the workspace root when multiple lockfiles exist.

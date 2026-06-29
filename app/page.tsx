@@ -80,22 +80,23 @@ const launchTasks: LaunchTask[] = [
   {
     label: 'Pick Starter',
     href: '/starters',
-    eventName: 'starter_open',
+    eventName: 'tool_entry_click',
+    eventProps: { tool: 'starter_planner', secondary_event: 'starter_open' },
     description: 'Choose a beginner-safe build before your first campaign block.',
   },
   {
     label: 'Install Loot Filter',
     href: 'https://www.filterblade.xyz/',
-    eventName: 'outbound_official',
-    eventProps: { event_label: 'FilterBlade', destination: 'https://www.filterblade.xyz/' },
+    eventName: 'filterblade_click',
+    eventProps: { event_label: 'FilterBlade', destination: 'https://www.filterblade.xyz/', secondary_event: 'outbound_click' },
     description: 'Open FilterBlade / NeverSink and load your strictness preset.',
     external: true,
   },
   {
     label: 'Setup Trade',
     href: 'https://github.com/SnosMe/awakened-poe-trade/releases',
-    eventName: 'outbound_official',
-    eventProps: { event_label: 'Awakened PoE Trade GitHub', destination: 'https://github.com/SnosMe/awakened-poe-trade/releases' },
+    eventName: 'trade_tool_click',
+    eventProps: { event_label: 'Awakened PoE Trade GitHub', destination: 'https://github.com/SnosMe/awakened-poe-trade/releases', secondary_event: 'outbound_click' },
     description: 'Download Awakened PoE Trade and prep price-check overlays.',
     external: true,
   },
@@ -396,7 +397,7 @@ export default function Home() {
                   key={task.label}
                   href={task.href}
                   eventName={index === 0 ? 'home_cta_click' : task.eventName}
-                  extraEventNames={index === 0 ? [task.eventName] : undefined}
+                  extraEventNames={index === 0 ? [task.eventName] : task.external ? ['outbound_click'] : undefined}
                   eventProps={{ location: 'hero_checklist', task: task.label, ...task.eventProps }}
                   className="group flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-16 sm:gap-3 sm:px-4 sm:py-3"
                   target={task.external ? '_blank' : undefined}
@@ -494,9 +495,8 @@ export default function Home() {
       >
         <div className="relative grid gap-4 md:grid-cols-3">
           {masteryBeats.map((beat) => (
-            <Link
+            <div
               key={beat.title}
-              href={beat.href ?? '#'}
               className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d15]/85 p-10 text-white/85 shadow-xl shadow-black/40 transition hover:border-brand/40 hover:shadow-brand/30"
             >
               <Image
@@ -511,8 +511,45 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white">{beat.title}</h3>
                 <p className="text-base leading-relaxed text-white/85">{beat.body}</p>
               </div>
-            </Link>
+            </div>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        id="tools"
+        kicker="Quick tools"
+        title="Launch Toolkit"
+        desc="Jump directly into the most-used tools and references for PoE 3.27."
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          <TrackedLink
+            href="/filters"
+            eventName="filterblade_click"
+            eventProps={{ location: 'home_tools_grid', label: 'Loot Filter Lab' }}
+            className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand/50 hover:bg-brand/10"
+          >
+            <span className="text-sm font-bold text-brand">Loot Filter Lab</span>
+            <span className="text-sm text-white/70">Copy-ready presets and setup steps.</span>
+          </TrackedLink>
+          <TrackedLink
+            href="/patch-notes"
+            eventName="patch_notes_click"
+            eventProps={{ location: 'home_tools_grid', label: 'Patch Notes Radar' }}
+            className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand/50 hover:bg-brand/10"
+          >
+            <span className="text-sm font-bold text-brand">Patch Notes Radar</span>
+            <span className="text-sm text-white/70">Hotfix timelines and manifestos.</span>
+          </TrackedLink>
+          <TrackedLink
+            href="/trade/awakened"
+            eventName="trade_tool_click"
+            eventProps={{ location: 'home_tools_grid', label: 'Trade Toolkit' }}
+            className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand/50 hover:bg-brand/10"
+          >
+            <span className="text-sm font-bold text-brand">Trade Toolkit</span>
+            <span className="text-sm text-white/70">Overlay configs and price macros.</span>
+          </TrackedLink>
         </div>
       </Section>
 

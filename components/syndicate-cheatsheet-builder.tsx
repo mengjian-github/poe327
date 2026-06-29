@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, ArrowRight, Copy, Link as LinkIcon, RefreshCcw, Save } from 'lucide-react'
-
+import { trackEvent } from '@/components/tracked-link'
 import { Card } from '@/components/ui'
 
 type Division = 'Research' | 'Fortification' | 'Intervention' | 'Transportation'
@@ -170,6 +170,11 @@ export function SyndicateCheatSheetBuilder({ keyPhrase }: { keyPhrase: string })
   const copyJSON = async () => {
     const json = JSON.stringify(board, null, 2)
     await navigator.clipboard.writeText(json)
+    trackEvent('copy_or_download_success', {
+      event_label: 'Syndicate cheat sheet JSON',
+      location: 'betrayal_cheatsheet_builder',
+      action: 'copy_json',
+    })
   }
 
   const copyLink = async () => {
@@ -177,6 +182,11 @@ export function SyndicateCheatSheetBuilder({ keyPhrase }: { keyPhrase: string })
     const url = new URL(window.location.href)
     url.searchParams.set('s', encodeState(board))
     await navigator.clipboard.writeText(url.toString())
+    trackEvent('copy_or_download_success', {
+      event_label: 'Syndicate cheat sheet share link',
+      location: 'betrayal_cheatsheet_builder',
+      action: 'copy_share_link',
+    })
   }
 
   return (
