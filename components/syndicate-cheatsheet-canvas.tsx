@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { RefreshCcw, Link as LinkIcon, Sparkles, Download } from 'lucide-react'
+import { trackEvent } from '@/components/tracked-link'
 
 type Division = 'Transportation' | 'Fortification' | 'Research' | 'Intervention'
 type MemberId =
@@ -152,6 +153,11 @@ export function SyndicateCheatsheetCanvas({ keyPhrase }: { keyPhrase: string }) 
     const url = new URL(window.location.href)
     url.searchParams.set('g', encodeState(grid, 'dark'))
     await navigator.clipboard.writeText(url.toString())
+    trackEvent('copy_or_download_success', {
+      event_label: 'Syndicate cheat sheet share link',
+      location: 'syndicate_cheatsheet_canvas',
+      action: 'copy_link',
+    })
   }
 
   const saveImage = async () => {
@@ -166,6 +172,11 @@ export function SyndicateCheatsheetCanvas({ keyPhrase }: { keyPhrase: string }) 
       document.body.appendChild(a)
       a.click()
       a.remove()
+      trackEvent('copy_or_download_success', {
+        event_label: 'Syndicate cheat sheet image',
+        location: 'syndicate_cheatsheet_canvas',
+        action: 'download_image',
+      })
     } catch (e) {
       console.error('save image failed', e)
     }
@@ -183,6 +194,11 @@ export function SyndicateCheatsheetCanvas({ keyPhrase }: { keyPhrase: string }) 
       document.body.appendChild(a)
       a.click()
       a.remove()
+      trackEvent('copy_or_download_success', {
+        event_label: 'Syndicate cheat sheet grid image',
+        location: 'syndicate_cheatsheet_canvas',
+        action: 'download_grid_image',
+      })
     } catch (e) {
       console.error('save grid failed', e)
     }
