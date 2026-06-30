@@ -24,14 +24,9 @@ const staticRoutes: StaticRoute[] = [
   { path: '/getting-started', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/starters', changeFrequency: 'weekly', priority: 0.75 },
   { path: '/challenge', changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/privacy', changeFrequency: 'yearly', priority: 0.2 },
+  { path: '/terms', changeFrequency: 'yearly', priority: 0.2 },
 ]
-
-function parseLastUpdated(value?: string) {
-  if (!value) return new Date()
-  const parsed = new Date(value)
-  if (Number.isNaN(parsed.getTime())) return new Date()
-  return parsed
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const starterRoutes: MetadataRoute.Sitemap = starterGuides.map((starter) => ({

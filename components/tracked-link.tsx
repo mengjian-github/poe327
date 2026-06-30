@@ -27,8 +27,11 @@ type TrackedLinkProps = {
 export function trackEvent(eventName: string, eventProps: Record<string, unknown> = {}) {
   if (typeof window === 'undefined') return
   const analyticsWindow = window as AnalyticsWindow
+  const currentPath = window.location.pathname || '/'
   const payload = {
-    event_category: 'poe327_home',
+    event_category: 'poe327_launch_runbook',
+    page: currentPath === '/' ? 'home' : currentPath.replace(/^\//, '').replaceAll('/', '_'),
+    path: currentPath,
     ...(analyticsWindow.__poe327_getUtm?.() ?? {}),
     ...eventProps,
   }
@@ -85,7 +88,13 @@ export function TrackedLink({
   onClick,
 }: TrackedLinkProps) {
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    const payload = { href, label: typeof children === 'string' ? children : undefined, ...eventProps }
+    const payload = {
+      href,
+      target_url: eventProps?.target_url ?? href,
+      cta_rank: eventProps?.cta_rank,
+      label: typeof children === 'string' ? children : undefined,
+      ...eventProps,
+    }
     trackEvent(eventName, payload)
     extraEventNames.forEach((extraEventName) => trackEvent(extraEventName, payload))
     onClick?.(event)

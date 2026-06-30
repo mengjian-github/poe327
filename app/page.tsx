@@ -61,45 +61,28 @@ const launchFacts: LaunchFact[] = [
   },
 ]
 
-type LaunchTask = {
-  label: string
+type LaunchPath = {
+  title: string
+  pathType: string
   href: string
-  eventName: string
-  eventProps?: Record<string, unknown>
   description: string
-  external?: boolean
+  steps: string[]
 }
 
-const launchTasks: LaunchTask[] = [
-  {
-    label: 'Check Patch Notes',
-    href: '/patch-notes',
-    eventName: 'patch_notes_click',
-    description: 'Read hotfixes, manifesto notes, and official-source references.',
-  },
-  {
-    label: 'Pick Starter',
-    href: '/starters',
-    eventName: 'tool_entry_click',
-    eventProps: { tool: 'starter_planner', secondary_event: 'starter_open' },
-    description: 'Choose a beginner-safe build before your first campaign block.',
-  },
-  {
-    label: 'Install Loot Filter',
-    href: 'https://www.filterblade.xyz/',
-    eventName: 'filterblade_click',
-    eventProps: { event_label: 'FilterBlade', destination: 'https://www.filterblade.xyz/', secondary_event: 'outbound_click' },
-    description: 'Open FilterBlade / NeverSink and load your strictness preset.',
-    external: true,
-  },
-  {
-    label: 'Setup Trade',
-    href: 'https://github.com/SnosMe/awakened-poe-trade/releases',
-    eventName: 'trade_tool_click',
-    eventProps: { event_label: 'Awakened PoE Trade GitHub', destination: 'https://github.com/SnosMe/awakened-poe-trade/releases', secondary_event: 'outbound_click' },
-    description: 'Download Awakened PoE Trade and prep price-check overlays.',
-    external: true,
-  },
+const launchPaths: LaunchPath[] = [
+  { title: 'New to PoE 3.27', pathType: 'new', href: '/getting-started', description: 'Version summary, beginner-safe starter route, and default loot filter install steps.', steps: ['Read the 3.27 quick answer', 'Pick a beginner-safe starter route', 'Install a default loot filter'] },
+  { title: 'Returning player', pathType: 'returning', href: '/patch-notes', description: 'Scan Breach, Genesis, Grafts, Bloodlines, trade updates, and hotfixes.', steps: ['Scan the patch-note summary', 'Check mechanic changes', 'Review launch-day hotfixes'] },
+  { title: 'Build-ready', pathType: 'build_ready', href: '/starters', description: 'Open starter candidates, filter by playstyle and budget, then save the source link.', steps: ['Open starter candidates', 'Filter by playstyle and budget', 'Save the PoB/source link'] },
+  { title: 'Filter-only', pathType: 'filter_only', href: '/filters', description: 'Choose strictness, open FilterBlade, and verify the in-game sound/color checks.', steps: ['Choose strictness level', 'Open FilterBlade', 'Verify in-game filter cues'] },
+  { title: 'Trade setup', pathType: 'trade_setup', href: '/trade/official', description: 'Compare official trade and Awakened PoE Trade before launch-day price checks.', steps: ['Open official trade', 'Set up price-check tools', 'Save trade search presets'] },
+]
+
+const launchChecklist = [
+  { id: 'confirm_patch', label: 'Confirm 3.27 patch context', href: '/patch-notes#official-sources' },
+  { id: 'pick_starter', label: 'Pick starter direction', href: '/starters' },
+  { id: 'install_filter', label: 'Install loot filter', href: '/filters' },
+  { id: 'setup_trade', label: 'Set up trade tools', href: '/trade/official' },
+  { id: 'check_hotfix', label: 'Check hotfix radar', href: '/patch-notes#hotfix-digest' },
 ]
 
 type HubCard = {
@@ -370,51 +353,62 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#040509]/95 via-[#040509]/82 to-[#150a1f]/65" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#05060a] to-transparent" />
-        <div className="container relative z-10 grid min-h-[calc(100svh-84px)] gap-4 py-5 text-white md:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] md:items-center md:gap-8 md:py-16">
-          <div className="min-w-0 space-y-4 md:space-y-5">
-            <span className="pill w-fit bg-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand sm:tracking-[0.25em]">
-              PoE 3.27 Launch Checklist
+        <div className="container relative z-10 grid min-h-[calc(100svh-65px)] gap-4 py-4 text-white md:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] md:items-center md:gap-8 md:py-16">
+          <div className="min-w-0 space-y-3 md:space-y-5">
+            <span className="pill w-fit bg-brand/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-brand sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.25em]">
+              PoE 3.27 · Keepers of the Flame · Patch notes, starters, filters, trade setup, hotfix radar
             </span>
             <div className="space-y-3">
-              <h1 className="max-w-5xl break-words text-3xl font-black leading-[1.04] tracking-tight text-pretty sm:text-5xl lg:text-7xl">
-                PoE 3.27 Keepers of the Flame launch checklist
+              <h1 className="max-w-5xl break-words text-4xl font-black leading-[1.02] tracking-tight text-pretty sm:text-5xl lg:text-7xl">
+                PoE 3.27 Launch Runbook
               </h1>
               <p className="max-w-4xl text-sm leading-relaxed text-white/85 sm:text-lg md:text-xl">
-                Release date, league name, official patch notes, new mechanics, starter, loot filter, and trade setup in one first-screen checklist.
+                Use one checklist to confirm the official patch context, pick your next starter step, install the right loot filter, set up trade tools, and keep up with 3.27 hotfixes without digging through ten tabs.
               </p>
             </div>
-            <dl className="grid grid-cols-2 gap-2 md:hidden">
-              {launchFacts.map((fact) => (
-                <div key={fact.label} className="rounded-xl border border-white/10 bg-black/35 p-2">
-                  <dt className="text-[10px] font-semibold uppercase leading-tight tracking-wide text-brand">{fact.label}</dt>
-                  <dd className="mt-1 text-xs font-bold leading-tight text-white">{fact.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="grid grid-cols-2 gap-2 sm:gap-3">
-              {launchTasks.map((task, index) => (
+            <div className="rounded-2xl border border-white/10 bg-black/35 p-3 text-sm leading-relaxed text-white/80 md:p-4 md:text-base">
+              PoE 3.27 players need more than raw patch notes. Start by checking the official update, then choose a starter path, install a current loot filter, set up trade tools, and watch early hotfixes before you lock your league plan.
+            </div>
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+              <TrackedLink
+                href="#launch-checklist"
+                eventName="checklist_step_click"
+                eventProps={{ source_section: 'hero', step_id: 'start_checklist', step_index: 0, cta_text: 'Start 3-Min Launch Checklist', target_url: '#launch-checklist', cta_rank: 1 }}
+                className="btn btn-primary min-h-11 justify-center rounded-2xl px-4 py-3 text-sm sm:text-base"
+              >
+                Start 3-Min Launch Checklist
+              </TrackedLink>
+              <TrackedLink
+                href="/patch-notes#official-sources"
+                eventName="patch_notes_click"
+                eventProps={{ source_section: 'hero', patch_section: 'official_sources', action: 'open_page', cta_text: 'Read Official Patch Notes', target_url: '/patch-notes#official-sources', cta_rank: 2 }}
+                className="btn btn-ghost min-h-11 justify-center rounded-2xl px-4 py-3 text-sm sm:text-base"
+              >
+                Read Official Patch Notes
+              </TrackedLink>
+            </div>
+            <div id="launch-paths" className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-5">
+              {launchPaths.map((path, index) => (
                 <TrackedLink
-                  key={task.label}
-                  href={task.href}
-                  eventName={index === 0 ? 'home_cta_click' : task.eventName}
-                  extraEventNames={index === 0 ? [task.eventName] : task.external ? ['outbound_click'] : undefined}
-                  eventProps={{ location: 'hero_checklist', task: task.label, ...task.eventProps }}
-                  className="group flex min-h-14 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-16 sm:gap-3 sm:px-4 sm:py-3"
-                  target={task.external ? '_blank' : undefined}
+                  key={path.pathType}
+                  href={path.href}
+                  eventName="launch_path_select"
+                  eventProps={{ source_section: 'launch_path_selector', path_type: path.pathType, cta_text: path.title, target_url: path.href, cta_rank: index + 1, position: index + 1 }}
+                  className="group flex min-h-12 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-14 md:flex-col md:items-start md:justify-start"
                 >
                   <span className="min-w-0">
-                    <span className="block text-xs font-bold sm:text-base">{task.label}</span>
-                    <span className="mt-1 hidden text-xs leading-snug text-white/70 sm:block sm:text-sm">{task.description}</span>
+                    <span className="block text-xs font-bold sm:text-sm">{path.title}</span>
+                    <span className="mt-1 hidden text-xs leading-snug text-white/70 md:block">{path.description}</span>
                   </span>
-                  <ArrowRight size={18} className="shrink-0 transition group-hover:translate-x-1" />
+                  <ArrowRight size={16} className="shrink-0 transition group-hover:translate-x-1" />
                 </TrackedLink>
               ))}
             </div>
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/75">
               <TrackedLink
                 href="https://www.pathofexile.com/forum/view-forum/patch-notes"
-                eventName="outbound_official"
-                eventProps={{ location: 'hero_source_link', source: 'ggg_patch_notes', destination: 'https://www.pathofexile.com/forum/view-forum/patch-notes' }}
+                eventName="official_source_click"
+                eventProps={{ source_section: 'hero', source_type: 'official_patch_notes', cta_text: 'Official patch notes source', target_url: 'https://www.pathofexile.com/forum/view-forum/patch-notes', is_external: true, cta_rank: 3 }}
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-4 py-2 font-semibold text-brand hover:text-white"
                 target="_blank"
               >
@@ -441,6 +435,31 @@ export default function Home() {
           </aside>
         </div>
       </section>
+
+      <Section
+        id="launch-checklist"
+        kicker="3-minute launch checklist"
+        title="Start here before you lock your PoE 3.27 plan"
+        desc="Work through five launch actions in order. Each click is tracked separately from raw pageviews so we can see whether visitors actually move into a task."
+      >
+        <div className="grid gap-4 md:grid-cols-5">
+          {launchChecklist.map((step, index) => (
+            <TrackedLink
+              key={step.id}
+              href={step.href}
+              eventName="checklist_step_click"
+              eventProps={{ source_section: 'launch_checklist', step_id: step.id, step_index: index + 1, cta_text: step.label, target_url: step.href, cta_rank: index + 1 }}
+              className="group flex min-h-32 flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-white/80 transition hover:border-brand/50 hover:bg-brand/10 hover:text-white"
+            >
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand">Step {index + 1}</span>
+              <span className="mt-4 text-lg font-bold leading-tight text-white">{step.label}</span>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+                Open step <ArrowRight size={14} />
+              </span>
+            </TrackedLink>
+          ))}
+        </div>
+      </Section>
 
       <Section
         id="directory"

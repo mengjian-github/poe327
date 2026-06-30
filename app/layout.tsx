@@ -82,6 +82,19 @@ const siteJsonLd = {
   },
 }
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'PoE 3.27 Launch Runbook',
+      item: siteUrl,
+    },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -95,6 +108,9 @@ gtag('config', 'G-D8GENWGNMS');`}
         </Script>
         <Script id="website-schema" type="application/ld+json" strategy="beforeInteractive">
           {JSON.stringify(siteJsonLd)}
+        </Script>
+        <Script id="site-breadcrumb-schema" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(breadcrumbJsonLd)}
         </Script>
         <Script id="ms-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){

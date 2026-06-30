@@ -59,9 +59,9 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-[color:var(--overlay)]/80 backdrop-blur-xl">
-      <div className="container flex items-center justify-between gap-6 py-5">
+      <div className="container flex items-center justify-between gap-4 py-3">
         <Link href="/" className="flex items-center gap-4" onClick={close}>
-          <Image src="/logo.svg" alt="PoE 3.27" width={44} height={44} className="h-11 w-11" />
+          <Image src="/logo.svg" alt="PoE 3.27" width={40} height={40} className="h-10 w-10" />
           <div className="flex flex-col leading-tight">
             <span className="text-xs font-bold uppercase tracking-wider text-brand">poe league 3.27</span>
             <span className="text-base font-bold text-white">Keepers of the Flame Hub</span>
@@ -115,7 +115,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={toggle}
-          className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-black/30 text-white transition hover:border-brand/40 hover:text-brand md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-black/30 text-white transition hover:border-brand/40 hover:text-brand md:hidden"
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
         >
