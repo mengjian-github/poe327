@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { trackEvent } from '@/components/tracked-link'
 
 type Guide = {
   slug: string
@@ -94,7 +95,21 @@ export function StartersFilter({ items }: { items: Guide[] }) {
             <h3 className="text-xl font-bold text-white">{g.title}</h3>
             <p className="text-sm leading-relaxed text-white/80">{g.summary}</p>
             <div className="mt-auto flex gap-3">
-              <Link href={`/starters/${g.slug}`} className="btn btn-primary btn-sm">Open Guide</Link>
+              <Link
+                href={`/starters/${g.slug}`}
+                className="btn btn-primary btn-sm"
+                onClick={() =>
+                  trackEvent('starter_card_open', {
+                    source_section: 'starters_grid',
+                    starter_slug: g.slug,
+                    starter_role: g.role,
+                    starter_attribute: g.attribute,
+                    target_url: `/starters/${g.slug}`,
+                  })
+                }
+              >
+                Open Guide
+              </Link>
             </div>
             {g.lastUpdated && (
               <p className="text-right text-[11px] text-white/50">Updated {g.lastUpdated}</p>

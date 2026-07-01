@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Script from 'next/script'
 
 import { Card, LastUpdated, Section } from '@/components/ui'
 
@@ -143,9 +144,52 @@ const steps = [
   },
 ]
 
+const faqItems = [
+  {
+    question: 'Is /trade/official the official Path of Exile trade site?',
+    answer:
+      'No. This page is an independent beginner tutorial that points players to the official Path of Exile trade search and explains the workflow in plain language.',
+  },
+  {
+    question: 'What should I set first on poe trade?',
+    answer:
+      'Set the correct league, item category, two or three core modifiers, online status, and a realistic price ceiling before tightening filters.',
+  },
+  {
+    question: 'When should I use Live Search?',
+    answer:
+      'Use Live Search after you have a realistic saved filter for a core upgrade, consumable restock, or volatile day-one market watch.',
+  },
+]
+
 export default function PoeTradePage() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'PoE 3.27 Launch Runbook', item: 'https://poe327.net' },
+      { '@type': 'ListItem', position: 2, name: 'Official Trade Tutorial', item: 'https://poe327.net/trade/official' },
+    ],
+  }
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  }
+
   return (
     <>
+      <Script id="trade-official-breadcrumb-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(breadcrumbJsonLd)}
+      </Script>
+      <Script id="trade-official-faq-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(faqJsonLd)}
+      </Script>
       {/* Intro: simple split layout (not using PageHero) to keep variety vs. homepage */}
       <section className="container pt-10 md:pt-14">
         <div className="grid gap-8 md:grid-cols-[3fr_2fr] items-center">

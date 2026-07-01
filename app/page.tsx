@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { ArrowRight } from 'lucide-react'
 import { FeatureCard } from '@/components/feature-card'
+import { LaunchChecklist } from '@/components/launch-checklist'
 import { TrackedLink } from '@/components/tracked-link'
 import { LastUpdated, Section } from '@/components/ui'
 import { leagueFeatures } from '@/data/league'
@@ -78,11 +79,11 @@ const launchPaths: LaunchPath[] = [
 ]
 
 const launchChecklist = [
-  { id: 'confirm_patch', label: 'Confirm 3.27 patch context', href: '/patch-notes#official-sources' },
-  { id: 'pick_starter', label: 'Pick starter direction', href: '/starters' },
-  { id: 'install_filter', label: 'Install loot filter', href: '/filters' },
-  { id: 'setup_trade', label: 'Set up trade tools', href: '/trade/official' },
-  { id: 'check_hotfix', label: 'Check hotfix radar', href: '/patch-notes#hotfix-digest' },
+  { id: 'confirm_patch', label: 'Confirm 3.27 patch context', href: '/patch-notes#official-sources', detail: 'Open official notes first.' },
+  { id: 'pick_starter', label: 'Pick starter direction', href: '/starters', detail: 'Use persona Top3 if unsure.' },
+  { id: 'install_filter', label: 'Install loot filter', href: '/filters', detail: 'Choose strictness before mapping.' },
+  { id: 'setup_trade', label: 'Set up trade tools', href: '/trade/official', detail: 'Save official trade workflow.' },
+  { id: 'check_hotfix', label: 'Check hotfix radar', href: '/patch-notes#hotfix-digest', detail: 'Recheck before spending currency.' },
 ]
 
 type HubCard = {
@@ -369,6 +370,10 @@ export default function Home() {
             <div className="rounded-2xl border border-white/10 bg-black/35 p-3 text-sm leading-relaxed text-white/80 md:p-4 md:text-base">
               PoE 3.27 players need more than raw patch notes. Start by checking the official update, then choose a starter path, install a current loot filter, set up trade tools, and watch early hotfixes before you lock your league plan.
             </div>
+            <div className="rounded-3xl border border-brand/30 bg-brand/10 p-3 shadow-2xl shadow-black/25 md:hidden">
+              <div className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-brand">Quick answer checklist</div>
+              <LaunchChecklist steps={launchChecklist.slice(0, 3)} sourceSection="mobile_hero_quick_answer" compact />
+            </div>
             <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
               <TrackedLink
                 href="#launch-checklist"
@@ -442,23 +447,7 @@ export default function Home() {
         title="Start here before you lock your PoE 3.27 plan"
         desc="Work through five launch actions in order. Each click is tracked separately from raw pageviews so we can see whether visitors actually move into a task."
       >
-        <div className="grid gap-4 md:grid-cols-5">
-          {launchChecklist.map((step, index) => (
-            <TrackedLink
-              key={step.id}
-              href={step.href}
-              eventName="checklist_step_click"
-              eventProps={{ source_section: 'launch_checklist', step_id: step.id, step_index: index + 1, cta_text: step.label, target_url: step.href, cta_rank: index + 1 }}
-              className="group flex min-h-32 flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-white/80 transition hover:border-brand/50 hover:bg-brand/10 hover:text-white"
-            >
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand">Step {index + 1}</span>
-              <span className="mt-4 text-lg font-bold leading-tight text-white">{step.label}</span>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand">
-                Open step <ArrowRight size={14} />
-              </span>
-            </TrackedLink>
-          ))}
-        </div>
+        <LaunchChecklist steps={launchChecklist} sourceSection="launch_checklist" />
       </Section>
 
       <Section

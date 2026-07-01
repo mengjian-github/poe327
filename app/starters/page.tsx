@@ -5,6 +5,7 @@ import { PageHero } from '@/components/page-hero'
 import { LastUpdated, Section } from '@/components/ui'
 import { starterGuides } from '@/data/starter-guides'
 import { StartersFilter } from '@/components/starters-filter'
+import { TrackedLink } from '@/components/tracked-link'
 
 export const metadata: Metadata = {
   title: 'PoE 3.27 Starters — Beginner-Friendly Build Picks',
@@ -42,6 +43,24 @@ const heroMetrics = [
   { label: 'Detail pages', value: 'One page per starter' },
 ]
 
+const personaPicks = [
+  {
+    persona: 'Brand-new / safe mapper',
+    slug: 'boneshatter-juggernaut',
+    why: 'Durable, simple gearing, and forgiving mistakes while learning PoE 3.27 systems.',
+  },
+  {
+    persona: 'Fast bow league start',
+    slug: 'lightning-arrow-deadeye',
+    why: 'High-speed clear for players who want campaign tempo and quick atlas progression.',
+  },
+  {
+    persona: 'Low-button summoner',
+    slug: 'poison-srs-necromancer',
+    why: 'Comfortable bossing and hands-off damage when you want safer first-week progression.',
+  },
+]
+
 export default function StartersIndexPage() {
   return (
     <>
@@ -57,6 +76,43 @@ export default function StartersIndexPage() {
       <div className="container">
         <LastUpdated date="Nov 2025 — refreshed summaries and links" />
       </div>
+
+      <Section
+        id="persona-top3"
+        title="If you are unsure, start with these Top 3 personas"
+        desc="This gives undecided visitors a default next step before the full grid. Each open is tracked as starter_card_open for post-optimization rerun evidence."
+        kicker="Persona Top3"
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          {personaPicks.map((pick, index) => {
+            const starter = starterGuides.find((guide) => guide.slug === pick.slug)
+            if (!starter) return null
+
+            return (
+              <article key={pick.slug} className="flex flex-col rounded-3xl border border-brand/25 bg-brand/10 p-6 text-white/85">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand">{pick.persona}</span>
+                <h2 className="mt-3 text-2xl font-bold text-white">{starter.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">{pick.why}</p>
+                <p className="mt-3 text-xs text-white/55">{starter.role} · {starter.attribute} · {starter.ascendancy}</p>
+                <TrackedLink
+                  href={`/starters/${starter.slug}`}
+                  eventName="starter_card_open"
+                  eventProps={{
+                    source_section: 'persona_top3',
+                    starter_slug: starter.slug,
+                    persona: pick.persona,
+                    cta_rank: index + 1,
+                    target_url: `/starters/${starter.slug}`,
+                  }}
+                  className="btn btn-primary mt-5 inline-flex justify-center"
+                >
+                  Open this starter
+                </TrackedLink>
+              </article>
+            )
+          })}
+        </div>
+      </Section>
 
       <Section id="grid" title="Browse Starters" desc="Filter by role/attribute or search by skill & ascendancy.">
         <StartersFilter items={starterGuides} />

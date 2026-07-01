@@ -101,7 +101,7 @@ const afterReadingSteps = [
 export const metadata: Metadata = {
   title: 'Path of Exile 3.27 Patch Notes Summary | poe327',
   description:
-    'Read a player-focused PoE 3.27 patch notes summary with official source links, Breach and Genesis changes, Grafts, Bloodlines, asynchronous trade, hotfixes, and launch actions.',
+    'Read a player-focused PoE 3.27 patch notes summary with official sources, Breach, Genesis, Grafts, Bloodlines, async trade, hotfixes, and launch actions.',
   alternates: {
     canonical: `${siteUrl}/patch-notes`,
   },

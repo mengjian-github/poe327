@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { PageHero } from '@/components/page-hero'
+import { TrackedLink } from '@/components/tracked-link'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
 // Simpler, beginner‑friendly metrics for fast scanning (English site)
@@ -138,6 +139,8 @@ const faqItems = [
 const strictnessCards = [
   {
     title: 'Campaign',
+    strictness: 'campaign',
+    href: 'https://www.filterblade.xyz/?profile=NeverSink&saveState=0&strictness=1',
     desc:
       'For leveling and very fresh characters. Shows more rares, 4‑links, and useful bases. Safest start for a brand‑new poe 3.27 loot filter user.',
     pros: ['Easiest to gear early', 'Good for story acts', 'Low risk of hiding needed items'],
@@ -145,6 +148,8 @@ const strictnessCards = [
   },
   {
     title: 'Semi Strict',
+    strictness: 'semi_strict',
+    href: 'https://www.filterblade.xyz/?profile=NeverSink&saveState=0&strictness=3',
     desc:
       'Default for most players on early maps. Hides obvious junk while preserving currency, maps, and valuable bases in your poe 3.27 loot filter.',
     pros: ['Cleaner screen', 'Good for early mapping', 'Easy to learn cues'],
@@ -152,6 +157,8 @@ const strictnessCards = [
   },
   {
     title: 'Tight Strict',
+    strictness: 'tight_strict',
+    href: 'https://www.filterblade.xyz/?profile=NeverSink&saveState=0&strictness=5',
     desc:
       'When your atlas and gear stabilize. Cuts more mid‑tier drops so highlights are obvious. A popular poe 3.27 loot filter choice for sustained mapping.',
     pros: ['Fast mapping', 'High signal‑to‑noise', 'Great for speed farming'],
@@ -159,6 +166,8 @@ const strictnessCards = [
   },
   {
     title: 'Very Strict',
+    strictness: 'very_strict',
+    href: 'https://www.filterblade.xyz/?profile=NeverSink&saveState=0&strictness=6',
     desc:
       'Use for high‑end farming or party play with dedicated looters. The poe 3.27 loot filter keeps almost only premium drops.',
     pros: ['Minimal clutter', 'Easy to track premium drops'],
@@ -209,14 +218,15 @@ export default function LootFilterPage() {
         metrics={heroMetrics}
         actions={
           <>
-            <a
+            <TrackedLink
               href="https://www.filterblade.xyz/"
-              target="_blank"
-              rel="noreferrer"
+              eventName="external_tool_click"
+              eventProps={{ strictness: 'undecided', source_section: 'filters_hero', external_tool: 'filterblade', target_url: 'https://www.filterblade.xyz/', cta_text: 'Open FilterBlade', cta_rank: 1 }}
               className="btn btn-primary"
+              target="_blank"
             >
               Open FilterBlade
-            </a>
+            </TrackedLink>
             <a
               href="/filters/neversink"
               className="btn btn-ghost"
@@ -238,6 +248,37 @@ export default function LootFilterPage() {
           Updating your poe 3.27 loot filter is one‑click with FilterBlade or a fast manual copy.
         </p>
       </div>
+
+      <Section
+        id="strictness-decisioner"
+        title="Pick your strictness, then hand off to FilterBlade"
+        desc="Use the decisioner before opening an external editor. The click carries strictness/source_section so post-optimization can measure whether /filters turns readers into tool handoffs."
+        kicker="Strictness decisioner"
+      >
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {strictnessCards.map((s, index) => (
+            <Card key={s.strictness} title={s.title} footer={`Best for: ${s.pros.join(' · ')}`}>
+              <p>{s.desc}</p>
+              <TrackedLink
+                href={s.href}
+                eventName="external_tool_click"
+                eventProps={{
+                  strictness: s.strictness,
+                  source_section: 'strictness_decisioner',
+                  external_tool: 'filterblade_neversink',
+                  target_url: s.href,
+                  cta_text: `Open ${s.title} in FilterBlade`,
+                  cta_rank: index + 1,
+                }}
+                className="btn btn-primary mt-2 inline-flex"
+                target="_blank"
+              >
+                Open {s.title} in FilterBlade
+              </TrackedLink>
+            </Card>
+          ))}
+        </div>
+      </Section>
 
       <Section
         id="basics"
