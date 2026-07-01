@@ -225,6 +225,7 @@ gtag('config', 'G-D8GENWGNMS');`}
             <div className="container flex flex-col gap-4 py-8 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span>Made by players, for players. Keepers of the Flame forever.</span>
+                <Link href="/pricing" className="text-white/50 transition hover:text-white/90">Pricing Status</Link>
                 <Link href="/privacy" className="text-white/50 transition hover:text-white/90">Privacy Policy</Link>
                 <Link href="/terms" className="text-white/50 transition hover:text-white/90">Terms of Use</Link>
               </div>
