@@ -10,7 +10,7 @@ const siteUrl = 'https://poe327.net/pricing'
 export const metadata: Metadata = {
   title: 'poe327 Pricing Status — Free PoE 3.27 Launch Tools',
   description:
-    'poe327 is free right now. This roadmap page explains what is available, what is not sold, and how to use the PoE 3.27 launch tools without hitting a dead pricing link.',
+    'poe327 is free right now: see what is available, what is not sold, and how to use the PoE 3.27 launch tools without a dead pricing link.',
   robots: { index: false, follow: true },
   alternates: { canonical: siteUrl },
   openGraph: {

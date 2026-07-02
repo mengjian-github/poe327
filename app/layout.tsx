@@ -5,6 +5,7 @@ import Script from 'next/script'
 import './globals.css'
 import { AnalyticsContract } from '@/components/analytics-contract'
 import { SiteHeader } from '@/components/site-header'
+import { TrackedLink } from '@/components/tracked-link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -169,34 +170,34 @@ gtag('config', 'G-D8GENWGNMS');`}
                 <span className="text-sm font-bold uppercase tracking-[0.25em] text-white/50">Trusted resources</span>
                 <ul className="space-y-4">
                   <li>
-                    <a href="https://www.pathofexile.com/" target="_blank" rel="noreferrer" className="text-white/75 transition hover:text-white">
+                    <TrackedLink href="https://www.pathofexile.com/" eventName="official_source_click" eventProps={{ source_section: 'footer_trusted_resources', source_type: 'pathofexile_home', cta_text: 'Path of Exile (official)' }} className="text-white/75 transition hover:text-white">
                       Path of Exile (official)
-                    </a>
+                    </TrackedLink>
                   </li>
                   <li>
-                    <a
+                    <TrackedLink
                       href="https://www.poewiki.net/wiki/Path_of_Exile_Wiki"
-                      target="_blank"
-                      rel="noreferrer"
+                      eventName="official_source_click"
+                      eventProps={{ source_section: 'footer_trusted_resources', source_type: 'poe_wiki', cta_text: 'PoE Community Wiki' }}
                       className="text-white/75 transition hover:text-white"
                     >
                       PoE Community Wiki
-                    </a>
+                    </TrackedLink>
                   </li>
                   <li>
-                    <a href="https://www.filterblade.xyz/" target="_blank" rel="noreferrer" className="text-white/75 transition hover:text-white">
+                    <TrackedLink href="https://www.filterblade.xyz/" eventName="external_tool_click" eventProps={{ source_section: 'footer_trusted_resources', external_tool: 'filterblade', cta_text: 'FilterBlade Loot Filters' }} className="text-white/75 transition hover:text-white">
                       FilterBlade Loot Filters
-                    </a>
+                    </TrackedLink>
                   </li>
                   <li>
-                    <a
+                    <TrackedLink
                       href="https://github.com/SnosMe/awakened-poe-trade"
-                      target="_blank"
-                      rel="noreferrer"
+                      eventName="external_tool_click"
+                      eventProps={{ source_section: 'footer_trusted_resources', external_tool: 'awakened_poe_trade_github', cta_text: 'Awakened PoE Trade (GitHub)' }}
                       className="text-white/75 transition hover:text-white"
                     >
                       Awakened PoE Trade (GitHub)
-                    </a>
+                    </TrackedLink>
                   </li>
                 </ul>
                 <div className="pt-2">

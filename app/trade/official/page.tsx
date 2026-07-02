@@ -9,7 +9,7 @@ import { Card, LastUpdated, Section } from '@/components/ui'
 export const metadata: Metadata = {
   title: 'PoE Trade Beginner Tutorial (3.27)',
   description:
-    'Beginner-friendly poe trade guide: open the official site, set filters, enable Live Search, whisper sellers, and list items in bulk to trade faster and safer.',
+    'Beginner-friendly poe trade guide: set filters, enable Live Search, whisper sellers, and list items in bulk for faster, safer trades.',
   alternates: { canonical: 'https://poe327.net/trade/official' },
   openGraph: {
     title: 'PoE Trade Beginner Tutorial (3.27)',

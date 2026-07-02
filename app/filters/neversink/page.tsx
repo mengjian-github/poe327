@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { PageHero } from '@/components/page-hero'
+import { TrackedLink } from '@/components/tracked-link'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
 // English page with real in‑game screenshots. Main keyword: "neversink 3.27" (target ~3–5%).
@@ -136,30 +137,30 @@ export default function NeverSinkPage() {
         metrics={heroMetrics}
         actions={
           <>
-            <a
+            <TrackedLink
               href="https://www.pathofexile.com/item-filter"
-              target="_blank"
-              rel="noreferrer"
+              eventName="official_source_click"
+              eventProps={{ source_section: 'neversink_hero', source_type: 'poe_item_filter_ladder', cta_text: 'Item Filter Directory', external_tool: 'pathofexile_official' }}
               className="btn btn-primary"
             >
               Item Filter Directory
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href="https://www.filterblade.xyz/"
-              target="_blank"
-              rel="noreferrer"
+              eventName="external_tool_click"
+              eventProps={{ source_section: 'neversink_hero', external_tool: 'filterblade', cta_text: 'Open FilterBlade' }}
               className="btn btn-secondary"
             >
               Open FilterBlade
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href="https://github.com/NeverSinkDev/NeverSink-Filter/releases"
-              target="_blank"
-              rel="noreferrer"
+              eventName="external_tool_click"
+              eventProps={{ source_section: 'neversink_hero', external_tool: 'neversink_github', cta_text: 'GitHub Releases' }}
               className="btn"
             >
               GitHub Releases
-            </a>
+            </TrackedLink>
           </>
         }
       />
