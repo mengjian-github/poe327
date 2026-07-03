@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Script from 'next/script'
 
+import { TrackedLink } from '@/components/tracked-link'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
 // Beginner-friendly, image-led tutorial layout, distinct from the homepage hero.
@@ -43,9 +44,16 @@ const steps = [
           <li>Keep one browser window dedicated to poe trade to prevent accidental resets while alt-tabbing.</li>
           <li>
             Link:{' '}
-            <a className="text-brand underline" href="https://www.pathofexile.com/trade/search/" target="_blank" rel="noopener noreferrer">
+            <TrackedLink
+              className="text-brand underline"
+              href="https://www.pathofexile.com/trade/search/"
+              eventName="external_tool_click"
+              eventProps={{ source_section: 'trade_step_1', external_tool: 'official_poe_trade', cta_text: 'Official poe trade search', cta_rank: 1 }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Official poe trade search
-            </a>
+            </TrackedLink>
           </li>
         </ul>
       </>
@@ -200,6 +208,25 @@ export default function PoeTradePage() {
               A practical poe trade guide in six steps: search, save, live alerts, whisper, bulk listing, and safety. Learn the essential workflows that make
               trading faster and smoother.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <TrackedLink
+                href="https://www.pathofexile.com/trade/search/"
+                eventName="external_tool_click"
+                eventProps={{ source_section: 'trade_official_hero', external_tool: 'official_poe_trade', cta_text: 'Open Official PoE Trade', cta_rank: 1 }}
+                className="btn btn-primary"
+                target="_blank"
+              >
+                Open Official PoE Trade
+              </TrackedLink>
+              <TrackedLink
+                href="/trade/awakened"
+                eventName="trade_tool_click"
+                eventProps={{ source_section: 'trade_official_hero', trade_tool: 'awakened_poe_trade', cta_text: 'Set Up Awakened Trade', cta_rank: 2 }}
+                className="btn btn-ghost"
+              >
+                Set Up Awakened Trade
+              </TrackedLink>
+            </div>
             <LastUpdated date="November 4, 2025 — curated from official sources and community guides" />
           </div>
           <div className="relative h-56 md:h-72 overflow-hidden rounded-2xl border border-white/10">
@@ -311,6 +338,38 @@ export default function PoeTradePage() {
               When shopping bulk currency or fragments, compare price per unit in poe trade rather than the headline total.
             </p>
           </Card>
+        </div>
+      </Section>
+
+      <Section
+        id="trade-next-actions"
+        title="After reading: open the trade flow"
+        desc="Send users into the actual official trade workflow or the companion overlay guide with explicit event labels for rerun analysis."
+        kicker="Conversion handoff"
+        className="pt-0"
+      >
+        <div className="grid gap-4 md:grid-cols-2">
+          <TrackedLink
+            href="https://www.pathofexile.com/trade/search/"
+            eventName="external_tool_click"
+            eventProps={{ source_section: 'trade_next_actions', external_tool: 'official_poe_trade', cta_text: 'Open Official Trade Search', cta_rank: 1 }}
+            className="card group flex flex-col gap-3 hover:border-brand/50 hover:bg-brand/10"
+            target="_blank"
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand">Official source</span>
+            <span className="text-2xl font-bold text-white">Open Official Trade Search</span>
+            <span className="text-white/75">Use this after setting league, online status, and budget cap.</span>
+          </TrackedLink>
+          <TrackedLink
+            href="/trade/awakened"
+            eventName="trade_tool_click"
+            eventProps={{ source_section: 'trade_next_actions', trade_tool: 'awakened_poe_trade', cta_text: 'Open Overlay Setup Guide', cta_rank: 2 }}
+            className="card group flex flex-col gap-3 hover:border-brand/50 hover:bg-brand/10"
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand">Companion tool</span>
+            <span className="text-2xl font-bold text-white">Open Overlay Setup Guide</span>
+            <span className="text-white/75">Pair official trade searches with price checks and whisper helpers.</span>
+          </TrackedLink>
         </div>
       </Section>
     </>

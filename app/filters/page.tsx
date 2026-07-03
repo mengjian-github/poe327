@@ -227,12 +227,14 @@ export default function LootFilterPage() {
             >
               Open FilterBlade
             </TrackedLink>
-            <a
+            <TrackedLink
               href="/filters/neversink"
+              eventName="filter_path_open"
+              eventProps={{ source_section: 'filters_hero', filter_path: 'neversink', cta_text: 'NeverSink 3.27 Guide', cta_rank: 2 }}
               className="btn btn-ghost"
             >
               NeverSink 3.27 Guide
-            </a>
+            </TrackedLink>
           </>
         }
       />
@@ -435,11 +437,27 @@ export default function LootFilterPage() {
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="FilterBlade (Editor)">
             <p>Safest way to manage and update your poe 3.27 loot filter with one‑click refresh and visual diffs.</p>
-            <a className="btn btn-primary mt-3 inline-flex" href="https://www.filterblade.xyz/" target="_blank" rel="noreferrer">Open FilterBlade</a>
+            <TrackedLink
+              className="btn btn-primary mt-3 inline-flex"
+              href="https://www.filterblade.xyz/"
+              eventName="external_tool_click"
+              eventProps={{ source_section: 'filters_downloads', external_tool: 'filterblade', cta_text: 'Open FilterBlade', cta_rank: 1 }}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open FilterBlade
+            </TrackedLink>
           </Card>
           <Card title="NeverSink Guide & Downloads">
             <p>Download the latest packaged poe 3.27 loot filter zips if you prefer manual updates and local backups.</p>
-            <a className="btn btn-ghost mt-3 inline-flex" href="/filters/neversink">Open Guide</a>
+            <TrackedLink
+              className="btn btn-ghost mt-3 inline-flex"
+              href="/filters/neversink"
+              eventName="filter_path_open"
+              eventProps={{ source_section: 'filters_downloads', filter_path: 'neversink', cta_text: 'Open Guide', cta_rank: 2 }}
+            >
+              Open Guide
+            </TrackedLink>
           </Card>
         </div>
       </Section>

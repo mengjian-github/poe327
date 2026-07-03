@@ -24,6 +24,16 @@ export function StartersFilter({ items }: { items: Guide[] }) {
   const [attr, setAttr] = useState<(typeof attrs)[number]>('All')
   const [q, setQ] = useState('')
 
+  const countFor = (nextRole: (typeof roles)[number], nextAttr: (typeof attrs)[number], nextQuery = q) => {
+    const query = nextQuery.toLowerCase().trim()
+    return items.filter((g) => {
+      if (nextRole !== 'All' && g.role !== nextRole) return false
+      if (nextAttr !== 'All' && g.attribute !== nextAttr) return false
+      if (query && !`${g.title} ${g.skill} ${g.ascendancy}`.toLowerCase().includes(query)) return false
+      return true
+    }).length
+  }
+
   const filtered = useMemo(() => {
     return items.filter((g) => {
       if (role !== 'All' && g.role !== role) return false
@@ -44,7 +54,16 @@ export function StartersFilter({ items }: { items: Guide[] }) {
             <button
               key={r}
               className={`pill ${role === r ? 'bg-brand/30 text-brand' : 'bg-white/10 text-white/70'} px-4 py-2`}
-              onClick={() => setRole(r)}
+              onClick={() => {
+                setRole(r)
+                trackEvent('starter_filter_apply', {
+                  source_section: 'starters_grid_filters',
+                  filter_type: 'role',
+                  filter_value: r,
+                  active_attribute: attr,
+                  result_count: countFor(r, attr),
+                })
+              }}
             >
               {r}
             </button>
@@ -55,7 +74,16 @@ export function StartersFilter({ items }: { items: Guide[] }) {
             <button
               key={a}
               className={`pill ${attr === a ? 'bg-brand/30 text-brand' : 'bg-white/10 text-white/70'} px-4 py-2`}
-              onClick={() => setAttr(a)}
+              onClick={() => {
+                setAttr(a)
+                trackEvent('starter_filter_apply', {
+                  source_section: 'starters_grid_filters',
+                  filter_type: 'attribute',
+                  filter_value: a,
+                  active_role: role,
+                  result_count: countFor(role, a),
+                })
+              }}
             >
               {a}
             </button>
@@ -64,6 +92,23 @@ export function StartersFilter({ items }: { items: Guide[] }) {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
+          onFocus={() =>
+            trackEvent('starter_search_focus', {
+              source_section: 'starters_grid_filters',
+              active_role: role,
+              active_attribute: attr,
+            })
+          }
+          onKeyDown={(event) => {
+            if (event.key !== 'Enter') return
+            trackEvent('starter_search_submit', {
+              source_section: 'starters_grid_filters',
+              query_length: q.trim().length,
+              active_role: role,
+              active_attribute: attr,
+              result_count: countFor(role, attr),
+            })
+          }}
           placeholder="Search skill, ascendancy, title..."
           className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-white/80 outline-none placeholder:text-white/40 md:w-80"
         />

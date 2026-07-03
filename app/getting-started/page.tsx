@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PageHero } from '@/components/page-hero'
+import { LaunchChecklist } from '@/components/launch-checklist'
+import { TrackedLink } from '@/components/tracked-link'
 import { Card, LastUpdated, Section } from '@/components/ui'
 
 export const metadata: Metadata = {
@@ -32,6 +34,12 @@ const checklist = [
   'Cap elemental resistances (75%) before Act 6; re‑cap after Kitava (Act 10).',
   'Bind flasks on comfortable keys; keep Quicksilver up while leveling.',
   'Learn 4‑link → 5‑link → 6‑link progression and support gems that scale your main skill.',
+]
+
+const nextActionSteps = [
+  { id: 'pick_starter', label: 'Pick a starter build', href: '/starters', detail: 'Start with a forgiving Top 3 persona pick.' },
+  { id: 'install_filter', label: 'Install a loot filter', href: '/filters', detail: 'Choose strictness before your first maps.' },
+  { id: 'setup_trade', label: 'Set up trade tools', href: '/trade/official', detail: 'Learn official trade search and whisper flow.' },
 ]
 
 const basics = [
@@ -121,8 +129,22 @@ export default function GettingStartedPage() {
         metrics={heroMetrics}
         actions={
           <div className="flex gap-3">
-            <Link href="/starters" className="btn btn-primary">See Starters</Link>
-            <Link href="/filters/neversink" className="btn btn-ghost">Loot Filters</Link>
+            <TrackedLink
+              href="/starters"
+              eventName="getting_started_next_step"
+              eventProps={{ source_section: 'getting_started_hero', next_step: 'starters', cta_text: 'See Starters', cta_rank: 1 }}
+              className="btn btn-primary"
+            >
+              See Starters
+            </TrackedLink>
+            <TrackedLink
+              href="/filters/neversink"
+              eventName="getting_started_next_step"
+              eventProps={{ source_section: 'getting_started_hero', next_step: 'loot_filters', cta_text: 'Loot Filters', cta_rank: 2 }}
+              className="btn btn-ghost"
+            >
+              Loot Filters
+            </TrackedLink>
           </div>
         }
       />
@@ -130,6 +152,15 @@ export default function GettingStartedPage() {
       <div className="container">
         <LastUpdated date="November 2025 — Beginner onboarding refresh" />
       </div>
+
+      <Section
+        id="next-actions"
+        title="Choose your next action"
+        desc="Do not read the whole beginner guide passively. Mark one next step, open it, and continue the launch path. These actions are tracked separately from page views."
+        kicker="Task path"
+      >
+        <LaunchChecklist steps={nextActionSteps} sourceSection="getting_started_next_actions" />
+      </Section>
 
       <Section id="checklist" title="New Player Checklist" desc="Five quick wins that make the biggest difference on a fresh character.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
