@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Script from 'next/script'
 
 import { PageHero } from '@/components/page-hero'
 import { LastUpdated, Section } from '@/components/ui'
@@ -61,9 +62,26 @@ const personaPicks = [
   },
 ]
 
+const starterItemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'PoE 3.27 beginner-friendly league starters',
+  description: 'Curated PoE 3.27 starter builds with role, attribute, ascendancy, and guide links.',
+  itemListElement: starterGuides.map((starter, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `https://poe327.net/starters/${starter.slug}`,
+    name: starter.title,
+    description: `${starter.role} · ${starter.attribute} · ${starter.ascendancy}. ${starter.summary}`,
+  })),
+}
+
 export default function StartersIndexPage() {
   return (
     <>
+      <Script id="starters-item-list-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(starterItemListJsonLd)}
+      </Script>
       <PageHero
         title="PoE 3.27 Starters — Beginner Build Picks"
         description="Pick a forgiving, well‑tested starter with clear upgrades. Each card links to a detailed page and a POB for quick planning."

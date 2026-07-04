@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 
 import { PageHero } from '@/components/page-hero'
 import { LaunchChecklist } from '@/components/launch-checklist'
@@ -118,9 +119,26 @@ const mistakes = [
   'Not learning basic trade flow (price check, bulk sell, clean whispers).',
 ]
 
+const beginnerHowToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Start Path of Exile 3.27 as a new or returning player',
+  description: 'Pick a starter, install a loot filter, cap resistances, set flasks, and learn gem links before early maps.',
+  totalTime: 'PT10M',
+  step: checklist.map((tip, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: tip.split(';')[0].replace(/\.$/, ''),
+    text: tip,
+  })),
+}
+
 export default function GettingStartedPage() {
   return (
     <>
+      <Script id="getting-started-howto-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(beginnerHowToJsonLd)}
+      </Script>
       <PageHero
         title="PoE 3.27 Getting Started — Beginner Roadmap"
         description="Everything you need to get comfortable fast: leveling flow, resistances, gem links, flasks, loot filters, trading, and first atlas steps."

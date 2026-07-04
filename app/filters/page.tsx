@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Script from 'next/script'
 
 import { PageHero } from '@/components/page-hero'
 import { TrackedLink } from '@/components/tracked-link'
@@ -207,9 +208,44 @@ export const metadata: Metadata = {
   },
 }
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((faq) => ({
+    '@type': 'Question',
+    name: faq.title,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.description,
+    },
+  })),
+}
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Install and verify a PoE 3.27 loot filter',
+  description: 'Download, enable, choose strictness, update, and verify a PoE 3.27 loot filter before mapping.',
+  totalTime: 'PT5M',
+  tool: [{ '@type': 'HowToTool', name: 'FilterBlade or a downloaded PoE loot filter file' }],
+  step: setupSteps.map((step, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: step.title.replace(/^Step \d+ · /, ''),
+    text: step.body,
+    image: `https://poe327.net${step.image}`,
+  })),
+}
+
 export default function LootFilterPage() {
   return (
     <>
+      <Script id="filters-faq-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(faqJsonLd)}
+      </Script>
+      <Script id="filters-howto-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(howToJsonLd)}
+      </Script>
       <PageHero
         title="PoE 3.27 Loot Filter Beginner Guide"
         description="What a filter is, how to install and enable it, how to choose strictness, and how to keep it updated. Follow along and get your poe 3.27 loot filter working in minutes. This poe 3.27 loot filter guide stays up to date every league."

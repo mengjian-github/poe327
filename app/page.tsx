@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Script from 'next/script'
 import { ArrowRight } from 'lucide-react'
 import { FeatureCard } from '@/components/feature-card'
@@ -458,9 +457,11 @@ export default function Home() {
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {hubCards.map((card) => (
-            <Link
+            <TrackedLink
               key={card.title}
               href={card.href}
+              eventName="hub_card_open"
+              eventProps={{ source_section: 'homepage_directory', hub_card: card.title, target_url: card.href }}
               className="group flex flex-col gap-5 rounded-3xl border border-white/10 bg-[#0b0d15]/80 p-8 text-white/80 transition hover:border-brand/40 hover:bg-brand/10"
             >
               <div className="flex items-center justify-between gap-3">
@@ -474,7 +475,7 @@ export default function Home() {
                 Open {card.title}
                 <ArrowRight size={16} />
               </span>
-            </Link>
+            </TrackedLink>
           ))}
         </div>
       </Section>
@@ -572,9 +573,14 @@ export default function Home() {
             kicker={section.kicker}
             actions={
               primaryLink ? (
-                <Link href={primaryLink.href} className="btn btn-ghost">
+                <TrackedLink
+                  href={primaryLink.href}
+                  eventName="section_next_step_click"
+                  eventProps={{ source_section: `visual_${section.id}`, cta_text: `Visit ${section.title}`, target_url: primaryLink.href }}
+                  className="btn btn-ghost"
+                >
                   Visit {section.title}
-                </Link>
+                </TrackedLink>
               ) : undefined
             }
             className="relative"
@@ -590,9 +596,14 @@ export default function Home() {
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60 opacity-80" />
                       <div className="relative z-10 flex flex-col gap-2">
-                        <Link href={link.href} className="font-bold text-base text-brand transition hover:text-white">
+                        <TrackedLink
+                          href={link.href}
+                          eventName="section_deep_link_click"
+                          eventProps={{ source_section: `visual_${section.id}`, cta_text: link.label, target_url: link.href }}
+                          className="font-bold text-base text-brand transition hover:text-white"
+                        >
                           {link.label}
-                        </Link>
+                        </TrackedLink>
                         <span className="text-sm leading-relaxed text-white/75">{link.description}</span>
                       </div>
                     </li>

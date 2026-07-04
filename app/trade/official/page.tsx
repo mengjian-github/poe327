@@ -342,6 +342,22 @@ export default function PoeTradePage() {
       </Section>
 
       <Section
+        id="faq"
+        title="PoE trade FAQ"
+        desc="Short answers match the page schema so search visitors can verify the official trade handoff before clicking out."
+        kicker="FAQ"
+        className="pt-0"
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {faqItems.map((faq) => (
+            <Card key={faq.question} title={faq.question}>
+              <p>{faq.answer}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section
         id="trade-next-actions"
         title="After reading: open the trade flow"
         desc="Send users into the actual official trade workflow or the companion overlay guide with explicit event labels for rerun analysis."
