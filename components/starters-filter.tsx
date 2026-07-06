@@ -161,6 +161,32 @@ export function StartersFilter({ items }: { items: Guide[] }) {
             )}
           </article>
         ))}
+        {filtered.length === 0 && (
+          <div className="rounded-3xl border border-brand/25 bg-brand/10 p-6 text-white/85 md:col-span-2 xl:col-span-3">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand">No starter matched</p>
+            <h3 className="mt-3 text-2xl font-bold text-white">Reset filters or start with the safe Top 3 picks.</h3>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/75">
+              If you are comparing builds from a guide or video, clear the role and attribute filters first, then search by skill or ascendancy.
+            </p>
+            <button
+              type="button"
+              className="btn btn-primary mt-5"
+              onClick={() => {
+                setRole('All')
+                setAttr('All')
+                setQ('')
+                trackEvent('starter_filter_reset', {
+                  source_section: 'starters_grid_empty_state',
+                  previous_role: role,
+                  previous_attribute: attr,
+                  query_length: q.trim().length,
+                })
+              }}
+            >
+              Reset starter filters
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

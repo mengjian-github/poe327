@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 const siteUrl = 'https://poe327.net'
 const siteDescription =
-  'Keepers of the Flame launch hub packs release timers, starter planner, loot filters, trade macros, and live hotfix radar so poe 3.27 squads pivot fast.'
+  'PoE 3.27 launch guide for Keepers of the Flame: patch notes, league starters, loot filters, trade setup, challenge route, and hotfix radar in one runbook.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'poe 3.27 Launch Hub – Timers, Builds & Trade | poe327',
+  title: 'PoE 3.27 Launch Guide: Patch Notes, Starters & Trade | poe327',
   description: siteDescription,
   keywords: [
     'poe 3.27',
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: 'poe league 3.27 Launch Toolkit | Keepers of the Flame HQ',
+    title: 'PoE 3.27 Launch Guide | Keepers of the Flame HQ',
     description:
-      'Countdown timers, Bloodline ascendancy guides, Genesis Tree prep, trade overlays, and hotfix radar for poe league 3.27 captains.',
+      'Patch notes, beginner starters, loot filters, trade setup, challenge route, and hotfix radar for PoE 3.27 Keepers of the Flame captains.',
     url: siteUrl,
     siteName: 'poe327',
     locale: 'en_US',
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'poe league 3.27 Launch Toolkit',
-    description: 'Top-click prep: release timers, builds, loot filters, trade intel, and live patch notes for Keepers squads.',
+    title: 'PoE 3.27 Launch Guide',
+    description: 'Top-click prep: patch notes, starters, loot filters, trade setup, challenges, and hotfix radar for Keepers squads.',
     images: [`${siteUrl}/og-image.svg`],
   },
 }

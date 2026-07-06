@@ -336,11 +336,48 @@ const faqJsonLd = {
     },
   })),
 }
+
+const launchHowToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to prepare for PoE 3.27 Keepers of the Flame',
+  description:
+    'Follow one PoE 3.27 launch checklist: confirm the official patch context, pick a starter direction, install a loot filter, set up trade tools, and recheck hotfixes.',
+  totalTime: 'PT3M',
+  step: launchChecklist.map((step, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: step.label,
+    text: step.detail,
+    url: `https://poe327.net${step.href}`,
+  })),
+}
+
+const launchPathItemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'PoE 3.27 launch paths',
+  description: 'Task-based PoE 3.27 routes for new players, returning players, build planning, filters, and trade setup.',
+  itemListElement: launchPaths.map((path, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: path.title,
+    description: path.description,
+    url: `https://poe327.net${path.href}`,
+  })),
+}
+
 export default function Home() {
   return (
     <>
       <Script id="homepage-faq-schema" type="application/ld+json" strategy="beforeInteractive">
         {JSON.stringify(faqJsonLd)}
+      </Script>
+      <Script id="homepage-launch-howto-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(launchHowToJsonLd)}
+      </Script>
+      <Script id="homepage-launch-path-itemlist-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(launchPathItemListJsonLd)}
       </Script>
       <section className="relative isolate flex w-full overflow-hidden bg-black">
         <Image
@@ -377,6 +414,7 @@ export default function Home() {
               <TrackedLink
                 href="#launch-checklist"
                 eventName="checklist_step_click"
+                extraEventNames={['hero_cta_click']}
                 eventProps={{ source_section: 'hero', step_id: 'start_checklist', step_index: 0, cta_text: 'Start 3-Min Launch Checklist', target_url: '#launch-checklist', cta_rank: 1 }}
                 className="btn btn-primary min-h-11 justify-center rounded-2xl px-4 py-3 text-sm sm:text-base"
               >
@@ -385,6 +423,7 @@ export default function Home() {
               <TrackedLink
                 href="/patch-notes#official-sources"
                 eventName="patch_notes_click"
+                extraEventNames={['hero_cta_click']}
                 eventProps={{ source_section: 'hero', patch_section: 'official_sources', action: 'open_page', cta_text: 'Read Official Patch Notes', target_url: '/patch-notes#official-sources', cta_rank: 2 }}
                 className="btn btn-ghost min-h-11 justify-center rounded-2xl px-4 py-3 text-sm sm:text-base"
               >
@@ -397,6 +436,7 @@ export default function Home() {
                   key={path.pathType}
                   href={path.href}
                   eventName="launch_path_select"
+                  extraEventNames={['next_step_click']}
                   eventProps={{ source_section: 'launch_path_selector', path_type: path.pathType, cta_text: path.title, target_url: path.href, cta_rank: index + 1, position: index + 1 }}
                   className="group flex min-h-12 min-w-0 items-center justify-between gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/20 backdrop-blur transition hover:border-brand/60 hover:bg-brand/20 hover:text-white sm:min-h-14 md:flex-col md:items-start md:justify-start"
                 >
