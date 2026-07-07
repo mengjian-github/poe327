@@ -285,6 +285,19 @@ export default function ChallengePage() {
                     </li>
                   ))}
                 </ul>
+                <TrackedLink
+                  href={`#bucket-${bucket.id}`}
+                  eventName="challenge_bucket_open"
+                  eventProps={{
+                    source_section: 'challenge_route_buckets',
+                    bucket_id: bucket.id,
+                    cta_text: `Review ${bucket.title}`,
+                    target_url: `#bucket-${bucket.id}`,
+                  }}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand hover:text-white"
+                >
+                  Review this bucket →
+                </TrackedLink>
               </Card>
             )
           })}

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Script from 'next/script'
 import { ArrowRight } from 'lucide-react'
@@ -178,6 +179,27 @@ const faqItems: FaqItem[] = [
       'Yes—use the Loot Filter Lab for side-by-side previews and the Trade Toolkit for Awakened PoE Trade overlays so your presets and whisper templates are exported before the first reset.',
   },
 ]
+
+export const metadata: Metadata = {
+  title: 'PoE 3.27 Guide: Patch Notes, Starters, Challenges & Trade',
+  description:
+    'PoE 3.27 guide for Keepers of the Flame: launch date, official patch notes, best starter paths, challenge route, loot filter setup, trade tools, and hotfix checks.',
+  alternates: { canonical: 'https://poe327.net' },
+  openGraph: {
+    title: 'PoE 3.27 Guide: Patch Notes, Starters, Challenges & Trade',
+    description:
+      'Answer-first PoE 3.27 launch runbook with official patch-note links, starters, challenge routing, filters, trade setup, and hotfix radar.',
+    url: 'https://poe327.net',
+    type: 'website',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'PoE 3.27 launch guide' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PoE 3.27 Guide',
+    description: 'Patch notes, starters, challenges, loot filters, trade setup, and hotfix checks for PoE 3.27.',
+    images: ['/og-image.svg'],
+  },
+}
 
 type VisualSection = {
   id: string

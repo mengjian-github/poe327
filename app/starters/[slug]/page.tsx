@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 
 import { PageHero } from '@/components/page-hero'
 import { LastUpdated, Card } from '@/components/ui'
@@ -10,6 +9,7 @@ import { transformStarterHtml, extractHeadings } from '@/lib/ref-html'
 import { curatedStarters } from '@/curated/starters'
 import { ArticleTOC } from '@/components/article-toc'
 import { CuratedTOC } from '@/components/curated-toc'
+import { TrackedLink } from '@/components/tracked-link'
 import { starterGuides, type StarterGuideMeta } from '@/data/starter-guides'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -122,6 +122,34 @@ export default async function StarterPage({ params }: Props) {
             {useCurated ? <Curated meta={meta} /> : <div dangerouslySetInnerHTML={{ __html: clean }} />}
           </article>
 
+          <section className="rounded-3xl border border-brand/25 bg-brand/10 p-6 text-white/85">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand">Next step after this starter</p>
+            <h3 className="mt-3 text-2xl font-bold text-white">Turn the build pick into a launch route</h3>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/75">
+              If this build fits your PoE 3.27 plan, continue into the challenge route and filter setup instead of bouncing back to search.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <TrackedLink
+                href="/challenge#route"
+                eventName="starter_next_step_click"
+                extraEventNames={['next_step_click']}
+                eventProps={{ source_section: 'starter_detail_next_step', starter_slug: meta.slug, target_url: '/challenge#route', cta_rank: 1 }}
+                className="btn btn-primary"
+              >
+                Plan 36/40 challenge route
+              </TrackedLink>
+              <TrackedLink
+                href="/filters"
+                eventName="starter_next_step_click"
+                extraEventNames={['next_step_click']}
+                eventProps={{ source_section: 'starter_detail_next_step', starter_slug: meta.slug, target_url: '/filters', cta_rank: 2 }}
+                className="btn btn-ghost"
+              >
+                Set up loot filter
+              </TrackedLink>
+            </div>
+          </section>
+
           {relatedStarters.length > 0 && (
             <section>
               <h3>Related League Starters</h3>
@@ -131,9 +159,11 @@ export default async function StarterPage({ params }: Props) {
               </p>
               <div className="mt-4 grid gap-4 md:grid-cols-2">
                 {relatedStarters.map((guide) => (
-                  <Link
+                  <TrackedLink
                     key={guide.slug}
                     href={`/starters/${guide.slug}`}
+                    eventName="starter_related_open"
+                    eventProps={{ source_section: 'starter_detail_related', starter_slug: meta.slug, related_slug: guide.slug, target_url: `/starters/${guide.slug}` }}
                     className="group rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/40"
                   >
                     <p className="text-sm text-white/60">
@@ -142,7 +172,7 @@ export default async function StarterPage({ params }: Props) {
                     <p className="font-semibold text-white group-hover:text-amber-200">
                       {guide.title.replace(/\s+League Starter$/, '')}
                     </p>
-                  </Link>
+                  </TrackedLink>
                 ))}
               </div>
             </section>

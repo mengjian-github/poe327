@@ -142,8 +142,34 @@ export function AnalyticsContract() {
       if (classification.eventName !== 'outbound_click') emitEvent(classification.eventName, payload)
     }
 
+    const depthMarks = [25, 50, 75, 90]
+    const seenDepthMarks = new Set<number>()
+    const handleScrollDepth = () => {
+      const scrollable = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        document.body.scrollHeight - window.innerHeight,
+        1,
+      )
+      const percent = Math.min(100, Math.round((window.scrollY / scrollable) * 100))
+      for (const mark of depthMarks) {
+        if (percent >= mark && !seenDepthMarks.has(mark)) {
+          seenDepthMarks.add(mark)
+          emitEvent('page_scroll_depth', {
+            event_category: 'poe327_launch_runbook',
+            scroll_depth_percent: mark,
+            location: 'analytics_contract',
+          })
+        }
+      }
+    }
+
     document.addEventListener('click', handleClick, true)
-    return () => document.removeEventListener('click', handleClick, true)
+    window.addEventListener('scroll', handleScrollDepth, { passive: true })
+    handleScrollDepth()
+    return () => {
+      document.removeEventListener('click', handleClick, true)
+      window.removeEventListener('scroll', handleScrollDepth)
+    }
   }, [])
 
   return null
