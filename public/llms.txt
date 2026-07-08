@@ -1,0 +1,13 @@
+# poe327.net
+
+poe327.net is an independent Path of Exile 3.27 launch runbook for Keepers of the Flame. It summarizes official-source context into player actions: patch notes, starter planning, challenge routing, loot filter setup, trade workflow, and hotfix checks.
+
+Canonical site: https://poe327.net/
+Primary topic: PoE 3.27 / Path of Exile 3.27 / Keepers of the Flame
+Official-source bridge: https://poe327.net/patch-notes#official-sources
+Starter planning: https://poe327.net/starters
+Challenge route: https://poe327.net/challenge
+Loot filter setup: https://poe327.net/filters
+Trade workflow: https://poe327.net/trade/official
+
+Important disclosure: poe327.net is unofficial and not affiliated with Grinding Gear Games. Use official Path of Exile pages for canonical wording and mechanics.

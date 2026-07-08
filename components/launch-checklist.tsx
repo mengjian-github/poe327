@@ -57,7 +57,7 @@ export function LaunchChecklist({ steps, sourceSection, compact = false }: Launc
             <Link
               href={step.href}
               className={compact ? 'mt-2 inline-flex text-xs font-semibold text-brand hover:text-white' : 'mt-4 inline-flex text-sm font-semibold text-brand hover:text-white'}
-              onClick={() =>
+              onClick={() => {
                 trackEvent('checklist_step_click', {
                   source_section: sourceSection,
                   step_id: step.id,
@@ -65,7 +65,14 @@ export function LaunchChecklist({ steps, sourceSection, compact = false }: Launc
                   step_label: step.label,
                   target_url: step.href,
                 })
-              }
+                trackEvent('next_step_click', {
+                  source_section: sourceSection,
+                  step_id: step.id,
+                  step_index: index + 1,
+                  step_label: step.label,
+                  target_url: step.href,
+                })
+              }}
             >
               Open step →
             </Link>

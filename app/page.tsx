@@ -86,6 +86,41 @@ const launchChecklist = [
   { id: 'check_hotfix', label: 'Check hotfix radar', href: '/patch-notes#hotfix-digest', detail: 'Recheck before spending currency.' },
 ]
 
+type SerpAnswer = {
+  question: string
+  answer: string
+  href: string
+  cta: string
+  sourceType: string
+}
+
+const serpAnswers: SerpAnswer[] = [
+  {
+    question: 'What is PoE 3.27?',
+    answer:
+      'PoE 3.27 is Keepers of the Flame, a Path of Exile league built around Breach escorts, Living Grafts, Bloodline progression, launch hotfixes, and early trade/filter setup decisions.',
+    href: '/patch-notes#mechanics',
+    cta: 'Read the 3.27 mechanic summary',
+    sourceType: 'poe_327_definition',
+  },
+  {
+    question: 'Where should I verify patch notes?',
+    answer:
+      'Use official Path of Exile patch notes for exact wording. Use poe327 as the action layer: source links first, then starters, filters, challenge route, and trade setup.',
+    href: '/patch-notes#official-sources',
+    cta: 'Open official-source panel',
+    sourceType: 'official_patch_notes_bridge',
+  },
+  {
+    question: 'What should I do first for league start?',
+    answer:
+      'Confirm the patch context, choose a starter path, install a current loot filter, prepare trade tools, then recheck hotfixes before spending early currency.',
+    href: '#launch-checklist',
+    cta: 'Run the 3-minute checklist',
+    sourceType: 'launch_action_checklist',
+  },
+]
+
 type HubCard = {
   title: string
   href: string
@@ -509,6 +544,34 @@ export default function Home() {
         desc="Work through five launch actions in order. Each click is tracked separately from raw pageviews so we can see whether visitors actually move into a task."
       >
         <LaunchChecklist steps={launchChecklist} sourceSection="launch_checklist" />
+      </Section>
+
+      <Section
+        id="poe-327-quick-answer"
+        kicker="Answer-first SERP cluster"
+        title="PoE 3.27 quick answers before the deep dive"
+        desc="Google is still showing poe327 below the clickable zone, so this section puts the exact search intent, official-source bridge, and next action in one crawlable block."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {serpAnswers.map((item, index) => (
+            <article key={item.question} className="flex min-h-72 flex-col justify-between rounded-3xl border border-brand/25 bg-brand/10 p-6 shadow-xl shadow-black/20">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand">PoE 3.27 answer {index + 1}</span>
+                <h2 className="mt-4 text-2xl font-black leading-tight text-white">{item.question}</h2>
+                <p className="mt-4 text-base leading-relaxed text-white/80">{item.answer}</p>
+              </div>
+              <TrackedLink
+                href={item.href}
+                eventName="serp_answer_next_step_click"
+                extraEventNames={['next_step_click']}
+                eventProps={{ source_section: 'poe_327_quick_answer', source_type: item.sourceType, cta_text: item.cta, target_url: item.href, cta_rank: index + 1 }}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand transition hover:text-white"
+              >
+                {item.cta} <ArrowRight size={14} />
+              </TrackedLink>
+            </article>
+          ))}
+        </div>
       </Section>
 
       <Section
