@@ -14,8 +14,8 @@ const officialKeepersUrl = 'https://www.pathofexile.com/'
 const wikiVersionUrl = 'https://www.poewiki.net/wiki/Version_3.27.0'
 
 const heroMetrics = [
-  { label: 'Launch window', value: 'Oct 31 · 12:00 PM PDT · 7:00 PM GMT' },
-  { label: 'Latest hotfix', value: 'Hotfix digest · source-linked' },
+  { label: 'Launch window', value: 'Oct 31 · 12:00 PM PDT · 7:00 PM GMT (2025)' },
+  { label: 'Latest verified', value: 'July 9, 2026 · retrospective archive' },
   { label: 'Read mode', value: 'Official-source summary + launch actions' },
 ]
 
@@ -44,6 +44,11 @@ const faqItems = [
     question: 'What should returning players check first in 3.27?',
     answer:
       'Returning players should scan mechanic changes, hotfixes, starter viability, filter updates, and trade setup. The goal is to avoid launching with outdated assumptions from a previous league.',
+  },
+  {
+    question: 'Is PoE 3.27 still the current league?',
+    answer:
+      'No. PoE 3.27 Keepers of the Flame launched in late October 2025. This page is maintained as a retrospective archive; check pathofexile.com for the current live league.',
   },
 ]
 
@@ -99,16 +104,16 @@ const afterReadingSteps = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Path of Exile 3.27 Patch Notes Summary | poe327',
+  title: 'Path of Exile 3.27 Patch Notes Retrospective | poe327',
   description:
-    'Read a player-focused PoE 3.27 patch notes summary with official sources, Breach, Genesis, Grafts, Bloodlines, async trade, hotfixes, and launch actions.',
+    'Retrospective player-focused PoE 3.27 patch notes summary with official sources, Breach, Genesis, Grafts, Bloodlines, async trade, hotfixes, and launch actions. Verified July 2026.',
   alternates: {
     canonical: `${siteUrl}/patch-notes`,
   },
   openGraph: {
-    title: 'Path of Exile 3.27 Patch Notes Summary | poe327',
+    title: 'Path of Exile 3.27 Patch Notes Retrospective | poe327',
     description:
-      'Official-source links, mechanic summaries, hotfix digest, and launch actions for Keepers of the Flame.',
+      'Official-source links, mechanic summaries, hotfix digest, and launch actions for Keepers of the Flame. Verified July 2026.',
     url: `${siteUrl}/patch-notes`,
     siteName: 'poe327',
     type: 'article',
@@ -117,15 +122,15 @@ export const metadata: Metadata = {
         url: '/images/keepers-supporter.jpg',
         width: 1200,
         height: 630,
-        alt: 'Path of Exile 3.27 Patch Notes Summary',
+        alt: 'Path of Exile 3.27 Patch Notes Retrospective',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Path of Exile 3.27 Patch Notes Summary | poe327',
+    title: 'Path of Exile 3.27 Patch Notes Retrospective | poe327',
     description:
-      'Player-focused PoE 3.27 patch notes summary with official sources, mechanics, hotfixes, and launch actions.',
+      'Retrospective player-focused PoE 3.27 patch notes summary with official sources, mechanics, hotfixes, and launch actions. Verified July 2026.',
     images: ['/images/keepers-supporter.jpg'],
   },
 }
@@ -135,6 +140,7 @@ export default async function PatchNotesPage() {
   const notes = feed.filter((i) => i.type === 'notes')
   const hotfixes = feed.filter((i) => i.type === 'hotfix')
   const latestModified = feed[0]?.date ?? '2025-11-04'
+  const siteVerifiedAt = '2026-07-09'
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -142,7 +148,7 @@ export default async function PatchNotesPage() {
     headline: 'Path of Exile 3.27 Patch Notes Summary',
     description: metadata.description,
     datePublished: '2025-10-28',
-    dateModified: latestModified,
+    dateModified: siteVerifiedAt,
     inLanguage: 'en-US',
     author: { '@type': 'Organization', name: 'poe327.net' },
     publisher: { '@type': 'Organization', name: 'poe327.net', logo: { '@type': 'ImageObject', url: `${siteUrl}/og-image.svg` } },
@@ -191,7 +197,15 @@ export default async function PatchNotesPage() {
       />
 
       <div className="container space-y-16 py-12">
-        <LastUpdated date="November 4, 2025 - sources: pathofexile.com forums, dev posts, wiki mirrors" />
+        <section className="rounded-3xl border border-amber-400/30 bg-amber-400/10 p-6">
+          <h2 className="text-lg font-bold text-white">Retrospective archive</h2>
+          <p className="mt-2 text-white/80">
+            PoE 3.27 Keepers of the Flame launched in late October 2025. This page is maintained as a verified retrospective reference; for the current live league, check{' '}
+            <a href="https://www.pathofexile.com" className="text-brand hover:text-white underline" target="_blank" rel="noreferrer">pathofexile.com</a>.
+          </p>
+        </section>
+
+        <LastUpdated date="July 9, 2026 — sources: pathofexile.com forums, dev posts, wiki mirrors; verified retrospective archive" />
 
         <section id="short-answer" className="rounded-3xl border border-brand/30 bg-brand/10 p-6 md:p-8">
           <span className="text-xs font-bold uppercase tracking-[0.24em] text-brand">Short answer</span>

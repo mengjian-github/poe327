@@ -227,7 +227,7 @@ export default function PoeTradePage() {
                 Set Up Awakened Trade
               </TrackedLink>
             </div>
-            <LastUpdated date="November 4, 2025 — curated from official sources and community guides" />
+            <LastUpdated date="July 9, 2026 — curated from official sources and community guides; verified retrospective reference" />
           </div>
           <div className="relative h-56 md:h-72 overflow-hidden rounded-2xl border border-white/10">
             <Image

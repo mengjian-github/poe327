@@ -206,7 +206,7 @@ export default function NeverSinkPage() {
             </a>
           </Card>
         </div>
-        <LastUpdated date="Nov 4, 2025" />
+        <LastUpdated date="July 9, 2026 — Verified as retrospective reference" />
       </Section>
 
       <Section

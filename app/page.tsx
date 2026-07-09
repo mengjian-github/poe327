@@ -213,25 +213,30 @@ const faqItems: FaqItem[] = [
     answer:
       'Yes—use the Loot Filter Lab for side-by-side previews and the Trade Toolkit for Awakened PoE Trade overlays so your presets and whisper templates are exported before the first reset.',
   },
+  {
+    question: 'Is PoE 3.27 Keepers of the Flame still the current league?',
+    answer:
+      'No. PoE 3.27 Keepers of the Flame launched in late October 2025 and this site is now maintained as a retrospective archive. Verify the live league on pathofexile.com before making current-character decisions.',
+  },
 ]
 
 export const metadata: Metadata = {
-  title: 'PoE 3.27 Guide: Patch Notes, Starters, Challenges & Trade',
+  title: 'PoE 3.27 Keepers of the Flame Retrospective: Patch Notes, Starters & Trade',
   description:
-    'PoE 3.27 guide for Keepers of the Flame: launch date, official patch notes, best starter paths, challenge route, loot filter setup, trade tools, and hotfix checks.',
+    'Retrospective PoE 3.27 guide for Keepers of the Flame: launch date, official patch notes, starter paths, loot filter setup, trade tools, and hotfix archive. Verified July 2026.',
   alternates: { canonical: 'https://poe327.net' },
   openGraph: {
-    title: 'PoE 3.27 Guide: Patch Notes, Starters, Challenges & Trade',
+    title: 'PoE 3.27 Keepers of the Flame Retrospective: Patch Notes, Starters & Trade',
     description:
-      'Answer-first PoE 3.27 launch runbook with official patch-note links, starters, challenge routing, filters, trade setup, and hotfix radar.',
+      'Retrospective PoE 3.27 launch runbook with official patch-note links, starters, challenge routing, filters, trade setup, and hotfix archive. Verified July 2026.',
     url: 'https://poe327.net',
     type: 'website',
-    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'PoE 3.27 launch guide' }],
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'PoE 3.27 retrospective launch guide' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PoE 3.27 Guide',
-    description: 'Patch notes, starters, challenges, loot filters, trade setup, and hotfix checks for PoE 3.27.',
+    title: 'PoE 3.27 Keepers of the Flame Retrospective',
+    description: 'Retrospective patch notes, starters, loot filters, trade setup, and hotfix archive for PoE 3.27. Verified July 2026.',
     images: ['/og-image.svg'],
   },
 }
@@ -450,7 +455,7 @@ export default function Home() {
         <div className="container relative z-10 grid min-h-[calc(100svh-65px)] gap-4 py-4 text-white md:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] md:items-center md:gap-8 md:py-16">
           <div className="min-w-0 space-y-3 md:space-y-5">
             <span className="pill w-fit bg-brand/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-brand sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.25em]">
-              PoE 3.27 · Keepers of the Flame · Patch notes, starters, filters, trade setup, hotfix radar
+              PoE 3.27 · Keepers of the Flame · Retrospective archive · Verified July 2026
             </span>
             <div className="space-y-3">
               <h1 className="max-w-5xl break-words text-4xl font-black leading-[1.02] tracking-tight text-pretty sm:text-5xl lg:text-7xl">
@@ -515,7 +520,7 @@ export default function Home() {
               >
                 Official patch notes source <ArrowRight size={14} />
               </TrackedLink>
-              <LastUpdated date="2025-11-02" />
+              <LastUpdated date="July 9, 2026 — verified retrospective archive" />
             </div>
           </div>
 

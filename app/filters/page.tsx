@@ -276,7 +276,7 @@ export default function LootFilterPage() {
       />
 
       <div className="container flex justify-center">
-        <LastUpdated date="November 4, 2025 — Updated from FilterBlade and community testing" />
+        <LastUpdated date="July 9, 2026 — Verified as retrospective reference" />
       </div>
 
       <div className="container mt-4 text-white/80">
