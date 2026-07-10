@@ -429,6 +429,58 @@ const launchPathItemListJsonLd = {
   })),
 }
 
+const homepageWebPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'PoE 3.27 Keepers of the Flame Retrospective Launch Runbook',
+  url: 'https://poe327.net',
+  description: metadata.description,
+  inLanguage: 'en-US',
+  dateModified: '2026-07-09',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'poe327.net',
+    url: 'https://poe327.net',
+  },
+  about: [
+    { '@type': 'Thing', name: 'PoE 3.27' },
+    { '@type': 'Thing', name: 'Keepers of the Flame' },
+    { '@type': 'Thing', name: 'Path of Exile patch notes' },
+  ],
+  mainEntity: {
+    '@type': 'Question',
+    name: 'What should I do first for PoE 3.27?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'Confirm the official patch context, choose a starter path, install a current loot filter, set up trade tools, and recheck hotfixes before spending currency or locking atlas strategy.',
+    },
+  },
+}
+
+const decisionShortcuts = [
+  {
+    id: 'verify_patch_first',
+    title: 'Verify the source first',
+    body: 'Use official patch notes before trusting a build, filter, or economy call.',
+    href: '/patch-notes#official-sources',
+    label: 'Open official-source panel',
+  },
+  {
+    id: 'choose_player_path',
+    title: 'Pick your player path',
+    body: 'New, returning, build-ready, filter-only, or trade setup: choose one route instead of browsing every page.',
+    href: '#launch-paths',
+    label: 'Jump to path selector',
+  },
+  {
+    id: 'continue_after_answer',
+    title: 'Continue after the answer',
+    body: 'The quick answer is intentionally action-first; continue into starters, filters, or trade before leaving.',
+    href: '#poe-327-quick-answer',
+    label: 'Read quick answers',
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -440,6 +492,9 @@ export default function Home() {
       </Script>
       <Script id="homepage-launch-path-itemlist-schema" type="application/ld+json" strategy="beforeInteractive">
         {JSON.stringify(launchPathItemListJsonLd)}
+      </Script>
+      <Script id="homepage-webpage-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify(homepageWebPageJsonLd)}
       </Script>
       <section className="relative isolate flex w-full overflow-hidden bg-black">
         <Image
@@ -549,6 +604,35 @@ export default function Home() {
         desc="Work through five launch actions in order. Each click is tracked separately from raw pageviews so we can see whether visitors actually move into a task."
       >
         <LaunchChecklist steps={launchChecklist} sourceSection="launch_checklist" />
+      </Section>
+
+      <Section
+        id="decision-shortcuts"
+        kicker="Reduce pogo-sticking"
+        title="Choose one next step instead of bouncing back to search"
+        desc="This strip is tuned for shallow sessions: it repeats the highest-intent actions in one compact block and tags each click as a next-step event."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {decisionShortcuts.map((shortcut, index) => (
+            <TrackedLink
+              key={shortcut.id}
+              href={shortcut.href}
+              eventName="next_step_click"
+              extraEventNames={['cro_decision_shortcut_click']}
+              eventProps={{ source_section: 'decision_shortcuts', shortcut_id: shortcut.id, cta_text: shortcut.label, target_url: shortcut.href, cta_rank: index + 1 }}
+              className="group flex min-h-48 flex-col justify-between rounded-3xl border border-brand/25 bg-[#0b0d15]/90 p-6 text-white/80 shadow-xl shadow-black/25 transition hover:border-brand/70 hover:bg-brand/10 hover:text-white"
+            >
+              <span>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand">Next step {index + 1}</span>
+                <span className="mt-3 block text-2xl font-black text-white">{shortcut.title}</span>
+                <span className="mt-3 block text-sm leading-relaxed text-white/70">{shortcut.body}</span>
+              </span>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand transition group-hover:text-white">
+                {shortcut.label} <ArrowRight size={14} />
+              </span>
+            </TrackedLink>
+          ))}
+        </div>
       </Section>
 
       <Section

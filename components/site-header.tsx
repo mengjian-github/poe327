@@ -44,13 +44,29 @@ export function SiteHeader() {
   const [activeDesktopItem, setActiveDesktopItem] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({})
 
-  const toggle = () => setIsOpen((prev) => !prev)
+  const toggle = () => {
+    const nextOpen = !isOpen
+    setIsOpen(nextOpen)
+    trackEvent('mobile_nav_toggle', {
+      event_category: 'navigation',
+      location: 'site_header_mobile',
+      nav_state: nextOpen ? 'open' : 'closed',
+    })
+  }
   const close = () => setIsOpen(false)
-  const toggleMobileItem = (label: string) =>
+  const toggleMobileItem = (label: string) => {
+    const nextExpanded = !(mobileExpanded[label] ?? false)
     setMobileExpanded((prev) => ({
       ...prev,
-      [label]: !prev[label],
+      [label]: nextExpanded,
     }))
+    trackEvent('mobile_nav_submenu_toggle', {
+      event_category: 'navigation',
+      location: 'site_header_mobile',
+      nav_label: label,
+      nav_state: nextExpanded ? 'open' : 'closed',
+    })
+  }
   const handleDesktopBlur = (event: FocusEvent<HTMLLIElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setActiveDesktopItem(null)
